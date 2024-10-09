@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/layanan', [HomeController::class, 'layanan']);
+Route::get('/tentang', [HomeController::class, 'tentang']);
+Route::get('/nextirigasi', [HomeController::class, 'nextirigasi']);
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authanticate'])->name('authanticate');
