@@ -39,11 +39,8 @@ class PengajuanController extends Controller
 
     public function store(Request $request)
     {
-        $tgl_berangkat = Carbon::parse($request->tgl_berangkat);
-        $tgl_kembali = Carbon::parse($request->tgl_kembali);
-        $jml_hari = $tgl_berangkat->diffInDays($tgl_kembali);
-
-        $validatedData = $this->validate($request, [
+        // Validasi data terlebih dahulu
+        $validatedData = $request->validate([
             'kepada' => 'required|min:5',
             'perihal' => 'required|min:5|max:255',
             'tgl_berangkat' => 'required|date',
@@ -52,13 +49,34 @@ class PengajuanController extends Controller
             'anggota' => 'required',
             'transportasi' => 'required|min:5'
         ]);
-
+    
+        // Cek dan hitung jumlah hari, default ke 0 jika ada masalah dalam perhitungan
+        try {
+            $tgl_berangkat = \Carbon\Carbon::parse($request->tgl_berangkat);
+            $tgl_kembali = \Carbon\Carbon::parse($request->tgl_kembali);
+    
+            // Pastikan `tgl_kembali` tidak lebih awal dari `tgl_berangkat`
+            if ($tgl_kembali < $tgl_berangkat) {
+                return redirect()->back()->withErrors(['tgl_kembali' => 'Tanggal kembali tidak boleh lebih awal dari tanggal berangkat.']);
+            }
+    
+            $jml_hari = $tgl_berangkat->diffInDays($tgl_kembali);
+        } catch (\Exception $e) {
+            $jml_hari = 0; // Set default jika ada kesalahan
+        }
+    
+        // Tambahkan nilai `pegawai_id` dan `jml_hari` ke data yang akan disimpan
         $validatedData['pegawai_id'] = Auth::guard('pegawai')->user()->id;
         $validatedData['jml_hari'] = $jml_hari;
-
+    
+        // Simpan data ke tabel `pengajuan`
         Pengajuan::create($validatedData);
-        return redirect()->route('perjalanan-dinas.index');
+    
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('perjalanan-dinas.index')->with('success', 'Pengajuan berhasil dibuat.');
     }
+    
+
 
     public function edit($id)
     {

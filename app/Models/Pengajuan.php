@@ -14,20 +14,37 @@ class Pengajuan extends Model
         'perihal',
         'tgl_berangkat',
         'tgl_kembali',
-        'jml_hari',
         'sumber_anggaran',
         'anggota', // json
         'transportasi',
         'pegawai_id'
     ];
 
+    // Pastikan tipe kolom 'anggota' di database adalah JSON
     protected $casts = [
         'anggota' => 'array'
     ];
 
-    // relasi dengan pegawai
+    /**
+     * Relasi ke model Pegawai
+     * Pastikan model Pegawai sudah ada dan relasi hasMany ditambahkan di sana
+     */
     public function pegawai()
     {
         return $this->belongsTo(Pegawai::class);
+    }
+
+    /**
+     * Accessor untuk menghitung jumlah hari secara otomatis
+     * jika tidak disimpan dalam database
+     */
+    public function getJmlHariAttribute()
+    {
+        if ($this->tgl_berangkat && $this->tgl_kembali) {
+            $tglBerangkat = \Carbon\Carbon::parse($this->tgl_berangkat);
+            $tglKembali = \Carbon\Carbon::parse($this->tgl_kembali);
+            return $tglBerangkat->diffInDays($tglKembali);
+        }
+        return 0;
     }
 }
