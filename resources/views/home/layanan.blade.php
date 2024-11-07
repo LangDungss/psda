@@ -32,17 +32,17 @@
     </script>
     <title>Landing Page</title>
 </head>
-  <body class="flex w-full justify-center py-11">  
+  <body class="flex w-full justify-center py-11 bg-blue-900">  
     <div class="rounded-2xl w-[400px] overflow-hidden shadow-xl">
         <img src="{{asset('images/kak rahman 2.jpg')}}"/> 
 
         <div class="p-7 text-xl">
-            <h1 class="text-center font-extrabold text-gray-800 mb-5">Abdurrahman</h1>
-          <p class="text-gray-700 mb-5"> 
+            <h1 class="text-center font-extrabold text-white mb-5">Abdurrahman</h1>
+          <p class="text-white mb-5"> 
             Kepala Seksi Survey Dinas PSDA Sumatera Selatan
           </p>  
           <div class="flex justify-center gap-6">
-            <Button type="" class="rounded-full bg-blue-500 py-1 px-4 text-gray-800">
+            <Button type="" class="rounded-full bg-white py-1 px-4 text-gray-800">
                 <a href="landing page.html">Hubungi Kami</a> 
             </Button>
           </div>

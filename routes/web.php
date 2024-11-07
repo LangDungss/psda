@@ -28,6 +28,10 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/layanan', [HomeController::class, 'layanan']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/nextirigasi', [HomeController::class, 'nextirigasi']);
+Route::get('/nextrawa', [HomeController::class, 'nextrawa']);
+Route::get('/nextsungai', [HomeController::class, 'nextsungai']);
+Route::get('/nextdanau', [HomeController::class, 'nextdanau']);
+Route::get('/nextsumurbor', [HomeController::class, 'nextsumurbor']);
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authanticate'])->name('authanticate');

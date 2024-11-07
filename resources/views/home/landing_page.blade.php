@@ -54,58 +54,83 @@
       <div class="container mx-auto text-center">
         <h1 class="text-4xl font-bold mb-4">Selamat Datang di Nota Dinas Digital</h1>
         <p class="text-4xl mb-8">Dinas PSDA Provinsi Sumatera Selatan</p>
-        <a href="#layanan" class="bg-yellow-400 text-blue-800 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500"></a>
+        <img src="{{asset('images/logoall2.png')}}" class="mx-auto">
       </div>
     </section>
   
     <!-- Layanan Section -->
-    <section id="layanan" class="py-16 bg-gray-100">
+    <section id="layanan" class="py-16 bg-gray-100 ">
       <div class="container mx-auto text-center">
         <h2 class="text-3xl font-bold mb-10">Layanan Kami</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 shadow-lg rounded-lg">
+          <div class="bg-white p-6 shadow-lg rounded-3xl">
             <img src="{{asset('images/irigasi.jpg')}}" alt="Layanan 1" class="mb-4 mx-auto">
-            <h3 class="text-xl font-bold mb-2">Irigasi</h3>
-            <p>sistem atau metode penyediaan air secara buatan untuk tanaman di lahan pertanian guna mendukung pertumbuhan tanaman, terutama di daerah yang kekurangan air atau pada musim kering..</p>
+            <h3 class="text-xl text-black font-bold mb-2">Irigasi</h3>
+            <h3 class="text-black">sistem atau metode penyediaan air secara buatan untuk tanaman di lahan pertanian guna mendukung pertumbuhan tanaman, terutama di daerah yang kekurangan air atau pada musim kering..</h3>
             <div class="flex justify-end gap-6">
-              <Button type="" class="rounded-full bg-blue-500 py-1 px-4 text-gray-800">
+              <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
               <a href="/nextirigasi">lihat lebih lanjut </a>
               </Button>
             </div>
           </div>
-          <div class="bg-white p-6 shadow-lg rounded-lg">
+          <div class="bg-white p-6 shadow-lg rounded-3xl">
             <img src="{{asset('images/rawa.jpg')}}" alt="Layanan 2" class="mb-4 mx-auto">
             <h3 class="text-xl font-bold mb-2">Rawa</h3>
             <p>dataran rendah yang selalu tergenang air, baik secara permanen maupun musiman, dengan kedalaman air yang bervariasi. Rawa terbentuk karena air yang menggenang, baik itu air hujan, air sungai, atau air tanah, tidak dapat mengalir keluar dengan mudah akibat topografi atau kondisi geologis daerah tersebut.</p>
+            <div class="flex justify-end gap-6">
+              <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
+              <a href="/nextrawa">lihat lebih lanjut </a>
+              </Button>
+            </div>
           </div>
-          <div class="bg-white p-6 shadow-lg rounded-lg">
+          <div class="bg-white p-6 shadow-lg rounded-3xl">
             <img src="{{asset('images/sungai.jpg')}}" alt="Layanan 3" class="mb-4 mx-auto">
             <h3 class="text-xl font-bold mb-2">Sungai</h3>
             <p>aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah, biasanya menuju laut, danau, atau sungai yang lebih besar.</p>
+            <div class="flex justify-end gap-6">
+              <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
+              <a href="/nextirigasi">lihat lebih lanjut </a>
+              </Button>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10"></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 shadow-lg rounded-3xl">
+            <img src="{{asset('images/danau.jpg')}}" alt="Layanan 1" class="mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Danau</h3>
+            <p>sistem atau metode penyediaan air secara buatan untuk tanaman di lahan pertanian guna mendukung pertumbuhan tanaman, terutama di daerah yang kekurangan air atau pada musim kering..</p>
+            <div class="flex justify-end gap-6">
+              <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
+              <a href="/nextirigasi">lihat lebih lanjut </a>
+              </Button>
+          </div>
+          </div>
+          <div class="bg-white p-6 shadow-lg rounded-3xl">
+            <img src="{{asset('images/sumur bor.jpeg')}}" alt="Layanan 2" class="mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Sumur Bor</h3>
+            <p>dataran rendah yang selalu tergenang air, baik secara permanen maupun musiman, dengan kedalaman air yang bervariasi. Rawa terbentuk karena air yang menggenang, baik itu air hujan, air sungai, atau air tanah, tidak dapat mengalir keluar dengan mudah akibat topografi atau kondisi geologis daerah tersebut.</p>
+            <div class="flex justify-end gap-6">
+              <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
+              <a href="/nextirigasi">lihat lebih lanjut </a>
+              </Button>
+          </div>
+          </div>
+          <div class="bg-white p-6 shadow-lg rounded-3xl">
+            <img src="{{asset('images/gedung psda.jpeg')}}" alt="Layanan 3" class="mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Pengelolaan Sumber Daya Air Lainnya</h3>
+            <p>aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah, biasanya menuju laut, danau, atau sungai yang lebih besar.</p>
+            <div class="flex justify-end gap-6">
+              <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
+              <a href="/nextirigasi">lihat lebih lanjut </a>
+              </Button>
+          </div>
           </div>
         </div>
       </div>
     </section>
-      <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-10"></h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 shadow-lg rounded-lg">
-            <img src="{{asset('images/danau.jpg')}}" alt="Layanan 1" class="mb-4 mx-auto">
-            <h3 class="text-xl font-bold mb-2">Danau</h3>
-            <p>sistem atau metode penyediaan air secara buatan untuk tanaman di lahan pertanian guna mendukung pertumbuhan tanaman, terutama di daerah yang kekurangan air atau pada musim kering..</p>
-          </div>
-          <div class="bg-white p-6 shadow-lg rounded-lg">
-            <img src="{{asset('images/danau.jpg')}}" alt="Layanan 2" class="mb-4 mx-auto">
-            <h3 class="text-xl font-bold mb-2">Sumur Bor</h3>
-            <p>dataran rendah yang selalu tergenang air, baik secara permanen maupun musiman, dengan kedalaman air yang bervariasi. Rawa terbentuk karena air yang menggenang, baik itu air hujan, air sungai, atau air tanah, tidak dapat mengalir keluar dengan mudah akibat topografi atau kondisi geologis daerah tersebut.</p>
-          </div>
-          <div class="bg-white p-6 shadow-lg rounded-lg">
-            <img src="/img/sungai.jpg" alt="Layanan 3" class="mb-4 mx-auto">
-            <h3 class="text-xl font-bold mb-2">Pengelolaan Sumber Daya Air Lainnya</h3>
-            <p>aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah, biasanya menuju laut, danau, atau sungai yang lebih besar.</p>
-          </div>
-        </div>
-      </div>
+      
   
     <!-- Tentang Kami Section -->
     <section class="py-16 bg-white">
@@ -114,8 +139,9 @@
           <img src="{{asset('images/gedung psda.jpeg')}}" alt="Tentang Kami" class="rounded-lg shadow-lg">
         </div>
         <div class="md:w-1/2">
-          <h2 class="text-3xl font-bold mb-4">Tentang Pemerintah Kota XYZ</h2>
-          <p class="text-lg">Pemerintah Kota XYZ berkomitmen untuk memberikan pelayanan terbaik bagi seluruh masyarakat dengan prinsip keterbukaan, keadilan, dan inovasi. Kami terus berusaha meningkatkan kualitas pelayanan dan pembangunan untuk kesejahteraan bersama.</p>
+          <h2 class="text-3xl font-bold mb-4">Tentang Dinas PSDA Provinsi Sumatera Selatan</h2>
+          <p class="text-lg">Dinas Pengelolaan Sumber Daya Air (PSDA) Sumatera Selatan adalah lembaga pemerintah daerah yang bertugas mengelola sumber daya air di provinsi Sumatera Selatan. Tujuannya adalah mengoptimalkan pemanfaatan sumber daya air untuk kepentingan masyarakat dan lingkungan, termasuk aspek pemanfaatan, pengendalian daya rusak air, dan konservasi.</p>
+        </div>
         </div>
       </div>
     </section>

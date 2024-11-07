@@ -23,5 +23,17 @@ class HomeController extends Controller
     {
         return view('home.nextirigasi');
     }
+    public function nextrawa()
+    {
+        return view('home.nextrawa');
+    }
+    public function nextsungai()
+    {
+        return view('home.nextsungai');
+    }
+    public function nextdanau()
+    {
+        return view('home.nextdanau');
+    }
 }   
     
