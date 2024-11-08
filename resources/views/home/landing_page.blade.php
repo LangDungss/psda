@@ -42,29 +42,27 @@
             <a class="block text-teal-600" href="#">
               <span class="sr-only">Home</span>
               <img src="{{asset('images/logopsda.png')}}" class="h-14">
-                
+
               </img>
             </a>
           </div>
-    
+
           <div class="md:flex md:items-center md:gap-12">
             <nav aria-label="Global" class="hidden md:block">
               <ul class="flex items-center gap-6 text-sm">
                 <li>
-                  <a class="text-black transition hover:text-gray-500/75" href="#"> About </a>
+                  <a class="text-black transition hover:text-gray-500/75" href="#"> Beranda </a>
                 </li>
                 <li>
-                  <a class="text-black transition hover:text-gray-500/75" href="#"> About </a>
+                  <a class="text-black transition hover:text-gray-500/75" href="/tentang"> Tentang Kami </a>
                 </li>
                 <li>
-                  <a class="text-black transition hover:text-gray-500/75" href="#"> About </a>
+                  <a class="text-black transition hover:text-gray-500/75" href="/layanan"> Layanan </a>
                 </li>
-                <li>
-                  <a class="text-black transition hover:text-gray-500/75" href="#"> About </a>
-                </li>
+
               </ul>
             </nav>
-    
+
             <div class="flex items-center gap-4">
               <div class="sm:flex sm:gap-4">
                 <a
@@ -74,7 +72,7 @@
                   Login
                 </a>
               </div>
-    
+
               <div class="block md:hidden">
                 <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
                   <svg
@@ -94,9 +92,9 @@
         </div>
       </div>
     </header>
-  
+
     <!-- Hero Section -->
-    
+
     <section class="bg-blue-600 text-white">
       <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-2/6 lg:items-center">
         <div class="mx-auto text-center w-full">
@@ -105,14 +103,14 @@
             <div class="flex justify-center items-center">
               <img src="{{ asset('images/sumsel.png') }}" class="h-60 object-contain">
             </div>
-    
+
             <!-- Center text and logo -->
             <div class="flex flex-col justify-center items-center">
               <h1 class="text-4xl font-bold mb-4">SELAMAT DATANG DI NOTA DINAS DIGITAL</h1>
               <p class="text-2xl font-semibold mb-8">DINAS PSDA PROVINSI <br> SUMATERA SELATAN</p>
               <img src="{{ asset('images/logoall2.png') }}" class="h-20 object-contain">
             </div>
-    
+
             <!-- Right image -->
             <div class="flex justify-center items-center">
               <img src="{{ asset('images/psda1.png') }}" class="h-60 object-contain">
@@ -121,9 +119,9 @@
         </div>
       </div>
     </section>
-    
-    
-  
+
+
+
     <!-- Layanan Section -->
     <section id="layanan" class="py-16 bg-gray-100 ">
       <div class="container mx-auto text-center">
@@ -155,7 +153,7 @@
             <p>aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah, biasanya menuju laut, danau, atau sungai yang lebih besar.</p>
             <div class="flex justify-end gap-6">
               <Button type="" class="rounded-full bg-black py-1 px-4 text-white">
-              <a href="/nextirigasi">lihat lebih lanjut </a>
+              <a href="/nextsungai">lihat lebih lanjut </a>
               </Button>
           </div>
         </div>
@@ -196,8 +194,8 @@
         </div>
       </div>
     </section>
-      
-  
+
+
     <!-- Tentang Kami Section -->
     <section class="py-16 bg-white">
       <div class="container mx-auto flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
@@ -211,7 +209,7 @@
         </div>
       </div>
     </section>
-  
+
     <!-- Footer -->
     <footer class="bg-blue-800 text-white py-6">
       <div class="container mx-auto text-center">
@@ -220,6 +218,6 @@
       </div>
     </footer>
 
-  
+
   </body>
   </html>

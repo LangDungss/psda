@@ -1,73 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-
-    <style>
-    </style>
+    <title>Struktur Organisasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-
-    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        poppins: ['"Poppins"', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <title>Dashboard</title>
 </head>
-<body class="bg-blue-900">
-   <section class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Staff</h2>
-            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-                Kami Memiliki Tenaga Pendidik Yang Ahli Di Bidang Masing-Masing
-            </p>
-        </div> 
-        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            
-            <a href="" class="group relative block bg-black rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105">
-                <img
-                    src=""
-                    alt=""
-                    class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-                />
+<body class="bg-blue-900 font-poppins text-white">
 
-                <div class="relative p-4 sm:p-6 lg:p-8">
-                    <p class="text-sm font-medium uppercase tracking-widest text-pink-500 job-title">
-                        
-                    </p>
-
-                    <div class="mt-32 sm:mt-48 lg:mt-64">
-                        <div class="hover-info">
+    <section class="py-8 px-4">
+        <div class="container mx-auto mt-10">
+            <h1 class="text-3xl font-bold text-center mb-5">Struktur Organisasi</h1>
+            <div class="flex flex-col items-center ">
+                <div class="bg-white shadow-lg rounded-lg p-5 mb-5">
+                    <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/KEPALA DINAS - HERWAN.jfif') }}" alt="Direktur Utama" class="w-24 h-24 rounded-full mx-auto mb-3">
+                    <h2 class="text-xl font-bold text-black text-center">KEPALA DINAS</h2>
+                </div>
+                <div class="flex justify-between mb-5">
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-2 mr-8 mb-4"> <!-- Move to the left and add margin bottom -->
+                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/UPTD BALAI PSDA WS MUSI/HENDRA (KEPALA UPTD).jpg') }}" alt="Kepala UPTD Balai PSDA WS Musi" class="w-20 h-20 rounded-full mx-auto mb-3">
+                        <h3 class="text-lg font-bold text-black text-center">KEPALA UPTD BALAI<br>PSDA WS MUSI</h3>
+                        <div class="flex flex-col items-center mt-2">
+                            <h4 class="text-md font-bold text-black text-center">Bawahan</h4>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan1-image.jpg" alt="Bawahan 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 1</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan2-image.jpg" alt="Bawahan 2" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 2</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan3-image.jpg" alt="Bawahan 3" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 3</h5>
+                            </div>
                         </div>
                     </div>
-
-                    <p class="text-xl font-bold text-white sm:text-2xl mt-2">
-                        
-                    </p>
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-2 mb-4"> <!-- Move to the right and add margin bottom -->
+                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/UPTD BALAI PSDA WS SUGIHAN/YUNIL AZWAN (KEPALA UPTD).jpg') }}" alt="Kepala UPTD Balai PSDA WS Sugihan" class="w-20 h-20 rounded-full mx-auto mb-3">
+                        <h3 class="text-lg font-bold text-black text-center">KEPALA UPTD BALAI<br>PSDA WS SUGIHAN</h3>
+                        <div class="flex flex-col items-center mt-2">
+                            <h4 class="text-md font-bold text-black text-center">Bawahan</h4>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan1-image.jpg" alt="Bawahan 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 1</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan2-image.jpg" alt="Bawahan 2" class="w ```html
+    -16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 2</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan3-image.jpg" alt="Bawahan 3" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 3</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-9 ml-8 mb-4"> <!-- Move to the right and add margin bottom -->
+                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/SEKRETARIAT/MEGAWATY (SEKRETARIS).jpg') }}" alt="Sekretaris" class="w-20 h-20 rounded-full mx-auto mb-3">
+                        <h3 class="text-lg font-bold text-black text-center">SEKRETARIS</h3>
+                        <div class="flex flex-col items-center mt-2">
+                            <h4 class="text-md font-bold text-black text-center">Bawahan</h4>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan1-image.jpg" alt="Bawahan 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 1</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan2-image.jpg" alt="Bawahan 2" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 2</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="path/to/bawahan3-image.jpg" alt="Bawahan 3" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">Bawahan 3</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            
-        </div>
+                <div class="flex justify-center">
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-2">
+                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/NUMERI (KABID).jpg') }}" alt="Kepala Bidang Rekayasa Teknik" class="w-16 h-16 rounded-full mx-auto mb-3">
+                        <h4 class="text-md font-bold text-black text-center">KEPALA BIDANG REKAYASA<br>TEKNIK</h4>
+                        <div class="flex flex-col items-center mt-2">
+
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MUHAMMAD ROBIE CHEMISTRA (KASI).jpg')" alt="Bawahan 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MERI MIARDI (KASI).jpg') }}" alt="Bawahan 2" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/ABDURRAHMAN (KASI).jpg') }}" alt="Bawahan 3" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-2">
+                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/HENDRI JUMERSON (KABID).jpg') }}" alt="Kepala Bidang Operasi dan Pemeliharaan" class="w-16 h-16 rounded-full mx-auto mb-3">
+                        <h4 class="text-md font-bold text-black text-center">KEPALA BIDANG OPERASI<br>DAN PEMELIHARAAN</h4>
+                        <div class="flex flex-col items-center mt-2">
+
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/HARIMAN FILINO PASARIBU (KASI).jpg') }}" alt="Bawahan 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/ERNI ARMA (KASI).jpg') }}" alt="Bawahan 2" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-2">
+                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/MOCHAMMAD RIO ROZI (KABID).jpg') }}" alt="Kepala Bidang Bina Manfaat" class="w-16 h-16 rounded-full mx-auto mb-3">
+                        <h4 class="text-md font-bold text-black text-center">KEPALA BIDANG BINA<br>MANFAAT</h4>
+                        <div class="flex flex-col items-center mt-2">
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/KHOIRUL AZHAR (KASI).jpg') }}" alt="Bawahan 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/ARVID ARNOLDY (KASI).jpg') }}" alt="Bawahan 2" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-3 mx-2 mb-2">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/ARI MUKHTARIYADI (KASI).jpg') }}" alt="Bawahan 3" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <h5 class="text-md font-semibold text-black text-center">KASI</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-5 mx-2">
+                        <img src="path/to/hr-staff-image.jpg" alt="Staff Sumber Daya Manusia" class="w-16 h-16 rounded-full mx-auto mb-3">
+                        <h4 class="text-md font-bold text-black text-center">Staff Sumber Daya Manusia</h4>
+                    </div>
+                </div>
+            </div>
+
     </div>
-</section>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-center py-4 text-gray-400">
+        <p>&copy; 2024 Dinas X. All Rights Reserved.</p>
+        <div class="flex justify-center space-x-6 mt-4">
+            <a href="#" class="hover:text-white">Facebook</a>
+            <a href="#" class="hover:text-white">Twitter</a>
+            <a href="#" class="hover:text-white">LinkedIn</a>
+        </div>
+    </footer>
 
 </body>
+</html>

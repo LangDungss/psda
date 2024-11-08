@@ -32,20 +32,70 @@
     </script>
     <title>Landing Page</title>
 </head>
-  <body class="flex w-full justify-center py-11 bg-blue-900">  
-    <div class="rounded-2xl w-[400px] overflow-hidden shadow-xl">
-        <img src="{{asset('images/kak rahman 2.jpg')}}"/> 
+  <body class=" bg-blue-900">
+    <!-- Header -->
+    <header class="bg-amber-400 w-full">
+        <div class="flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
+            <!-- Logo di kiri -->
+            <a class="text-teal-600 flex items-center" href="#">
+                <span class="sr-only">Home</span>
+                <img src="{{ asset('images/logopsda.png') }}" class="h-14" alt="logo PSDA">
+            </a>
 
-        <div class="p-7 text-xl">
-            <h1 class="text-center font-extrabold text-white mb-5">Abdurrahman</h1>
-          <p class="text-white mb-5"> 
-            Kepala Seksi Survey Dinas PSDA Sumatera Selatan
-          </p>  
-          <div class="flex justify-center gap-6">
-            <Button type="" class="rounded-full bg-white py-1 px-4 text-gray-800">
-                <a href="landing page.html">Hubungi Kami</a> 
-            </Button>
+            <!-- Logo di kanan -->
+            <a href="#">
+                <img src="{{ asset('images/logoall2.png') }}" class="h-14" alt="logoall2">
+            </a>
+        </div>
+
+        </div>
+    </header>
+
+   <!-- Kontainer utama untuk memusatkan artikel di tengah layar -->
+   <!-- Main content -->
+   <div class="container mx-auto px-4 py-8">
+    <header class="flex justify-between items-center">
+        <h1 class="text-md font-mono text-gray-400"><a href="/"><span class="text-xl text-white"><-</span></a> LAYANAN</h1>
+
+    </header>
+   <div class="flex justify-center items-center my-18">
+    <article class="mt-5 border-2 border-gray-100 bg-white mx-auto max-w-2xl shadow-lg rounded-lg p-6">
+        <div class="flex items-start gap-6">
+            <!-- Gambar di sebelah kiri -->
+            <a href="#" class="block shrink-0 text-center">
+                <img alt="Gambar" src="{{ asset('images/kak rahman 2.jpg') }}" class="w-48 h-48 rounded-lg object-cover mx-auto" />
+                <p class="mt-2 font-mono text-lg font-bold text-center ">Abdurrahman</p>
+            </a>
+
+            <!-- Keterangan di sebelah kanan -->
+            <div class="flex-1">
+                <h3 class="font-medium text-lg">
+                    <a href="#" class="hover:underline">Kepala Seksi Survey Dinas PSDA Sumatera Selatan</a>
+                </h3>
+                <p class="text-sm text-gray-700 mt-2">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium temporibus iure
+                    delectus ut totam natus nesciunt ex? Ducimus, enim.
+                </p>
+
+
+            </div>
+        </div>
+
+        <!-- Status Solved -->
+        <div class="flex justify-end mt-4">
+            <div class="mt-4 md:mt-8">
+                <a
+                  href="/"
+                  class="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                >
+                  Hubungi Kami
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
+    </article>
+</div>
+
+
   </body>
