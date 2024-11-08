@@ -1,39 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 
 
-    <style>
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+@extends('layout.irigasi.temp_navbarlayanan')
 
-    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        poppins: ['"Poppins"', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <title>Landing Page</title>
-</head>
-<body class="container mx-auto text-gray-800 bg-blue-900">
-  <div>
+@section('content')
+<div>
     <p class=" text-white">PSDA Provinsi Sumatera Selatan</p>
   </div>
 
@@ -53,10 +23,10 @@
     <div class="flex justify-center mt-8">
       <img src="{{ asset('images/irigasi.jpg') }}" alt="nextirigasi">
     </div>
-    <div class="flex justify-center"> 
+    <div class="flex justify-center">
         <p class="text-xl font-bold text-white">EMBUNG TEBAT BESAK</p>
     </div>
-   
+
 
 
     <div class="container grid grid-cols-1 gap-4 mx-auto mt-10 text-white md:grid-cols-2">
@@ -70,9 +40,9 @@
         <p>Rehabilitasi Jaringan Irigasi Daerah Irigasi Air DERAS I</p>
       </div>
     </div>
-  
 
-     
+
+
 
 
 
@@ -94,7 +64,5 @@
         <p>PSDATANGGAP</p>
       </div>
     </div>
-    
-  
-  </body>
-  </html>
+</main>
+@endsection

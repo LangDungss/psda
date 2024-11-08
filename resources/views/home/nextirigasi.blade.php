@@ -1,5 +1,5 @@
 
-@extends('layout.irigasi.temp_irigasi')
+@extends('layout.irigasi.temp_navbarlayanan')
 
 @section('content')
    <!--Bagian Air manna-->
