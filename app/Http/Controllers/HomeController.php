@@ -35,5 +35,8 @@ class HomeController extends Controller
     {
         return view('home.nextdanau');
     }
-}   
-    
+
+    public function layanankami(){
+        return view('home.layananpsda.layanankami');
+    }
+}
