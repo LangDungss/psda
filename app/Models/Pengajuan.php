@@ -9,25 +9,58 @@ class Pengajuan extends Model
 {
     use HasFactory;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'pengajuans';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'kepada',
-        'perihal',
-        'tgl_berangkat',
-        'tgl_kembali',
-        'sumber_anggaran',
-        'anggota', // json
+        'dari',
+        'tanggal',
+        'nomor',
+        'sifat',
+        'hal',
+        'dasar',
+        'urusan',
+        'tujuan',
+        'lama_perjalanan',
+        'sumber_pembayaran',
+        'jumlah_berpergian',
+        'staf_pendamping',
+        'pejabat_nama',
+        'pejabat_pangkat',
+        'pejabat_nip',
+        'pejabat_jabatan',
         'transportasi',
-        'pegawai_id'
-    ];
-
-    // Pastikan tipe kolom 'anggota' di database adalah JSON
-    protected $casts = [
-        'anggota' => 'array'
+        'is_admin',
+        'pegawai_id',
     ];
 
     /**
-     * Relasi ke model Pegawai
-     * Pastikan model Pegawai sudah ada dan relasi hasMany ditambahkan di sana
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'tanggal' => 'date',
+        'tgl_berangkat' => 'date',
+        'tgl_kembali' => 'date',
+        'jml_hari' => 'integer',
+        'jumlah_berpergian' => 'integer',
+        'staf_pendamping' => 'array',
+        'is_admin' => 'boolean',
+    ];
+
+    /**
+     * Get the related pegawai.
      */
     public function pegawai()
     {
@@ -35,16 +68,24 @@ class Pengajuan extends Model
     }
 
     /**
-     * Accessor untuk menghitung jumlah hari secara otomatis
-     * jika tidak disimpan dalam database
+     * Set staf_pendamping attribute as array.
+     *
+     * @param  array  $value
+     * @return void
      */
-    public function getJmlHariAttribute()
+    public function setStafPendampingAttribute($value)
     {
-        if ($this->tgl_berangkat && $this->tgl_kembali) {
-            $tglBerangkat = \Carbon\Carbon::parse($this->tgl_berangkat);
-            $tglKembali = \Carbon\Carbon::parse($this->tgl_kembali);
-            return $tglBerangkat->diffInDays($tglKembali);
-        }
-        return 0;
+        $this->attributes['staf_pendamping'] = json_encode($value);
+    }
+
+    /**
+     * Get staf_pendamping attribute as array.
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getStafPendampingAttribute($value)
+    {
+        return json_decode($value, true);
     }
 }

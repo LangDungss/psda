@@ -5,118 +5,141 @@ namespace App\Http\Controllers;
 use App\Models\Pengajuan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
-use Dotenv\Exception\ValidationException;
-use Illuminate\Contracts\Validation\Validator;
-
-
-
 
 class PengajuanController extends Controller
 {
+    /**
+     * Menampilkan daftar pengajuan milik pegawai yang sedang login.
+     */
     public function index()
     {
         $pegawaiId = Auth::guard('pegawai')->user()->id;
         $pengajuans = Pengajuan::where('pegawai_id', $pegawaiId)->latest()->get();
-        // $namaUser = Auth::user()->nama;
-        return view('dashboard.perjanalan-dinas.index', ['pengajuans' => $pengajuans]);
+        
+        return view('dashboard\perjanalan-dinas\index', ['pengajuans' => $pengajuans]);
     }
 
+    /**
+     * Menampilkan form untuk membuat pengajuan baru.
+     */
     public function create()
     {
-        // $pengajuans = Pengajuan::latest()->get();
-        return view('dashboard.perjanalan-dinas.create', [
-            'pengajuans' => Pengajuan::latest()->get()
-        ]);
+        return view('dashboard\perjanalan-dinas\create');
     }
 
+    /**
+     * Menyimpan pengajuan baru ke database.
+     */
+    public function store(Request $request)
+    {
+        // Debugging: Lihat semua data yang diterima
+        // dd($request->all());
+    
+        // Validasi input
+        $request->validate([
+            'kepada' => 'required|string|max:255',
+            'dari' => 'required|string|max:255',
+            'tanggal' => 'required|date',
+            'nomor' => 'required|string|max:255',
+            'sifat' => 'required|string|max:255',
+            'hal' => 'required|string|max:255',
+            'dasar' => 'required|string',
+            'urusan' => 'required|string|max:255',
+            'tujuan' => 'required|string|max:255',
+            'lama_perjalanan' => 'required|string|max:255',
+            'sumber_pembayaran' => 'required|string|max:255',
+            'jumlah_berpergian' => 'required|integer|min:1',
+            'petugas_pendamping.*.nama' => 'required|string|max:255', // Perbaikan di sini
+        ]);
+    
+        // Ambil pegawai_id dari user yang sedang login (auth guard)
+        $pegawai_id = Auth::guard('pegawai')->user()->id;
+    
+        // Gabungkan data yang diterima dari form dengan pegawai_id
+        $data = $request->all();
+        $data['pegawai_id'] = $pegawai_id;  // Menambahkan pegawai_id ke dalam data
+    
+        // Debugging: Lihat data yang akan disimpan
+        // dd($data);
+    
+        // Proses penyimpanan data ke database
+        Pengajuan::create($data);
+    
+        return redirect()->route('perjalanan-dinas.index')->with('success', 'Pengajuan berhasil disimpan.');
+    }
+
+
+    /**
+     * Menampilkan detail pengajuan tertentu.
+     */
     public function show($id)
     {
-        $pengajuans = Pengajuan::findorFail($id);
-        return view('dashboard.perjanalan-dinas.show', ['pengajuans' => $pengajuans]);
+        $pengajuan = Pengajuan::findOrFail($id);
+        return view('dashboard.perjalanan-dinas.show', ['pengajuan' => $pengajuan]);
     }
 
-    public function store(Request $request)
-{
-    // Validasi data terlebih dahulu
-    $validatedData = $request->validate([
-        'kepada' => 'required|min:5',
-        'perihal' => 'required|min:5|max:255',
-        'tgl_berangkat' => 'required|date',
-        'tgl_kembali' => 'required|date',
-        'sumber_anggaran' => 'required|min:5',
-        'anggota' => 'required',
-        'transportasi' => 'required|min:5'
-    ]);
-
-    // Cek dan hitung jumlah hari, default ke 0 jika ada masalah dalam perhitungan
-    try {
-        $tgl_berangkat = \Carbon\Carbon::parse($request->tgl_berangkat);
-        $tgl_kembali = \Carbon\Carbon::parse($request->tgl_kembali);
-
-        // Pastikan `tgl_kembali` tidak lebih awal dari `tgl_berangkat`
-        if ($tgl_kembali < $tgl_berangkat) {
-            return redirect()->back()->withErrors(['tgl_kembali' => 'Tanggal kembali tidak boleh lebih awal dari tanggal berangkat.']);
-        }
-
-        // Hitung jumlah hari antara tanggal berangkat dan kembali
-        $jml_hari = $tgl_berangkat->diffInDays($tgl_kembali);
-    } catch (\Exception $e) {
-        // Set default jumlah hari ke 0 jika terjadi kesalahan
-        $jml_hari = 0;
-    }
-
-    // Tambahkan nilai `pegawai_id` dan `jml_hari` ke data yang akan disimpan
-    $validatedData['pegawai_id'] = Auth::guard('pegawai')->user()->id;
-    $validatedData['jml_hari'] = $jml_hari;
-
-    // Simpan data ke tabel `pengajuan`
-    Pengajuan::create($validatedData);
-
-    // Redirect ke halaman index dengan pesan sukses
-    return redirect()->route('perjalanan-dinas.index')->with('success', 'Pengajuan perjalanan dinas berhasil dibuat.');
-}
-
-    
-
-
+    /**
+     * Menampilkan form untuk mengedit pengajuan.
+     */
     public function edit($id)
     {
-        $pengajuans = Pengajuan::findorFail($id);
-        return view('dashboard.perjanalan-dinas.edit', ['pengajuans' => $pengajuans]);
+        $pengajuan = Pengajuan::findOrFail($id);
+        return view('dashboard\perjanalan-dinas\edit', ['pengajuan' => $pengajuan]);
     }
 
+    /**
+     * Memperbarui data pengajuan yang ada di database.
+     */
     public function update(Request $request, $id)
     {
-        $pengajuans = Pengajuan::findOrFail($id);
-
-        $tgl_berangkat = Carbon::parse($request->tgl_berangkat);
-        $tgl_kembali = Carbon::parse($request->tgl_kembali);
-        $jml_hari = $tgl_berangkat->diffInDays($tgl_kembali);
-
-        $validatedData = $this->validate($request, [
-            'kepada' => 'required|min:5',
-            'perihal' => 'required|min:5|max:255',
-            'tgl_berangkat' => 'required|date',
-            'tgl_kembali' => 'required|date',
-            'sumber_anggaran' => 'required|min:5',
-            'anggota' => 'required',
-            'transportasi' => 'required|min:5'
+        // Validasi input
+        $request->validate([
+            'kepada' => 'required|string|max:255',
+            'dari' => 'required|string|max:255',
+            'tanggal' => 'required|date',
+            'nomor' => 'required|string|max:255',
+            'sifat' => 'required|string|max:255',
+            'hal' => 'required|string|max:255',
+            'dasar' => 'required|string',
+            'urusan' => 'required|string|max:255',
+            'tujuan' => 'required|string|max:255',
+            'lama_perjalanan' => 'required|string|max:255',
+            'sumber_pembayaran' => 'required|string|max:255',
+            'jumlah_berpergian' => 'required|integer|min:1',
+            'staf_pendamping.*.nama' => 'required|string|max:255', // Validasi untuk staf pendamping
+            'staf_pendamping.*.nip' => 'required|string|max:255',
+            'staf_pendamping.*.pangkat' => 'required|string|max:255',
+            'staf_pendamping.*.jabatan' => 'required|string|max:255',
         ]);
-
-        $validatedData['pegawai_id'] = Auth::guard('pegawai')->user()->id;
-        $validatedData['jml_hari'] = $jml_hari;
-
-        $pengajuans->update($validatedData);
-        return redirect()->route('perjalanan-dinas.index');
+    
+        // Ambil pengajuan berdasarkan ID
+        $pengajuan = Pengajuan::findOrFail($id);
+    
+        // Ambil pegawai_id dari user yang sedang login (auth guard)
+        $pegawai_id = Auth::guard('pegawai')->user()->id;
+    
+        // Gabungkan data yang diterima dari form dengan pegawai_id
+        $data = $request->all();
+        $data['pegawai_id'] = $pegawai_id;  // Menambahkan pegawai_id ke dalam data
+    
+        // Proses pembaruan data ke database
+        $pengajuan->update($data);
+    
+        return redirect()->route('perjalanan-dinas.index')->with('success', 'Pengajuan berhasil diperbarui.');
     }
-
-    public function destroy(Pengajuan $pengajuan)
+    /**
+     * Menghapus pengajuan dari database.
+     */
+    public function destroy($id)
     {
-        $pengajuan->delete();
+        $pengajuan = Pengajuan::findOrFail($id);
 
-        // session()->flash('success', 'Data berhasil dihapus');
-        return redirect()->route('perjalanan-dinas.index');
+        try {
+            $pengajuan->delete();
+            return redirect()->route('perjalanan-dinas.index')->with('success', 'Pengajuan berhasil dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->route('perjalanan-dinas.index')->with('error', 'Terjadi kesalahan saat menghapus pengajuan.');
+        }
     }
 }
