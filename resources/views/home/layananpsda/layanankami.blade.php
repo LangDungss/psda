@@ -6,7 +6,8 @@
     <title>Struktur Organisasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-blue-900 font-poppins text-white">
+<body class="bg-blue-500 font-poppins text-white">
+
             <!-- Header -->
             <header class="bg-amber-400 w-full">
                 <div class="flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-16">

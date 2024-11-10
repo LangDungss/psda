@@ -131,7 +131,7 @@
 -->
 <!--MAIN CONTENT-->
 <section
-  class="relative bg-[url({{ asset('images/banner.jpg') }})] bg-cover bg-center bg-no-repeat"
+  class="relative bg-[url({{ asset('images/banner2.png') }})] bg-cover bg-center bg-no-repeat"
 >
 <div
 class="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
@@ -144,7 +144,7 @@ class="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:
       <h1 class="text-2xl font-extrabold sm:text-5xl">
 
 
-        <strong class="block font-extrabold text-yellow-300">Layanan Kami</strong>
+        <strong class="block font-extrabold text-black font-serif non-italic">Layanan Kami</strong>
       </h1>
 
       <p class="mt-4 max-w-lg sm:text-xl/relaxed">
