@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/layanan', [HomeController::class, 'layanan']);
+Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/nextirigasi', [HomeController::class, 'nextirigasi']);
 Route::get('/nextrawa', [HomeController::class, 'nextrawa']);
@@ -51,8 +51,7 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
     Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
 });
 
-Route::get('/layananpsda', [HomeController::class, 'layanankami']);
-
+Route::get('/layananpsda', [HomeController::class, 'layanankami'])->name('home.layananpsda.layanankami');
 
 
 

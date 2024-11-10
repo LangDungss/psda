@@ -54,10 +54,13 @@
                   <a class="text-black transition hover:text-gray-500/75" href="#"> Beranda </a>
                 </li>
                 <li>
+                  <a class="text-black transition hover:text-gray-500/75" href="{{ route('home.layananpsda.layanankami') }}"> Layanan </a>
+                </li>
+                <li>
                   <a class="text-black transition hover:text-gray-500/75" href="/tentang"> Tentang Kami </a>
                 </li>
                 <li>
-                  <a class="text-black transition hover:text-gray-500/75" href="/layanan"> Layanan </a>
+                  <a class="text-black transition hover:text-gray-500/75" href="/contact"> Hubungi Kami </a>
                 </li>
 
               </ul>
@@ -94,99 +97,91 @@
     </header>
 
     <!-- Hero Section -->
-<section class="bg-blue-600 text-white h-s">
-    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-2/6 lg:items-center">
-        <div class="mx-auto text-center w-full">
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-8">
-                <!-- Left image -->
-                <div class="flex justify-center items-center">
-                    <img src="{{ asset('images/sumsel.png') }}" class="h-60 object-contain">
-                </div>
+        <section class="bg-blue-600 text-white h-s">
+            <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-2/6 lg:items-center">
+                <div class="mx-auto text-center w-full">
+                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-8">
+                        <!-- Left image -->
+                        <div class="flex justify-center items-center">
+                            <img src="{{ asset('images/sumsel.png') }}" class="h-60 object-contain">
+                        </div>
 
-                <!-- Center text and logo -->
-                <div class="flex flex-col justify-center items-center">
-                    <h1 class="text-4xl font-bold mb-4">SELAMAT DATANG DI NOTA DINAS DIGITAL</h1>
-                    <p class="text-2xl font-semibold mb-8">DINAS PSDA PROVINSI <br> SUMATERA SELATAN</p>
-                    <img src="{{ asset('images/logoall2.png') }}" class="h-20 object-contain">
-                </div>
+                        <!-- Center text and logo -->
+                        <div class="flex flex-col justify-center items-center">
+                            <h1 class="text-4xl font-bold mb-4">SELAMAT DATANG DI NOTA DINAS DIGITAL</h1>
+                            <p class="text-2xl font-semibold mb-8">DINAS PSDA PROVINSI <br> SUMATERA SELATAN</p>
+                            <img src="{{ asset('images/logoall2.png') }}" class="h-20 object-contain">
+                        </div>
 
-                <!-- Right image -->
-                <div class="flex justify-center items-center">
-                    <img src="{{ asset('images/psda1.png') }}" class="h-60 object-contain">
+                        <!-- Right image -->
+                        <div class="flex justify-center items-center">
+                            <img src="{{ asset('images/psda1.png') }}" class="h-60 object-contain">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- Add a blur effect at the bottom of the hero section -->
+            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black-800 via-blue-600 to-transparent backdrop-blur-md"></div>
+        </section>
+
+
+            <!--MAIN CONTENT-->
+            <section
+            class="relative bg-[url({{ asset('images/banner.png') }})] bg-cover bg-center bg-no-repeat"
+            >
+            <div
+            class="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
+            ></div>
+
+            <div
+                class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 text-center"
+            >
+                <div class="max-w-xl mx-auto text-center">
+                <h1 class=" font-extrabold text-4xl">
+
+
+                    <strong class="block  text-black non-italic">Layanan Kami</strong>
+                </h1>
+
+                <p class="mt-4 max-w-lg sm:text-xl/relaxed font-extrabold text-white">
+                    Kami Dinas Pengelola Sumber Daya Air menyediakan berbagai macam layanan pengelolaan sumber daya air<br>Berikut berbagai macam layanan yang kami sediakan:
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                    <a
+                    href="/layananpsda"
+                    class="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-amber-600 focus:outline-none focus:ring active:bg-amber-600 sm:w-auto"
+                    >
+                    SELENGKAPNYA
+                    </a>
+                </div>
+                </div>
+            </div>
+            </section>
+
+
+
+        <!-- Tentang Kami Section -->
+        <section class="py-16 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+            <div class="md:w-1/2">
+            <img src="{{asset('images/gedung psda.jpeg')}}" alt="Tentang Kami" class="rounded-lg shadow-lg">
+            </div>
+            <div class="md:w-1/2">
+            <h2 class="text-3xl font-bold mb-4">Tentang Dinas PSDA Provinsi Sumatera Selatan</h2>
+            <p class="text-lg">Dinas Pengelolaan Sumber Daya Air (PSDA) Sumatera Selatan adalah lembaga pemerintah daerah yang bertugas mengelola sumber daya air di provinsi Sumatera Selatan. Tujuannya adalah mengoptimalkan pemanfaatan sumber daya air untuk kepentingan masyarakat dan lingkungan, termasuk aspek pemanfaatan, pengendalian daya rusak air, dan konservasi.</p>
+            </div>
+            </div>
         </div>
-    </div>
-    <!-- Add a blur effect at the bottom of the hero section -->
-    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black-800 via-blue-600 to-transparent backdrop-blur-md"></div>
-</section>
+        </section>
 
-
-
-
-    <!--
-  Heads up! 👋
-
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
--->
-<!--MAIN CONTENT-->
-<section
-  class="relative bg-[url({{ asset('images/banner2.png') }})] bg-cover bg-center bg-no-repeat"
->
-<div
-class="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
-></div>
-
-  <div
-    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 text-center"
-  >
-    <div class="max-w-xl mx-auto text-center">
-      <h1 class="text-2xl font-extrabold sm:text-5xl">
-
-
-        <strong class="block font-extrabold text-black font-serif non-italic">Layanan Kami</strong>
-      </h1>
-
-      <p class="mt-4 max-w-lg sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-        numquam ea!
-      </p>
-
-      <div class="mt-8 flex flex-wrap gap-4 justify-center">
-        <a
-          href="/layananpsda"
-          class="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-amber-600 focus:outline-none focus:ring active:bg-amber-600 sm:w-auto"
-        >
-          SELENGKAPNYA
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-    <!-- Tentang Kami Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
-        <div class="md:w-1/2">
-          <img src="{{asset('images/gedung psda.jpeg')}}" alt="Tentang Kami" class="rounded-lg shadow-lg">
+        <!-- Footer -->
+        <footer class="bg-blue-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Dinas PSDA Provinsi Sumatera Selatan. All rights reserved.</p>
+            <p class="mt-2">Jl. Kapten Anwar Sastro, Sungai Pangeran, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30121 | Telp: (021) 12345678 | Email: dinaspengelolaansdasumsel@gmail.com</p>
         </div>
-        <div class="md:w-1/2">
-          <h2 class="text-3xl font-bold mb-4">Tentang Dinas PSDA Provinsi Sumatera Selatan</h2>
-          <p class="text-lg">Dinas Pengelolaan Sumber Daya Air (PSDA) Sumatera Selatan adalah lembaga pemerintah daerah yang bertugas mengelola sumber daya air di provinsi Sumatera Selatan. Tujuannya adalah mengoptimalkan pemanfaatan sumber daya air untuk kepentingan masyarakat dan lingkungan, termasuk aspek pemanfaatan, pengendalian daya rusak air, dan konservasi.</p>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-blue-800 text-white py-6">
-      <div class="container mx-auto text-center">
-        <p>&copy; 2024 Dinas PSDA Provinsi Sumatera Selatan. All rights reserved.</p>
-        <p class="mt-2">Jl. Kapten Anwar Sastro, Sungai Pangeran, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30121 | Telp: (021) 12345678 | Email: dinaspengelolaansdasumsel@gmail.com</p>
-      </div>
-    </footer>
+        </footer>
 
 
   </body>

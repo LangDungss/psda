@@ -12,7 +12,6 @@
                 <div class="flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
                     <!-- Logo di kiri -->
                     <a class="text-teal-600 flex items-center" href="#">
-                        <span class="sr-only">Home</span>
                         <img src="{{ asset('images/logopsda.png') }}" class="h-14" alt="logo PSDA">
                     </a>
 
@@ -24,7 +23,7 @@
             </header>
 
         <!-- Main Content -->
-        <div class="container mx-auto px-4 py-8">
+        <div class=" mx-auto px-4 py-8">
             <header class="flex justify-between items-center">
                 <h1 class="text-md font-mono text-zinc-500"><a href="/"><span class="text-xl text-white"><-</span></a> PSDA PROVINSI SUMATERA SELATAN</h1>
 
@@ -219,31 +218,31 @@
                 </section>
 
             <!-- Footer Section -->
-<footer class="bg-gray-800 text-center py-4 text-gray-400">
-    <p>&copy;DINAS PENGELOLAAN SUMBER DAYA AIR PROVINSI SUMATERA SELATAN<br>#PSDADIGITAL #PSDATANGGAP</p>
-    <div class="flex justify-center space-x-6 mt-4">
-        <!-- Instagram Icon -->
-        <a href="https://www.instagram.com/dinaspsdaprov.sumsel/profilecard/?igsh=MWlhZDhpcGJxZWp4eQ==" class="hover:text-white">
-            <i data-feather="instagram"></i>
-        </a>
-        <!-- YouTube Icon -->
-        <a href="https://youtu.be/NzO2XbEp968?si=XZfGk-SvbCi0zMQ_" class="hover:text-white">
-            <i data-feather="youtube"></i>
-        </a>
-        <!-- Facebook Icon -->
-        <a href="https://www.facebook.com/profile.php?id=100076006817436&mibextid=ZbWKwL" class="hover:text-white">
-            <i data-feather="facebook"></i>
-        </a>
-        <!-- Email Icon -->
-        <a href="mailto:dinaspengelolaansdasumsel@gmail.com" class="hover:text-white">
-            <i data-feather="mail"></i>
-        </a>
-        <!-- Phone Icon -->
-        <a href="tel:+62711352362" class="hover:text-white">
-            <i data-feather="phone"></i>
-        </a>
-    </div>
-</footer>
+                <footer class="bg-gray-800 text-center py-4 text-gray-400">
+                    <p>&copy;DINAS PENGELOLAAN SUMBER DAYA AIR PROVINSI SUMATERA SELATAN<br>#PSDADIGITAL #PSDATANGGAP</p>
+                    <div class="flex justify-center space-x-6 mt-4">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/dinaspsdaprov.sumsel/profilecard/?igsh=MWlhZDhpcGJxZWp4eQ==" class="hover:text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <!-- YouTube Icon -->
+                        <a href="https://youtu.be/NzO2XbEp968?si=XZfGk-SvbCi0zMQ_" class="hover:text-white">
+                            <i data-feather="youtube"></i>
+                        </a>
+                        <!-- Facebook Icon -->
+                        <a href="https://www.facebook.com/profile.php?id=100076006817436&mibextid=ZbWKwL" class="hover:text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <!-- Email Icon -->
+                        <a href="mailto:dinaspengelolaansdasumsel@gmail.com" class="hover:text-white">
+                            <i data-feather="mail"></i>
+                        </a>
+                        <!-- Phone Icon -->
+                        <a href="tel:+62711352362" class="hover:text-white">
+                            <i data-feather="phone"></i>
+                        </a>
+                    </div>
+                </footer>
 
 <!-- Feather Icons Script -->
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
