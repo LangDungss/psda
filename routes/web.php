@@ -44,7 +44,7 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
 
     Route::get('/riwayat', [PengajuanController::class, 'index'])->name('perjalanan-dinas.index');
     Route::get('/create', [PengajuanController::class, 'create'])->name('perjalanan-dinas.create');
-    Route::post('/perjalanan-dinas', [PengajuanController::class,'store'])->name('perjalanan-dinas.store');
+    Route::post('/perjalan-dinas/store', [PengajuanController::class, 'store'])->name('perjalanan-dinas.store');
     Route::get('/{id}', [PengajuanController::class,'show'])->name('perjalanan-dinas.show');
     Route::get('/{id}/edit', [PengajuanController::class, 'edit'])->name('perjalanan-dinas.edit');
     Route::put('/{id}', [PengajuanController::class, 'update'])->name('perjalanan-dinas.update');

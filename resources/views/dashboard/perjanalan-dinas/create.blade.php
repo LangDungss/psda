@@ -1,109 +1,139 @@
 @extends('dashboard.layout.main')
 
 @section('title')
-    Buat Pengajuan
+    Form Input Pengajuan Perjalanan Dinas
 @endsection
 
 @section('dashboard-content')
     <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            BUAT PENGAJUAN PERJALANAN DINAS
+            Form Input Pengajuan Perjalanan Dinas
         </h2>
-        
-        <!-- Form mulai -->
-        <form action="{{ route('perjalanan-dinas.store') }}" method="POST">
+
+        <form action="{{ route('perjalanan-dinas.store') }}" method="POST" novalidate>
             @csrf
             <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
                 
-                <!-- Kepada -->
-                <label class="block text-sm" for="kepada">
-                    <span class="text-gray-700 dark:text-gray-400">Kepada YTH</span>
-                    <input type="text" id="kepada" name="kepada" placeholder="Kepada"
-                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('kepada') }}" />
-                    @error('kepada')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                <!-- Kepada Yth -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Kepada Yth</span>
+                    <input type="text" name="kepada" placeholder="Kepada Yth" 
+                           class="block w-full mt-1 text-sm form-input" value="Kepala Sekolah" required />
                 </label>
 
-                <!-- Tujuan keberangkatan -->
-                <label class="block mt-4 text-sm" for="perihal">
-                    <span class="text-gray-700 dark:text-gray-400">Tujuan keberangkatan</span>
-                    <textarea id="perihal" name="perihal" rows="3" placeholder="Masukkan tujuan dari keberangkatan."
-                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">{{ old('perihal') }}</textarea>
-                    @error('perihal')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                <!-- Dari -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Dari</span>
+                    <input type="text" name="dari" placeholder="Dari" 
+                           class="block w-full mt-1 text-sm form-input" value="Guru" required />
                 </label>
 
-                <!-- Tanggal Berangkat -->
-                <label class="block mt-4 text-sm" for="tgl_berangkat">
-                    <span class="text-gray-700 dark:text-gray-400">Tanggal Berangkat</span>
-                    <input type="date" id="tgl_berangkat" name="tgl_berangkat" placeholder="Tanggal berangkat."
-                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('tgl_berangkat') }}" />
-                    @error('tgl_berangkat')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                <!-- Tanggal -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Tanggal</span>
+                    <input type="date" name="tanggal" class="block w-full mt-1 text-sm form-input" 
+                           value="2024-11-10" required />
                 </label>
 
-                <!-- Tanggal Kembali -->
-                <label class="block mt-4 text-sm" for="tgl_kembali">
-                    <span class="text-gray-700 dark:text-gray-400">Tanggal Kembali</span>
-                    <input type="date" id="tgl_kembali" name="tgl_kembali" placeholder="Tanggal kembali."
-                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('tgl_kembali') }}" />
-                    @error('tgl_kembali')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                <!-- Nomor Surat -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Nomor Surat</span>
+                    <input type="text" name="nomor" placeholder="Nomor Surat" 
+                           class="block w-full mt-1 text-sm form-input" value="123/ABC/2024" required />
                 </label>
 
-                <!-- Jumlah Hari -->
-                <label class="block text-sm mt-4" for="jml_hari">
-                    <span class="text-gray-700 dark:text-gray-400">Jumlah Hari</span>
-                    <input type="text" readonly id="jml_hari" name="jml_hari" placeholder="Jumlah hari."
-                        class="block w-2/3 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('jml_hari') }}" />
+                <!-- Sifat -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Sifat</span>
+                    <input type="text" name="sifat" placeholder="Sifat" 
+                           class="block w-full mt-1 text-sm form-input" value="Penting" required />
                 </label>
 
-                <!-- Sumber Anggaran -->
-                <label class="block text-sm mt-4" for="sumber_anggaran">
-                    <span class="text-gray-700 dark:text-gray-400">Sumber Anggaran</span>
-                    <input type="text" id="sumber_anggaran" name="sumber_anggaran" placeholder="Sumber anggaran."
-                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('sumber_anggaran') }}" />
-                    @error('sumber_anggaran')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                <!-- Hal -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Hal</span>
+                    <input type="text" name="hal" placeholder="Hal" 
+                           class="block w-full mt-1 text-sm form-input" value="Perjalanan Dinas" required />
                 </label>
 
-                <!-- Anggota -->
-                <label class="block text-sm mt-4" for="anggota">
-                    <span class="text-gray-700 dark:text-gray-400">Anggota</span>
-                    <input type="number" id="anggota" name="anggota" placeholder="Masukkan jumlah anggota."
-                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('anggota') }}" />
-                    @error('anggota')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                <!-- Dasar -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Dasar</span>
+                    <textarea name="dasar" placeholder="Dasar" class="block w-full mt-1 text-sm form-textarea" rows="3" required>Menindaklanjuti instruksi Kepala Sekolah</textarea>
+                </label>
+
+                <!-- Urusan -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Urusan</span>
+                    <input type="text" name="urusan" placeholder="Urusan" 
+                           class="block w-full mt-1 text-sm form-input" value="Pendidikan" required />
+                </label>
+
+                <!-- Tujuan -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Tujuan</span>
+                    <input type="text" name="tujuan" placeholder="Tujuan" 
+                           class="block w-full mt-1 text-sm form -input" value="Kota Jakarta" required />
+                </label>
+
+                <!-- Lama Perjalanan Dinas -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Lama Perjalanan Dinas</span>
+                    <input type="text" name="lama_perjalanan" placeholder="Lama Perjalanan Dinas" 
+                           class="block w-full mt-1 text-sm form-input" value="5 Hari" required />
+                </label>
+
+                <!-- Sumber Pembayaran -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Sumber Pembayaran</span>
+                    <input type="text" name="sumber_pembayaran" placeholder="Sumber Pembayaran" 
+                           class="block w-full mt-1 text-sm form-input" value="DIPA" required />
+                </label>
+
+                <!-- Jumlah yang berpergian -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Jumlah yang Berpergian</span>
+                    <input type="number" id="jumlah_berpergian" name="jumlah_berpergian" placeholder="Jumlah yang berpergian" 
+                           class="block w-full mt-1 text-sm form-input" value="3" required min="1"/>
+                </label>
+
+                <!-- Staf Pendamping -->
+                <div id="staf_fields"></div>
+
+                <!-- Pejabat yang bertugas -->
+                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Pejabat yang Bertugas</h3>
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Nama Pejabat</span>
+                    <input type="text" name="pejabat_nama" placeholder="Nama Pejabat" 
+                           class="block w-full mt-1 text-sm form-input" value="Dr. Joko Widodo" required />
+                </label>
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Pangkat</span>
+                    <input type="text" name="pejabat_pangkat" placeholder="Pangkat" 
+                           class="block w-full mt-1 text-sm form-input" value="PNS" required />
+                </label>
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">NIP</span>
+                    <input type="text" name="pejabat_nip" placeholder="NIP" 
+                           class="block w-full mt-1 text-sm form-input" value="19831205" required />
+                </label>
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Jabatan</span>
+                    <input type="text" name="pejabat_jabatan" placeholder="Jabatan" 
+                           class="block w-full mt-1 text-sm form-input" value="Kepala Sekolah" required />
                 </label>
 
                 <!-- Transportasi -->
-                <label class="block text-sm mt-4" for="transportasi">
+                <label class="block text-sm mb-4">
                     <span class="text-gray-700 dark:text-gray-400">Transportasi</span>
-                    <input type="text" id="transportasi" name="transportasi" placeholder="Transportasi."
-                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
-                        value="{{ old('transportasi') }}" />
-                    @error('transportasi')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                    <input type="text" name="transportasi" placeholder="Transportasi yang Digunakan" 
+                           class="block w-full mt-1 text-sm form-input" value="Kendaraan Dinas" required />
                 </label>
 
                 <!-- Submit Button -->
-                <div class="flex justify-end mt-4">
-                    <button type="submit"
-                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                        Kirim
+                <div class="mt-6 text-right">
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg hover:bg-blue-700">
+                        Ajukan
                     </button>
                 </div>
             </div>
@@ -111,25 +141,39 @@
     </div>
 
     <script>
-        // Script untuk menghitung jumlah hari
-        const tglBerangkatInput = document.querySelector('#tgl_berangkat');
-        const tglKembaliInput = document.querySelector('#tgl_kembali');
-        const jmlHariInput = document.querySelector('#jml_hari');
+        document.getElementById('jumlah_berpergian').addEventListener('input', function () {
+            const jumlah = parseInt(this.value);
+            const stafFieldsContainer = document.getElementById('staf_fields');
+            stafFieldsContainer.innerHTML = '';
 
-        function calculateDays() {
-            const tglBerangkat = new Date(tglBerangkatInput.value);
-            const tglKembali = new Date(tglKembaliInput.value);
-
-            if (tglBerangkat && tglKembali && tglKembali >= tglBerangkat) {
-                const diffTime = tglKembali - tglBerangkat;
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                jmlHariInput.value = `${diffDays} hari`;
-            } else {
-                jmlHariInput.value = '';
+            for (let i = 0; i < jumlah; i++) {
+                const newStafField = `
+                    <div class="staf-form mb-4">
+                        <h4 class="font-semibold text-gray-700 dark:text-gray-200">Staf Pendamping ${i + 1}</h4>
+                        <label class="block text-sm mb-2">
+                            <span class="text-gray-700 dark:text -gray-400">Nama</span>
+                            <input type="text" name="staf_pendamping[${i}][nama]" placeholder="Nama Staf Pendamping" 
+                                   class="block w-full mt-1 text-sm form-input" required />
+                        </label>
+                        <label class="block text-sm mb-2">
+                            <span class="text-gray-700 dark:text-gray-400">NIP</span>
+                            <input type="text" name="staf_pendamping[${i}][nip]" placeholder="NIP Staf Pendamping" 
+                                   class="block w-full mt-1 text-sm form-input" required />
+                        </label>
+                        <label class="block text-sm mb-2">
+                            <span class="text-gray-700 dark:text-gray-400">Pangkat/Gol</span>
+                            <input type="text" name="staf_pendamping[${i}][pangkat]" placeholder="Pangkat/Gol Staf Pendamping" 
+                                   class="block w-full mt-1 text-sm form-input" required />
+                        </label>
+                        <label class="block text-sm mb-2">
+                            <span class="text-gray-700 dark:text-gray-400">Jabatan</span>
+                            <input type="text" name="staf_pendamping[${i}][jabatan]" placeholder="Jabatan Staf Pendamping" 
+                                   class="block w-full mt-1 text-sm form-input" required />
+                        </label>
+                    </div>
+                `;
+                stafFieldsContainer.insertAdjacentHTML('beforeend', newStafField);
             }
-        }
-
-        tglBerangkatInput.addEventListener('change', calculateDays);
-        tglKembaliInput.addEventListener('change', calculateDays);
+        });
     </script>
-@endsection
+@endsection 
