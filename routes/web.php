@@ -51,6 +51,10 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
     Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
 });
 
+Route::get('/layananpsda', [HomeController::class, 'layanankami']);
+
+
+
 
 // Route::resource('pengajuans', PengajuanController::class)->middleware('auth.pegawai');
 
