@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -142,4 +143,24 @@ class PengajuanController extends Controller
             return redirect()->route('perjalanan-dinas.index')->with('error', 'Terjadi kesalahan saat menghapus pengajuan.');
         }
     }
+
+    public function exportPdf($id)
+{
+    // Ambil data pengajuan berdasarkan ID
+    $pengajuan = Pengajuan::findOrFail($id);
+
+    if (is_array($pengajuan->staf_pendamping)) {
+        $stafPendamping = $pengajuan->staf_pendamping; // Array yang langsung bisa digunakan
+    } else {
+        // Jika data bukan array, lakukan pengecekan dan mungkin perlu decode JSON
+        $stafPendamping = json_decode($pengajuan->staf_pendamping, true);
+    }
+
+    // Pass data ke view PDF
+    $pdf = Pdf::loadView('pdf.pengajuan-detail', compact('pengajuan', 'stafPendamping'));
+    
+    // Kembalikan file PDF sebagai unduhan
+    return $pdf->download('pengajuan-detail.pdf');
+}
+
 }

@@ -49,6 +49,7 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
     Route::get('/{id}/edit', [PengajuanController::class, 'edit'])->name('perjalanan-dinas.edit');
     Route::put('/{id}', [PengajuanController::class, 'update'])->name('perjalanan-dinas.update');
     Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
+    Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
 });
 
 Route::get('/layananpsda', [HomeController::class, 'layanankami']);
