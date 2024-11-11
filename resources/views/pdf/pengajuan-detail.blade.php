@@ -4,29 +4,63 @@
     <meta charset="UTF-8">
     <title>NOTA DINAS</title>
     <style>
+        @page {
+            margin: 2cm;
+        }
         body {
             font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.3;
         }
         .header {
             text-align: center;
-            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 13pt;
+            text-decoration: underline;
         }
         .content {
-            margin-top: 20px;
+            margin-top: 10px;
         }
-        .content p {
-            margin: 5px 0;
+        .field-row {
+            margin: 3px 0;
+            display: table;
+            width: 100%;
         }
-        .content .sub-header {
-            margin-top: 20px;
+        .field-label, .field-separator, .field-value {
+            display: table-cell;
+            vertical-align: top;
+        }
+        .field-label {
+            width: 160px;
+        }
+        .field-separator {
+            width: 10px;
+        }
+        .staff-details {
+            margin: 8px 0;
+            padding-left: 15%;
+            font-size: 10pt;
+        }
+        .staff-row {
+            display: flex;
+            justify-content: flex-start;
+            margin: 2px 0;
+        }
+        .staff-label {
+            width: 80px;
             font-weight: bold;
-        }
-        .content .indent {
-            text-indent: 30px;
+            font-size: 11pt;
+            margin-left: 20%;
         }
         .signature {
-            margin-top: 40px;
+            margin-top: 30px;
             text-align: center;
+            float: right;
+            width: 200px;
+            font-size: 10pt;
         }
     </style>
 </head>
@@ -36,55 +70,146 @@
     </div>
     
     <div class="content">
-        <p><strong>Kepada Yth:</strong> {{ $pengajuan->kepada }}</p>
-        <p><strong>Dari:</strong> {{ $pengajuan->dari }}</p>
-        <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($pengajuan->tanggal)->format('d M Y') }}</p>
-        <p><strong>Nomor:</strong> {{ $pengajuan->nomor }}</p>
-        <p><strong>Sifat:</strong> {{ $pengajuan->sifat }}</p>
-        <p><strong>Hal:</strong> {{ $pengajuan->hal }}</p>
+        <div class="field-row">
+            <div class="field-label">Kepada Yth</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->kepada }}</div>
+        </div>
+        <div class="field-row">
+            <div class="field-label">Dari</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->dari }}</div>
+        </div>
+        <div class="field-row">
+            <div class="field-label">Tanggal</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ \Carbon\Carbon::parse($pengajuan->tanggal)->isoFormat('D MMMM Y') }}</div>
+        </div>
+        <div class="field-row">
+            <div class="field-label">Nomor</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->nomor }}</div>
+        </div>
+        <div class="field-row">
+            <div class="field-label">Sifat</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->sifat }}</div>
+        </div>
+        <div class="field-row">
+            <div class="field-label">Hal</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->hal }}</div>
+        </div>
+        <hr>
 
-        <div class="sub-header">Dasar:</div>
-        <p class="indent">{{ $pengajuan->dasar }}</p>
+        <div class="field-row" style="margin-top: 15px;">
+            <div class="field-label">Dasar</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->dasar }}</div>
+        </div>
 
-        <div class="sub-header">Urusan:</div>
-        <p class="indent">{{ $pengajuan->urusan }}</p>
+        <div class="field-row">
+            <div class="field-label">Urusan</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->urusan }}</div>
+        </div>
 
-        <div class="sub-header">Tujuan:</div>
-        <p class="indent">{{ $pengajuan->tujuan }}</p>
+        <div class="field-row">
+            <div class="field-label">Tujuan</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->tujuan }}</div>
+        </div>
 
-        <div class="sub-header">Lama Perjalanan Dinas:</div>
-        <p class="indent">{{ $pengajuan->lama_perjalanan }}</p>
+        <div class="field-row">
+            <div class="field-label">Lama Perjalanan Dinas</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->lama_perjalanan }}</div>
+        </div>
 
-        <div class="sub-header">Sumber Pembayaran:</div>
-        <p class="indent">{{ $pengajuan->sumber_pembayaran }}</p>
+        <div class="field-row">
+            <div class="field-label">Sumber Pembayaran</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->sumber_pembayaran }}</div>
+        </div>
 
-        <div class="sub-header">Jumlah yang berpergian:</div>
-        <p class="indent">{{ $pengajuan->jumlah_berpergian }} Orang</p>
+        <div class="field-row">
+            <div class="field-label">Jumlah yang berpergian</div>
+            <div class="field-separator">:</div>
+            <div class="field-value">{{ $pengajuan->jumlah_berpergian }} Orang</div>
+        </div>
 
-        <div class="sub-header">Petugas yang bertugas:</div>
-@if(is_array($stafPendamping) && count($stafPendamping) > 0)
-    @foreach($stafPendamping as $pendamping)
-        <p class="indent"><strong>Nama:</strong> {{ $pendamping['nama'] }}</p>
-        <p class="indent"><strong>NIP:</strong> {{ $pendamping['nip'] }}</p>
-        <p class="indent"><strong>Pangkat:</strong> {{ $pendamping['pangkat'] }}</p>
-        <p class="indent"><strong>Jabatan:</strong> {{ $pendamping['jabatan'] }}</p>
-    @endforeach
-@else
-    <p class="indent">Tidak ada petugas pendamping yang ditentukan.</p>
-@endif
+        <div style="margin-top: 15px;">
+            <p>1. <strong>Pejabat yang bertugas:</strong></p>
+            <div class="staff-details">
+                <div class="staff-row">
+                    <span class="staff-label">Nama</span>: {{ $pengajuan->pejabat_nama }}
+                </div>
+                <div class="staff-row">
+                    <span class="staff-label">Pangkat/Gol</span>: {{ $pengajuan->pejabat_pangkat }}
+                </div>
+                <div class="staff-row">
+                    <span class="staff-label">NIP</span>: {{ $pengajuan->pejabat_nip }}
+                </div>
+                <div class="staff-row">
+                    <span class="staff-label">Jabatan</span>: {{ $pengajuan->pejabat_jabatan }}
+                </div>
+            </div>
 
+            @php
+                $pnsStaff = array_filter($stafPendamping, fn($s) => isset($s['nip']) && !empty($s['nip']));
+                $nonPnsStaff = array_filter($stafPendamping, fn($s) => !isset($s['nip']) || empty($s['nip']));
+            @endphp
 
+            @if(!empty($pnsStaff))
+                <p>2. <strong>Staf Pendamping (PNS):</strong></p>
+                @foreach($pnsStaff as $pendamping)
+                    <div class="staff-details">
+                        <div class="staff-row">
+                            <span class="staff-label">Nama</span>: {{ $pendamping['nama'] }}
+                        </div>
+                        <div class="staff-row">
+                            <span class="staff-label">Pangkat/Gol</span>: {{ $pendamping['pangkat'] ?? '-' }}
+                        </div>
+                        <div class="staff-row">
+                            <span class="staff-label">NIP</span>: {{ $pendamping['nip'] }}
+                        </div>
+                        <div class="staff-row">
+                            <span class="staff-label">Jabatan</span>: {{ $pendamping['jabatan'] }}
+                        </div>
+                    </div>
+                @endforeach
+            @endif
 
+            @if(!empty($nonPnsStaff))
+                <p>3. <strong>Staf Pendamping (Non PNS):</strong></p>
+                @foreach($nonPnsStaff as $pendamping)
+                    <div class="staff-details">
+                        <div class="staff-row">
+                            <span class="staff-label">Nama</span>: {{ $pendamping['nama'] }}
+                        </div>
+                        <div class="staff-row">
+                            <span class="staff-label">Pangkat/Gol</span>: {{ $pendamping['pangkat'] ?? '-' }}
+                        </div>
+                        <div class="staff-row">
+                            <span class="staff-label">Jabatan</span>: {{ $pendamping['jabatan'] }}
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        </div>
 
-        <p class="indent">Sehubungan hal di atas, kami mohon persetujuan Bapak untuk melakukan perjalanan Dinas.</p>
-        <p class="indent">Demikian disampaikan, atas perkenan dan izin Bapak diucapkan terima kasih.</p>
-    </div>
+        <div class="closing">
+            <p>Sehubungan hal di atas, kami mohon persetujuan Bapak untuk melakukan perjalanan Dinas.</p>
+            <p>Demikian disampaikan, atas perkenan dan izin Bapak diucapkan terima kasih.</p>
+        </div>
 
-    <div class="signature">
-        <p>Sekretaris Dinas PSDA Prov. Sumsel</p>
-        <p><strong>Dr. Hj. MEGAWATY, ST.,MT.</strong></p>
-        <p>Pembina Tingkat I (IV/b)</p>
-        <p>NIP. 19771204 199703 2 004</p>
+        <div class="signature">
+            <p>Sekretaris Dinas PSDA Prov. Sumsel</p>
+            <br><br><br>
+            <p><strong>Dr. Hj. MEGAWATY, ST.,MT.</strong></p>
+            <p>Pembina Tingkat I (IV/b)</p>
+            <p>NIP. 19771204 199703 2 004</p>
+        </div>
     </div>
 </body>
 </html>
