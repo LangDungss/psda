@@ -124,7 +124,7 @@
                     <div class="bg-white shadow-lg rounded-lg p-5">
                         <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/NUMERI (KABID).jpg') }}" alt="Kepala Bidang Rekayasa Teknik" class="w-16 h-16 rounded-full mx-auto mb-3">
                         <p class=" font-bold text-black text-center">NUMERI</p>
-                        <h4 class="text-md font-bold text-black text-center mb-4">KEPALA BIDANG<br>REKAYASA TEKNIK</h4>
+                        <h5 class="font-semibold text-sm text-black text-center mb-4">KEPALA BIDANG<br>REKAYASA TEKNIK</h5>
                         <div class="flex flex-row justify-center gap-2">
                             <div class="bg-white shadow-lg rounded-lg p-3">
                                 <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MUHAMMAD ROBIE CHEMISTRA (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mx-auto mb-1">
@@ -148,7 +148,7 @@
                     <div class="bg-white shadow-lg rounded-xl p-5">
                         <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/HENDRI JUMERSON (KABID).jpg') }}" alt="Kepala Bidang Operasi dan Pemeliharaan" class="w-16 h-16 rounded-full mx-auto mb-3">
                         <p class=" font-bold text-black text-center">HENDRI JUMERSON</p>
-                        <h4 class="text-sm font-bold text-black text-center mb-4">KEPALA BIDANG<br>OPERASI & PEMELIHARAAN</h4>
+                        <h5 class="font-semibold text-sm text-black text-center mb-4">KEPALA BIDANG<br>OPERASI & PEMELIHARAAN</h5>
                         <div class="flex flex-row justify-center gap-2">
                             <div class="bg-white shadow-lg rounded-lg p-3">
                                 <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/HARIMAN FILINO PASARIBU (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mx-auto mb-1">
@@ -167,7 +167,7 @@
                     <div class="bg-white shadow-lg rounded-lg p-5">
                         <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/MOCHAMMAD RIO ROZI (KABID).jpg') }}" alt="Kepala Bidang Bina Manfaat" class="w-16 h-16 rounded-full mx-auto mb-3">
                         <p class=" font-bold text-black text-center">MOCHAMMAD RIO ROZI</p>
-                        <h4 class="text-md font-bold text-black text-center mb-4">KEPALA BIDANG<br>BINA MANFAAT</h4>
+                        <h5 class="font-semibold text-sm text-black text-center mb-4">KEPALA BIDANG<br>BINA MANFAAT</h5>
                         <div class="flex flex-row justify-center gap-2">
                             <div class="bg-white shadow-lg rounded-lg p-3">
                                 <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/KHOIRUL AZHAR (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mx-auto mb-1">
@@ -187,26 +187,26 @@
                         </div>
                     </div>
 
-                    <!-- Kepala Bidang Rekayasa Teknik (Kotak ke-4) -->
+                    <!-- Kepala Bidang Konstruksi -->
                     <div class="bg-white shadow-lg rounded-lg p-5">
-                        <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/NUMERI (KABID).jpg') }}" alt="Kepala Bidang Rekayasa Teknik" class="w-16 h-16 rounded-full mx-auto mb-3">
+                        <img src="" alt="Kepala Bidang Rekayasa Teknik" class="w-16 h-16 rounded-full mx-auto mb-3">
                         <p class=" font-bold text-black text-center">HERWAN</p>
-                        <h4 class="text-md font-bold text-black text-center mb-4">KEPALA BIDANG<br>REKAYASA TEKNIK</h4>
+                        <h5 class="font-semibold text-sm text-black text-center mb-4">KEPALA BIDANG<br>KONSTRUKSI</h5>
                         <div class="flex flex-row justify-center gap-2">
                             <div class="bg-white shadow-lg rounded-lg p-3">
-                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MUHAMMAD ROBIE CHEMISTRA (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG KONSTRUKSI/ALI AL QAUTSAR (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mx-auto mb-1">
                                 <h5 class="text-sm font-semibold text-black text-center">KASI</h5>
-                                <p class="font-bold text-black text-center text-sm">HERWAN</p>
+                                <p class="font-bold text-black text-center text-sm">ALI AL QAUTSAR</p>
                             </div>
                             <div class="bg-white shadow-lg rounded-lg p-3">
-                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MERI MIARDI (KASI).jpg') }}" alt="Kasi 2" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG KONSTRUKSI/WAWAN SULISTIYO (KASI).jpg') }}" alt="Kasi 2" class="w-16 h-16 rounded-full mx-auto mb-1">
                                 <h5 class="text-sm font-semibold text-black text-center">KASI</h5>
-                                <p class="font-bold text-black text-center text-sm">HERWAN</p>
+                                <p class="font-bold text-black text-center text-sm">WAWAN SULISTIYO</p>
                             </div>
                             <div class="bg-white shadow-lg rounded-lg p-3">
-                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/ABDURRAHMAN (KASI).jpg') }}" alt="Kasi 3" class="w-16 h-16 rounded-full mx-auto mb-1">
+                                <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG KONSTRUKSI/ANIE NURWULAN (KASI).jpg') }}" alt="Kasi 3" class="w-16 h-16 rounded-full mx-auto mb-1">
                                 <h5 class="text-sm font-semibold text-black text-center">KASI</h5>
-                                <p class="font-bold text-black text-center text-sm">HERWAN</p>
+                                <p class="font-bold text-black text-center text-sm">ANIE NURWULAN</p>
                             </div>
                         </div>
                     </div>

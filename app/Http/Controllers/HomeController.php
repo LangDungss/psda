@@ -27,9 +27,15 @@ class HomeController extends Controller
     {
         return view('home.nextrawa');
     }
+
     public function nextsungai()
     {
         return view('home.nextsungai');
+    }
+
+    public function nextdanau()
+    {
+        return view('home.nextdanau');
     }
 
     public function nextsumurbor()
@@ -39,4 +45,10 @@ class HomeController extends Controller
     public function layanankami(){
         return view('home.layananpsda.layanankami');
     }
+
+    public function psdalainnya(){
+        return view('home.psdalainnya');
+    }
 }
+
+

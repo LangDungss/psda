@@ -116,7 +116,7 @@
                 </article>
 
                 <!-- Sumur Bor -->
-                <article class="flex bg-white transition hover:shadow-xl">
+                <article class="flex bg-white transition hover:shadow-xl mb-10">
                     <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                       <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
                         <span>Dinas</span>
@@ -143,7 +143,7 @@
                   </article>
 
                   <!-- Danau -->
-                <article class="flex bg-white transition hover:shadow-xl">
+                <article class="flex bg-white transition hover:shadow-xl mb-10">
                     <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                       <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
                         <span>Dinas</span>
@@ -170,7 +170,7 @@
                   </article>
 
                   <!-- Olahan air -->
-                <article class="flex bg-white transition hover:shadow-xl">
+                <article class="flex bg-white transition hover:shadow-xl mb-10">
                     <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                       <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
                         <span>Dinas</span>
@@ -196,86 +196,7 @@
                     </div>
                   </article>
 
-                  <!-- Card 3 -->
-                <article class="flex bg-white transition hover:shadow-xl mb-10">
-                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                      <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
-                        <span>2022</span>
-                        <span class="w-px flex-1 bg-gray-900/10"></span>
-                        <span>Oct 10</span>
-                      </time>
-                    </div>
-                    <div class="hidden sm:block sm:basis-56">
-                      <img src="{{asset('images/sungai.jpg')}}" alt="Sungai" class="aspect-square h-full w-full object-cover" />
-                    </div>
-                    <div class="flex flex-1 flex-col justify-between">
-                      <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                        <a href="#">
-                          <h3 class="font-bold uppercase text-gray-900">Sungai</h3>
-                        </a>
-                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                          Aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah.
-                        </p>
-                      </div>
-                      <div class="sm:flex sm:items-end sm:justify-end">
-                        <a href="/nextsungai" class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400">Lihat Lebih Lanjut</a>
-                      </div>
-                    </div>
-                  </article>
 
-                  <!-- Card 3 -->
-                <article class="flex bg-white transition hover:shadow-xl mb-10">
-                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                      <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
-                        <span>2022</span>
-                        <span class="w-px flex-1 bg-gray-900/10"></span>
-                        <span>Oct 10</span>
-                      </time>
-                    </div>
-                    <div class="hidden sm:block sm:basis-56">
-                      <img src="{{asset('images/sungai.jpg')}}" alt="Sungai" class="aspect-square h-full w-full object-cover" />
-                    </div>
-                    <div class="flex flex-1 flex-col justify-between">
-                      <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                        <a href="#">
-                          <h3 class="font-bold uppercase text-gray-900">Sungai</h3>
-                        </a>
-                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                          Aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah.
-                        </p>
-                      </div>
-                      <div class="sm:flex sm:items-end sm:justify-end">
-                        <a href="/nextsungai" class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400">Lihat Lebih Lanjut</a>
-                      </div>
-                    </div>
-                  </article>
-
-                  <!-- Card 3 -->
-                <article class="flex bg-white transition hover:shadow-xl mb-10">
-                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                      <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
-                        <span>2022</span>
-                        <span class="w-px flex-1 bg-gray-900/10"></span>
-                        <span>Oct 10</span>
-                      </time>
-                    </div>
-                    <div class="hidden sm:block sm:basis-56">
-                      <img src="{{asset('images/sungai.jpg')}}" alt="Sungai" class="aspect-square h-full w-full object-cover" />
-                    </div>
-                    <div class="flex flex-1 flex-col justify-between">
-                      <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                        <a href="#">
-                          <h3 class="font-bold uppercase text-gray-900">Sungai</h3>
-                        </a>
-                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                          Aliran air alami yang mengalir dari tempat yang lebih tinggi ke tempat yang lebih rendah.
-                        </p>
-                      </div>
-                      <div class="sm:flex sm:items-end sm:justify-end">
-                        <a href="/nextsungai" class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400">Lihat Lebih Lanjut</a>
-                      </div>
-                    </div>
-                  </article>
 
               </div>
             </div>
