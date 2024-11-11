@@ -32,6 +32,7 @@ Route::get('/nextrawa', [HomeController::class, 'nextrawa']);
 Route::get('/nextsungai', [HomeController::class, 'nextsungai']);
 Route::get('/nextdanau', [HomeController::class, 'nextdanau']);
 Route::get('/nextsumurbor', [HomeController::class, 'nextsumurbor']);
+Route::get('/psdalainnya', [HomeController::class, 'psdalainnya']);
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authanticate'])->name('authanticate');
