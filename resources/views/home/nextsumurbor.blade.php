@@ -59,7 +59,7 @@
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8">
         <header class="flex justify-between items-center">
-            <h1 class="text-md font-mono text-zinc-500"><a href="/"><span class="text-xl text-white"><-</span></a> PSDA PROVINSI SUMATERA SELATAN</h1>
+            <h1 class="text-md font-mono text-zinc-500"><a href="/layananpsda"><span class="text-xl text-white"><-</span></a> PSDA PROVINSI SUMATERA SELATAN</h1>
 
         </header>
 
