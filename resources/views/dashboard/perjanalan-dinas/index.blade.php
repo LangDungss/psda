@@ -1,4 +1,5 @@
 @extends('dashboard.layout.main')
+
 @section('title')
     Riwayat Pengajuan
 @endsection
@@ -19,6 +20,7 @@
                                     <th class="px-4 py-3">Kepada</th>
                                     <th class="px-4 py-3">Sifat</th>
                                     <th class="px-4 py-3">Urusan</th>
+                                    <th class="px-4 py-3">Status</th> <!-- Added status column -->
                                     <th class="px-4 py-3">Aksi</th>
                                 </tr>
                             </thead>
@@ -28,6 +30,16 @@
                                         <td class="px-4 py-3 text-sm">{{ $p->kepada }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $p->sifat }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $p->urusan }}</td>
+                                       <td class="px-4 py-3 text-sm">
+                                            <!-- Displaying status with different styles for each status -->
+                                            <span class="px-2 py-1 text-xs font-semibold leading-tight 
+                                                {{ $p->status == 'proses' ? 'bg-yellow-400 text-yellow-900' :
+                                                ($p->status == 'disetujui' ? 'bg-green-400 text-green-900' :
+                                                ($p->status == 'ditolak' ? 'bg-red-400 text-red-900' :
+                                                ($p->status == 'perbaiki' ? 'bg-blue-400 text-blue-900' : 'bg-gray-200 text-gray-800'))) }} rounded-full">
+                                                {{ ucfirst($p->status) }}
+                                            </span>
+                                        </td>
                                         <td class="px-4 py-3">
                                             <div class="flex items-center space-x-4 text-sm">
                                                 <a href="{{ route('perjalanan-dinas.edit', $p->id) }}"
@@ -40,12 +52,12 @@
                                                         </path>
                                                     </svg>
                                                 </a>
-                                        
+
                                                 <form id="delete-form-{{ $p->id }}" action="{{ route('perjalanan-dinas.destroy', ['id' => $p->id]) }}" method="POST" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
-                                        
+
                                                 <button type="button" onclick="confirmDelete({{ $p->id }})"
                                                     class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-red-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                     aria-label="Delete">
@@ -55,7 +67,7 @@
                                                             clip-rule="evenodd"></path>
                                                     </svg>
                                                 </button>
-                                        
+
                                                 <!-- Button for Export to PDF -->
                                                 <a href="{{ route('pengajuan.export-pdf', $p->id) }}"
                                                     class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-green-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
@@ -67,7 +79,6 @@
                                                 </a>
                                             </div>
                                         </td>
-                                        
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -44,6 +44,8 @@ Route::get('/pengajuan/proses', [ProsesPengajuanController::class, 'index'])
     ->name('proses-pengajuan.index')
     ->middleware(['auth.pegawai']); // Batasi akses hanya untuk divisi tertentu
 Route::post('/pengajuan/proses/{id}', [PengajuanController::class, 'proses'])->name('pengajuan.proses');
+Route::put('/pengajuan/{id}/update-status', [ProsesPengajuanController::class, 'updateStatus'])->name('pengajuan.updateStatus');
+
 
 
 Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], function () {

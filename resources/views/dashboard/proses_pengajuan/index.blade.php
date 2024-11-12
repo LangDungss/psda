@@ -41,13 +41,21 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 text-center">
-                                <form action="{{ route('pengajuan.proses', $pengajuan->id) }}" method="POST">
+                                <form action="{{ route('pengajuan.updateStatus', $pengajuan->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none">
-                                        <i class="fas fa-play mr-2"></i> Proses
+                                    @method('PUT')
+                                    <select name="status" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full focus:outline-none">
+                                        <option value="proses" {{ $pengajuan->status == 'proses' ? 'selected' : '' }}>Proses</option>
+                                        <option value="disetujui" {{ $pengajuan->status == 'disetujui' ? 'selected' : '' }}>Disetujui</option>
+                                        <option value="ditolak" {{ $pengajuan->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                        <option value="perbaiki" {{ $pengajuan->status == 'perbaiki' ? 'selected' : '' }}>Perbaiki</option>
+                                    </select>
+                                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none mt-2">
+                                        <i class="fas fa-save mr-2"></i> Simpan Status
                                     </button>
                                 </form>
                             </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>
