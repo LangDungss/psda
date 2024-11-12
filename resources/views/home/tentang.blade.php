@@ -192,25 +192,25 @@
                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
                                     <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/ERNI ARMA (KASI).jpg') }}" alt="Kasi 2" class="w-16 h-16 rounded-full mr-3">
                                     <div>
-                                        <p class="font-bold text-black text-sm">ERNI ARMA</p>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
+                                        <p class="font-bold text-black text-sm">KEPALA SEKSI OPERASI</p>
+                                        <h5 class="text-sm font-semibold text-black">ERNI ARMA, ST</h5>
+                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19760502 200701 2 027</h5>
                                     </div>
                                 </div>
                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
                                     <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/HARIMAN FILINO PASARIBU (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mr-3">
                                     <div>
-                                        <p class="font-bold text-black text-sm">HARIMAN FILINO PASARIBU</p>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
+                                        <p class="font-bold text-black text-sm">Plt. KEPALA SEKSI PEMELIHARAAN</p>
+                                        <h5 class="text-sm font-semibold text-black">H. HERMANSYAH, ST</h5>
+                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19750629 201001 1 006</h5>
                                     </div>
                                 </div>
                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
                                     <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG OPERASI DAN PEMELIHARAAN/HARIMAN FILINO PASARIBU (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mr-3">
                                     <div>
-                                        <p class="font-bold text-black text-sm">HARIMAN FILINO PASARIBU</p>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
+                                        <p class="font-bold text-black text-sm">KEPALA SEKSI PENANGGULANGAN DARURAT</p>
+                                        <h5 class="text-sm font-semibold text-black">HARIMAN FILINO PASARIBU, ST</h5>
+                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19801229 200801 1 003</h5>
                                     </div>
                                 </div>
                             </div>
@@ -219,28 +219,32 @@
                         <!-- Kepala Bidang Bina Manfaat -->
                         <div class="bg-white shadow-lg rounded-lg p-5">
                             <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/MOCHAMMAD RIO ROZI (KABID).jpg') }}" alt="Kepala Bidang Bina Manfaat" class="w-16 h-16 rounded-full mx-auto mb-3">
-                            <p class="font-bold text-black text-center">MOCHAMMAD RIO ROZI</p>
-                            <h5 class="font-semibold text-sm text-black text-center mb-4">KEPALA BIDANG<br>BINA MANFAAT</h5>
+                            <p class="font-bold text-black text-center">KEPALA BIDANG BINA MANFAAT</p>
+                            <h5 class="font-semibold text-sm text-black text-center">MOCHAMMAD RIO ROZI, ST, STP, MM</h5>
+                            <h5 class="font-semibold text-sm text-black text-center mb-4">PEMBINA (IV/a) NIP. 19801014 200604 1 005</h5>
                             <div class="flex flex-col gap-2">
                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
                                     <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/KHOIRUL AZHAR (KASI).jpg') }}" alt="Kasi 1" class="w-16 h-16 rounded-full mr-3">
                                     <div>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
-                                        <p class="font-bold text-black text-sm">KHOIRUL AZHAR</p>
+                                        <p class="font-bold text-black text-sm">KEPALA SEKSI SARANA TEKNIK</p>
+                                        <h5 class="text-sm font-semibold text-black">KHOIRUL AZHAR, ST</h5>
+                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19710513 200604 1 008</h5>
                                     </div>
                                 </div>
                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
                                     <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/ARVID ARNOLDY (KASI).jpg') }}" alt="Kasi 2" class="w-16 h-16 rounded-full mr-3">
                                     <div>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
-                                        <p class="font-bold text-black text-sm">ARVID ARNOLDY</p>
+                                        <p class="font-bold text-black text-sm">KEPALA SEKSI PENGAWASAN DAN PENGENDALIAN</p>
+                                        <h5 class="text-sm font-semibold text-black">ARVID ARNOLDY, ST</h5>
+                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19790620 200701 1 014</h5>
                                     </div>
                                 </div>
                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
                                     <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG BINA MANFAAT/ARI MUKHTARIYADI (KASI).jpg') }}" alt="Kasi 3" class="w-16 h-16 rounded-full mr-3">
                                     <div>
-                                        <h5 class="text-sm font-semibold text-black">KASI</h5>
-                                        <p class="font-bold text-black text-sm">ARI MUKHTARIYADI</p>
+                                        <p class="font-bold text-black text-sm">KEPALA SEKSI KERJASAMA</p>
+                                        <h5 class="text-sm font-semibold text-black">ARI MUKHTARIYADI, ST, MT</h5>
+                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19810128 200801 1 002</h5>
                                     </div>
                                 </div>
                             </div>

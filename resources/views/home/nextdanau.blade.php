@@ -63,45 +63,131 @@
 
         </header>
 
-<main class="mt-8">
-    <section class="p-6 rounded-lg shadow-md bg-blue-950">
-        <!-- Text Section -->
-        <div class="mb-6 text-white">
-            <h2 class="text-4xl font-bold italic">"REVITALISASI<br>DANAU OPI TAHAP II"</h2>
-            <p class="mt-2">
-                Pembangunan Danau OPI Jakabaring ini telah dimulai sejak tahun 2022, dan pada saat ini pembangunannya sudah sampai tahap dua.
-            </p>
-        </div>
+        <main class="mt-8">
+            <section class="p-6 rounded-lg shadow-md bg-blue-950">
+                <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-4xl font-bold italic">"REVITALISASI<br>DANAU OPI TAHAP II"</h2>
+                    <p class="mt-2">
+                        Pembangunan Danau OPI Jakabaring ini telah dimulai sejak tahun 2022, dan pada saat ini pembangunannya sudah sampai tahap dua.
+                    </p>
+                </div>
 
-        <!-- Image Section -->
-        <div class="grid grid-cols-3 gap-2">
-            <!-- First row of images -->
-            <div class="col-span-1 p-1">
-                <img src="{{ asset('images/danau/danau4.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Besar Kiri">
-            </div>
-            <div class="p-1">
-                <img src="{{ asset('images/danau/danau2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan 1">
-            </div>
-            <div class="p-1">
-                <img src="{{ asset('images/danau/danau3.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan 2">
-            </div>
+                <!-- Image Section -->
+                <div class="grid grid-cols-3 gap-2">
+                    <!-- First row of images -->
+                    <div class="col-span-1 p-1">
+                        <img src="{{ asset('images/danau/danau4.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Besar Kiri">
+                    </div>
+                    <div class="p-1">
+                        <img src="{{ asset('images/danau/danau2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan 1">
+                    </div>
+                    <div class="p-1">
+                        <img src="{{ asset('images/danau/danau3.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan 2">
+                    </div>
 
-            <!-- Second row of images -->
-            <div class="col-span-1 p-1">
-                <img src="{{ asset('images/danau/danau1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah Kanan">
-            </div>
-            <div class="p-0">
-                <!-- Removed padding here to make image closer to adjacent images -->
-                <img src="{{ asset('images/danau/danau6.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan 3">
-            </div>
-            <div class="col-span-1 p-1">
-                <img src="{{ asset('images/danau/danau5.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah Kiri">
-            </div>
-        </div>
-    </section>
-</main>
+                    <!-- Second row of images -->
+                    <div class="col-span-1 p-1">
+                        <img src="{{ asset('images/danau/danau1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah Kanan">
+                    </div>
+                    <div class="p-0">
+                        <!-- Removed padding here to make image closer to adjacent images -->
+                        <img src="{{ asset('images/danau/danau6.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan 3">
+                    </div>
+                    <div class="col-span-1 p-1">
+                        <img src="{{ asset('images/danau/danau5.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah Kiri">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--Embung-->
+        <main class="mt-8">
+            <section class="p-6 rounded-lg shadow-md bg-blue-950">
+                <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-4xl font-bold italic">“EMBUNG TEBAT BESAK, EMPAT LAWANG“</h2>
+
+                </div>
+
+                <!-- Image Section -->
+                <div class="grid grid-cols-1 gap-2">
+                    <!-- Top image -->
+                    <div class="p-1">
+                        <img src="{{ asset('images/danau/embung1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Atas">
+                    </div>
+
+                    <!-- Bottom image -->
+                    <div class="p-1">
+                        <img src="{{ asset('images/danau/embung2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah">
+                    </div>
+                    <p class="mt-2 text-white">
+                        Rehabilitasi Embung Tebat Besak,Desa Batu Lintang
+                    </p>
+                </div>
+            </section>
+        </main>
 
 
+        <!--Embung lubuk linggau-->
+        <main class="mt-8">
+            <section class="p-6 rounded-lg shadow-md bg-blue-950">
+                <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-4xl font-bold italic">“NORMALISASI EMBUNG“</h2>
+
+                </div>
+
+                <!-- Image Section -->
+                <div class="grid grid-cols-1 gap-2">
+                    <!-- Top image -->
+                    <div class="p-1">
+                        <img src="{{ asset('images/danau/embung lubuk linggau1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Atas">
+                    </div>
+
+                    <!-- Bottom image -->
+                    <div class="p-1">
+                        <img src="{{ asset('images/danau/embung lubuk linggau2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah">
+                    </div>
+                    <p class="mt-2 text-white">
+                        Lokasi :Nikan Jaya, Lubuk Linggau
+                    </p>
+                </div>
+            </section>
+        </main>
+
+
+        <!--tebing-->
+        <main class="mt-8">
+            <section class="p-6 rounded-lg shadow-md bg-blue-950">
+                 <!-- Text Section -->
+                 <div class="mb-6 text-white">
+                    <h2 class="text-4xl font-bold italic">“PENGUATAN TEBING, DESA SUKOMORO“</h2>
+                </div>
+                <!-- Frame untuk gambar kiri dan kanan -->
+                <div class="flex justify-between mt-6">
+                    <!-- Gambar kiri -->
+                    <div class="w-1/2 p-2 relative">
+                        <img src="{{ asset('images/danau/tebing1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
+                    </div>
+
+                    <!-- Gambar tengah -->
+                    <div class="w-1/2 p-2 relative">
+                        <img src="{{ asset('images/danau/tebing2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
+
+                    </div>
+                    <!-- Gambar kanan -->
+                    <div class="w-1/2 p-2 relative">
+                        <img src="{{ asset('images/danau/tebing3.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
+
+                    </div>
+
+                </div>
+                <p class="mt-2 text-white">
+                    Lokasi : Sukomoro, Kec. Rawas Ulu
+                </p>
+            </section>
+        </main>
 
 
 
