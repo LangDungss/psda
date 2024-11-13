@@ -26,7 +26,7 @@
             },
         }
     </script>
-    <title>Landing Page</title>
+    <title>Layanan-Rawa</title>
 </head>
 
 <body class="text-gray-800 bg-blue-900">

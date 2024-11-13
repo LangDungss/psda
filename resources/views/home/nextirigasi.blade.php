@@ -22,7 +22,7 @@
             },
         }
     </script>
-    <title>Landing Page</title>
+    <title>Layanan-Irigasi</title>
 </head>
 
 <body class="text-gray-800 bg-blue-900">
@@ -105,6 +105,9 @@
             </div>
             <div class="w-1/2 p-2 relative">
                 <img src="{{ asset('images/air sumur oku selatan2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
+                <p class="text-white text-lg italic bottom-2">
+                    I Rehabilitasi Jaringan Irigasi Daerah Irigasi Air Sunur
+                </p>
             </div>
         </div>
     </section>
@@ -203,10 +206,13 @@
             </div>
             <div class="w-1/2 p-2 relative">
                 <img src="{{ asset('images/air sungkai6.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Besar Bawah Kanan">
-                <p class="text-white text-lg italic absolute bottom-2 left-2 px-2 py-1">
-                    I Rehabilitasi Jaringan Irigasi Air Sungkai
+                <p class="mt-2 text-white">
+                    | Lokasi :Air Sungkai, Oku Selatan
+
                 </p>
+
             </div>
+
         </div>
     </section>
 </main>

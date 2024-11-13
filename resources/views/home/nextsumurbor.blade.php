@@ -6,27 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-        rel="stylesheet">
-
-    <style></style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        poppins: ['"Poppins"', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <title>Landing Page</title>
+    <title>Layanan-Sungai</title>
 </head>
 
 <body class="text-gray-800 bg-blue-900">
@@ -36,10 +18,9 @@
         <div class="flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
             <!-- Logo di kiri -->
             <a class="text-teal-600 flex items-center" href="#">
-                <span class="sr-only">Home</span>
+
                 <img src="{{ asset('images/logopsda.png') }}" class="h-14" alt="logo PSDA">
             </a>
-
             <!-- Logo di kanan -->
             <a href="#">
                 <img src="{{ asset('images/logoall2.png') }}" class="h-14" alt="logoall2">
@@ -55,59 +36,54 @@
             </h1>
         </header>
 
-        <!-- Sumur bor -->
+        <!-- Sungai Talang Jambi -->
         <main class="mt-8">
             <section class="p-6 rounded-lg shadow-md bg-blue-950">
+                <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-xl font-bold italic">“PENGUATAN TEBING SUNGAI“</h2>
+                </div>
                 <!-- Frame untuk gambar kiri dan kanan -->
-                <div class="flex flex-wrap justify-between mt-6">
+                <div class="flex flex-col md:flex-row justify-between mt-6">
                     <!-- Gambar kiri -->
-                    <div class="w-full sm:w-1/2 lg:w-1/2 p-2 relative">
-                        <img src="{{ asset('images/sumurbor/sumur bor 2.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
-                        <p class="font-bold text-black text-xl italic absolute bottom-2 left-2 px-2 py-1 rounded-lg">
-                            “Sumur Bor“
-                        </p>
+                    <div class="w-full md:w-1/2 p-2 relative">
+                        <img src="{{ asset('images/sumurbor/sumur bor 1.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
                     </div>
-
                     <!-- Gambar kanan -->
-                    <div class="w-full sm:w-1/2 lg:w-1/2 p-2 relative">
-                        <img src="{{ asset('images/sumurbor/sumur bor 1.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
-                        <p class="text-white text-lg italic absolute bottom-2 left-2 px-2 py-1">
-                            I Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
+                    <div class="w-full md:w-1/2 p-2 relative">
+                        <img src="{{ asset('images/sumurbor/sumur bor 2.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
                     </div>
                 </div>
+                <p class="mt-2 text-white">Lokasi: Talang Jambe, Palembang</p>
             </section>
         </main>
-
-        <!-- Sumur bor lainnya -->
+        <!-- Sungai Talang Jambi -->
         <main class="mt-8">
             <section class="p-6 rounded-lg shadow-md bg-blue-950">
+                <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-xl font-bold italic">“PENGUATAN TEBING SUNGAI“</h2>
+                </div>
                 <!-- Frame untuk gambar kiri dan kanan -->
-                <div class="flex flex-wrap justify-between mt-6">
+                <div class="flex flex-col md:flex-row justify-between mt-6">
                     <!-- Gambar kiri -->
-                    <div class="w-full sm:w-1/2 lg:w-1/2 p-2 relative">
-                        <img src="{{ asset('images/sumurbor/sumur bor 4.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
-                        <p class="font-bold text-black text-4xl italic absolute bottom-2 left-2 px-2 py-1 rounded-lg">
-                            “Sumur Bor“
-                        </p>
+                    <div class="w-full md:w-1/2 p-2 relative">
+                        <img src="{{ asset('images/sumurbor/sumur bor 3.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
                     </div>
-
                     <!-- Gambar kanan -->
-                    <div class="w-full sm:w-1/2 lg:w-1/2 p-2 relative">
-                        <img src="{{ asset('images/sumurbor/sumur bor 3.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
-                        <p class="text-white text-xl italic absolute bottom-2 left-2 px-2 py-1">
-                            I Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
+                    <div class="w-full md:w-1/2 p-2 relative">
+                        <img src="{{ asset('images/sumurbor/sumur bor 4.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
                     </div>
                 </div>
+                <p class="mt-2 text-white">Lokasi: Talang Jambe, Palembang</p>
             </section>
         </main>
-
-        <footer class="mt-8 text-center">
-            <p class="text-white">#PSDA TANGGAP Alamat : Jalan Anwar Sastro, No. 1251 Telefon : 0711 35 2362 Fax : 0711 361381 Instagram : @dinaspsdaprov.sumsel</p>
-        </footer>
 
     </div>
+
+    <footer class="mb-5 text-center">
+        <p class="text-white">#PSDA TANGGAP Alamat: Jalan Anwar Sastro, No. 1251 Telefon: 0711 35 2362 Fax: 0711 361381 Instagram: @dinaspsdaprov.sumsel</p>
+    </footer>
 
 </body>
 </html>

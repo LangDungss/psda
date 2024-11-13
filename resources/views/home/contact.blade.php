@@ -33,7 +33,7 @@
             },
         }
     </script>
-    <title>Landing Page</title>
+    <title>Contact</title>
 </head>
 <body class="bg-blue-900">
 

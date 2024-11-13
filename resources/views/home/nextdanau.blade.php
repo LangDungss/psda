@@ -24,7 +24,7 @@
             },
         }
     </script>
-    <title>Landing Page</title>
+    <title>Layanan-Danau</title>
 </head>
 
 <body class="text-gray-800 bg-blue-900">
@@ -34,7 +34,7 @@
         <div class="flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
             <!-- Logo di kiri -->
             <a class="text-teal-600 flex items-center" href="#">
-               
+
                 <img src="{{ asset('images/logopsda.png') }}" class="h-14" alt="logo PSDA">
             </a>
 
@@ -88,49 +88,7 @@
             </section>
         </main>
 
-        <!--Embung-->
-        <main class="mt-8">
-            <section class="p-6 rounded-lg shadow-md bg-blue-950">
-                <div class="mb-6 text-white">
-                    <h2 class="text-xl font-bold italic">“EMBUNG TEBAT BESAK, EMPAT LAWANG“</h2>
-                </div>
 
-                <div class="grid grid-cols-1 gap-2">
-                    <div class="p-1">
-                        <img src="{{ asset('images/danau/embung1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Atas">
-                    </div>
-
-                    <div class="p-1">
-                        <img src="{{ asset('images/danau/embung2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah">
-                    </div>
-                    <p class="mt-2 text-white">
-                        Rehabilitasi Embung Tebat Besak, Desa Batu Lintang
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <!--Embung lubuk linggau-->
-        <main class="mt-8">
-            <section class="p-6 rounded-lg shadow-md bg-blue-950">
-                <div class="mb-6 text-white">
-                    <h2 class="text-xl font-bold italic">“NORMALISASI EMBUNG“</h2>
-                </div>
-
-                <div class="grid grid-cols-1 gap-2">
-                    <div class="p-1">
-                        <img src="{{ asset('images/danau/embung lubuk linggau1.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Atas">
-                    </div>
-
-                    <div class="p-1">
-                        <img src="{{ asset('images/danau/embung lubuk linggau2.png') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Bawah">
-                    </div>
-                    <p class="mt-2 text-white">
-                        Lokasi :Nikan Jaya, Lubuk Linggau
-                    </p>
-                </div>
-            </section>
-        </main>
 
        <!--tebing-->
 <main class="mt-8">

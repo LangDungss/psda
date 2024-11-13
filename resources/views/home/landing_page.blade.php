@@ -21,7 +21,7 @@
             },
         }
     </script>
-    <title>Landing Page</title>
+    <title>Home</title>
 </head>
 
 <body class="bg-gray-100 text-gray-800 font-poppins">
@@ -105,7 +105,7 @@
             </div>
             <div class="md:w-1/2">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">Tentang Dinas PSDA Provinsi Sumatera Selatan</h2>
-                <p class="text-sm md:text-lg">Dinas Pengelolaan Sumber Daya Air (PSDA) Sumatera Selatan adalah lembaga pemerintah daerah yang bertugas mengelola sumber daya air di provinsi Sumatera Selatan.</p>
+                <p class="text-sm md:text-lg text-black font-bold">Dinas Pengelolaan Sumber Daya Air (PSDA) Sumatera Selatan adalah lembaga pemerintah daerah yang bertugas mengelola sumber daya air di provinsi Sumatera Selatan.</p>
             </div>
         </div>
     </section>
