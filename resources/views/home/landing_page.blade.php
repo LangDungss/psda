@@ -24,23 +24,32 @@
     <title>Home</title>
 </head>
 
-<body class="bg-gray-100 text-gray-800 font-poppins">
+<body class="bg-gray-100 text-gray-800 font-poppins overflow-x-hidden">
 
     <!-- Header -->
     <header class="bg-amber-400">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <div class="flex-1 md:flex md:items-center md:gap-12">
+                <div class="flex items-center gap-4">
+                    <!-- Sidebar toggle button for mobile -->
+                    <button onclick="toggleNavbar()" class="rounded bg-gray-100 p-2 text-gray-600 md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
+                    <!-- Logo -->
                     <a class="block text-teal-600" href="#">
-                        <span class="sr-only">Home</span>
                         <img src="{{asset('images/logopsda.png')}}" class="h-10 md:h-14">
                     </a>
                 </div>
 
+                <!-- Navbar items for desktop -->
                 <div class="md:flex md:items-center md:gap-12">
-                    <nav aria-label="Global" class="hidden md:block">
+                    <!-- Navbar items, initially hidden on small screens -->
+                    <nav aria-label="Global" class="hidden md:block" id="navbarMenu">
                         <ul class="flex items-center gap-6 text-sm">
-                            <li><a class="text-black hover:text-gray-500/75" href="#"> Beranda </a></li>
+                            <li><a class="text-black hover:text-gray-500/75" href="/"> Beranda </a></li>
                             <li><a class="text-black hover:text-gray-500/75" href="{{ route('home.layananpsda.layanankami') }}"> Layanan </a></li>
                             <li><a class="text-black hover:text-gray-500/75" href="/tentang"> Tentang Kami </a></li>
                             <li><a class="text-black hover:text-gray-500/75" href="/contact"> Hubungi Kami </a></li>
@@ -49,18 +58,28 @@
 
                     <div class="flex items-center gap-4">
                         <a class="rounded-md bg-blue-600 hover:bg-amber-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="{{route('login')}}">Login</a>
-                        <div class="block md:hidden">
-                            <button class="rounded bg-gray-100 p-2 text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Sidebar for mobile -->
+    <nav id="navbarMenuSidebar" class="fixed top-0 left-0 h-full w-64 bg-amber-300 shadow-lg transform transition-transform -translate-x-full md:hidden z-50">
+        <div class="flex justify-end p-4">
+            <button onclick="toggleNavbar()" class="text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-col items-start gap-6 text-sm p-6">
+            <li><a class="text-black hover:text-gray-500" href="/">Beranda</a></li>
+            <li><a class="text-black hover:text-gray-500" href="{{ route('home.layananpsda.layanankami') }}">Layanan</a></li>
+            <li><a class="text-black hover:text-gray-500" href="/tentang">Tentang Kami</a></li>
+            <li><a class="text-black hover:text-gray-500" href="/contact">Hubungi Kami</a></li>
+        </ul>
+    </nav>
 
     <!-- Hero Section -->
     <section class="bg-blue-600 text-white py-16 px-4 text-center">
@@ -118,5 +137,14 @@
         </div>
     </footer>
 
+    <script>
+        function toggleNavbar() {
+            const navbarSidebar = document.getElementById("navbarMenuSidebar");
+            const body = document.body;
+
+            navbarSidebar.classList.toggle("-translate-x-full");
+            body.classList.toggle("overflow-hidden");
+        }
+    </script>
 </body>
 </html>

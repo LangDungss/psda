@@ -36,17 +36,17 @@
             </h1>
         </header>
 
-        <!-- Sungai Talang Jambi -->
+        <!-- Sumur bor -->
         <main class="mt-8">
             <section class="p-6 rounded-lg shadow-md bg-blue-950">
-                <!-- Text Section -->
+               {{-- <!-- Text Section -->
                 <div class="mb-6 text-white">
-                    <h2 class="text-xl font-bold italic">“PENGUATAN TEBING SUNGAI“</h2>
-                </div>
+                    <h2 class="text-xl font-bold italic">“Pembuatan Sumur Bor“</h2>
+                </div> --}}
                 <!-- Frame untuk gambar kiri dan kanan -->
                 <div class="flex flex-col md:flex-row justify-between mt-6">
                     <!-- Gambar kiri -->
-                    <div class="w-full md:w-1/2 p-2 relative">
+                    <div class="w-full md:w-1/2 p-3 relative">
                         <img src="{{ asset('images/sumurbor/sumur bor 1.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
                     </div>
                     <!-- Gambar kanan -->
@@ -54,16 +54,16 @@
                         <img src="{{ asset('images/sumurbor/sumur bor 2.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
                     </div>
                 </div>
-                <p class="mt-2 text-white">Lokasi: Talang Jambe, Palembang</p>
+                {{-- <p class="mt-2 text-white">Lokasi: </p> --}}
             </section>
         </main>
-        <!-- Sungai Talang Jambi -->
+        <!-- Sumur bor -->
         <main class="mt-8">
             <section class="p-6 rounded-lg shadow-md bg-blue-950">
-                <!-- Text Section -->
+               {{-- <!-- Text Section -->
                 <div class="mb-6 text-white">
-                    <h2 class="text-xl font-bold italic">“PENGUATAN TEBING SUNGAI“</h2>
-                </div>
+                    <h2 class="text-xl font-bold italic">“Pembuatan Sumur Bor“</h2>
+                </div> --}}
                 <!-- Frame untuk gambar kiri dan kanan -->
                 <div class="flex flex-col md:flex-row justify-between mt-6">
                     <!-- Gambar kiri -->
@@ -75,7 +75,7 @@
                         <img src="{{ asset('images/sumurbor/sumur bor 4.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
                     </div>
                 </div>
-                <p class="mt-2 text-white">Lokasi: Talang Jambe, Palembang</p>
+                {{-- <p class="mt-2 text-white">Lokasi: Talang Jambe, Palembang</p> --}}
             </section>
         </main>
 

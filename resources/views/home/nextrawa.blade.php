@@ -63,21 +63,24 @@
             <section class="p-6 rounded-lg shadow-md bg-blue-950">
                 <!-- Frame untuk gambar kiri dan kanan -->
                 <div class="flex flex-wrap justify-between mt-6">
+                   {{-- <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-xl font-bold italic">"Daerah Rawa"</h2>
+                </div> --}}
                     <!-- Gambar kiri -->
                     <div class="w-full sm:w-1/2 p-2 relative">
                         <img src="{{ asset('images/fotorawa/rawa 1.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
-                        <p class="font-bold text-white text-xl italic absolute bottom-2 left-2 px-2 py-1 rounded-lg">
-                            “DAERAH RAWA“
-                        </p>
+
                     </div>
 
                     <!-- Gambar kanan -->
                     <div class="w-full sm:w-1/2 p-2 relative">
                         <img src="{{ asset('images/fotorawa/rawa 2.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
-                        <p class="text-white text-lg italic absolute bottom-2 left-2 px-2 py-1 rounded-lg">
-                            I Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
+
                     </div>
+                    {{-- <p class="mt-2 text-white">
+                        Lokasi :
+                    </p> --}}
                 </div>
             </section>
         </main>
@@ -87,21 +90,22 @@
             <section class="p-6 rounded-lg shadow-md bg-blue-950">
                 <!-- Frame untuk gambar kiri dan kanan -->
                 <div class="flex flex-wrap justify-between mt-6">
+                    {{-- <!-- Text Section -->
+                <div class="mb-6 text-white">
+                    <h2 class="text-xl font-bold italic">"Daerah Rawa"</h2>
+                </div> --}}
                     <!-- Gambar kiri -->
                     <div class="w-full sm:w-1/2 p-2 relative">
                         <img src="{{ asset('images/fotorawa/rawa 3.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kiri">
-                        <p class="font-bold text-white text-xl italic absolute bottom-2 left-2 px-2 py-1 rounded-lg">
-                            “DAERAH RAWA“
-                        </p>
                     </div>
 
                     <!-- Gambar kanan -->
                     <div class="w-full sm:w-1/2 p-2 relative">
                         <img src="{{ asset('images/fotorawa/rawa 4.jpeg.jpg') }}" class="w-full h-auto border border-gray-300 rounded-lg" alt="Gambar Kanan">
-                        <p class="text-white text-lg italic absolute bottom-2 left-2 px-2 py-1 rounded-lg">
-                            I Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
                     </div>
+                    {{-- <p class="mt-2 text-white">
+                        Lokasi :
+                    </p> --}}
                 </div>
             </section>
         </main>

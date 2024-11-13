@@ -166,25 +166,25 @@
                                                     <div>
                                                         <p class="font-bold text-black text-sm">KEPALA SEKSI SURVEY</p>
                                                         <h5 class="text-sm font-semibold text-black">ABDURRAHMAN, ST</h5>
-                                                        <h5 class="text-sm font-semibold text-black">PENATA (III/c) NIP. 19760125 200901 1 004</h5>
+                                                        <h5 class="text-sm font-semibold text-black">PENATA MUDA TK. I (III/b) NIP. 19910302 201903 1 006</h5>
                                                     </div>
                                                 </div>
                                                 <!-- Kasi 2 -->
                                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
-                                                    <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/RAMDHANI (KASI).jpg') }}" alt="Kasi Perencanaan Teknik" class="w-16 h-16 rounded-full mr-3">
+                                                    <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MUHAMMAD ROBIE CHEMISTRA (KASI).jpg') }}" alt="Kasi Perencanaan Teknik" class="w-16 h-16 rounded-full mr-3">
                                                     <div>
-                                                        <p class="font-bold text-black text-sm">KEPALA SEKSI PERENCANAAN TEKNIK</p>
-                                                        <h5 class="text-sm font-semibold text-black">RAMDHANI, MT</h5>
-                                                        <h5 class="text-sm font-semibold text-black">PEMBINA (III/d) NIP. 19740523 200601 1 002</h5>
+                                                        <p class="font-bold text-black text-sm">KEPALA SEKSI DESAIN IRIGASI DAN RAWA</p>
+                                                        <h5 class="text-sm font-semibold text-black">MUHAMMAD ROBIE CHEMISTRA, S.Si, MPWK</h5>
+                                                        <h5 class="text-sm font-semibold text-black">PEMBINA (IV/a) NIP. 19850629 200803 1 001</h5>
                                                     </div>
                                                 </div>
                                                 <!-- Kasi 3 -->
                                                 <div class="bg-white shadow-lg rounded-lg p-3 flex items-center">
-                                                    <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/SITI MUTIA (KASI).jpg') }}" alt="Kasi Pengawasan" class="w-16 h-16 rounded-full mr-3">
+                                                    <img src="{{ asset('images/FOTO KEPALA DINAS, SEKRETARIS, KABID, KASI DINAS PSDA/BIDANG REKAYASA TEKNIK/MERI MIARDI (KASI).jpg') }}" alt="Kasi Pengawasan" class="w-16 h-16 rounded-full mr-3">
                                                     <div>
-                                                        <p class="font-bold text-black text-sm">KEPALA SEKSI PENGAWASAN</p>
-                                                        <h5 class="text-sm font-semibold text-black">SITI MUTIA, ST</h5>
-                                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/c) NIP. 19810810 200602 2 005</h5>
+                                                        <p class="font-bold text-black text-sm">KEPALA SEKSI DESAIN SUNGAI DAN DANAU </p>
+                                                        <h5 class="text-sm font-semibold text-black">MERI MIARDI, ST, M.Si</h5>
+                                                        <h5 class="text-sm font-semibold text-black">PENATA TK. I (III/d) NIP. 19791106 200801 1 003</h5>
                                                     </div>
                                                 </div>
                                             </div>

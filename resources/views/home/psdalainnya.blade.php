@@ -26,7 +26,7 @@
     </script>
     <title>Layanan Lainnya</title>
 </head>
- 
+
 <body class="text-gray-800 bg-blue-900">
 
     <!-- Header -->
@@ -99,7 +99,9 @@
 
 
     </div>
-
+    <footer class="mb-5 text-center">
+        <p class="text-white">#PSDA TANGGAP Alamat: Jalan Anwar Sastro, No. 1251 Telefon: 0711 35 2362 Fax: 0711 361381 Instagram: @dinaspsdaprov.sumsel</p>
+    </footer>
 </body>
 
 </html>
