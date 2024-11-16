@@ -49,6 +49,9 @@ class HomeController extends Controller
     public function psdalainnya(){
         return view('home.psdalainnya');
     }
+    public function kopsurat(){
+        return view('home.kopsurat');
+    }
 }
 
 

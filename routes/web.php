@@ -34,6 +34,8 @@ Route::get('/nextsungai', [HomeController::class, 'nextsungai']);
 Route::get('/nextdanau', [HomeController::class, 'nextdanau']);
 Route::get('/nextsumurbor', [HomeController::class, 'nextsumurbor']);
 Route::get('/psdalainnya', [HomeController::class, 'psdalainnya']);
+Route::get('/layananpsda', [HomeController::class, 'layanankami'])->name('home.layananpsda.layanankami');
+Route::get('/kopsurat', [HomeController::class, 'kopsurat'])->name('home.kopsurat');
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authanticate'])->name('authanticate');
@@ -61,7 +63,7 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
     Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
 });
 
-Route::get('/layananpsda', [HomeController::class, 'layanankami'])->name('home.layananpsda.layanankami');
+
 
 
 

@@ -800,3 +800,592 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kop Surat</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center; /* Memusatkan konten secara horizontal */
+            align-items: center; /* Memusatkan konten secara vertikal */
+            min-height: 100vh; /* Tinggi minimal sesuai viewport */
+            background-color: #f9f9f9; /* Background untuk kontras */
+        }
+
+        .kop-surat {
+            width: 21cm; /* Ukuran A4 */
+            height: 29.7cm; /* Ukuran A4 */
+            padding: 2cm 2.5cm;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan */
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        .header-text {
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-text h1 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .header-text h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .header-text p {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .line {
+            border: none;
+            border-top: 2px solid black;
+            margin: 10px 0;
+        }
+
+        .content {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .content h3,
+        p.nomor {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .content .top-right {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .table-header {
+            font-weight: bold;
+            background-color: #f4f4f4;
+        }
+
+        .table-title {
+            text-align: left;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px; /* Sesuaikan ukuran checkbox */
+            height: 20px;
+            margin: 0; /* Menghapus margin default untuk lebih rapi */
+        }
+
+        td:first-child {
+            width: 25%;
+        }
+
+        td:nth-child(2) {
+            width: 30%;
+        }
+
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        td:nth-child(4) {
+            width: 25%;
+        }
+
+        input {
+            width: 100%; /* Sesuaikan lebar input dengan kolom */
+            border: none; /* Hilangkan border bawaan */
+            border-bottom: 1px solid black; /* Tambahkan garis bawah */
+            font-size: 12px;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 2px;
+            word-wrap: break-word; /* Memungkinkan teks berpindah ke baris baru */
+            white-space: normal; /* Memastikan teks tidak dalam satu baris */
+            overflow-wrap: break-word; /* Pecah kata panjang */
+            overflow: hidden; /* Hilangkan scroll */
+            height: 30px; /* Menyesuaikan tinggi input dengan ukuran textarea */
+        }
+
+        input:focus {
+            outline: none; /* Hilangkan border biru saat fokus */
+            border-bottom: 1px solid blue; /* Tambahkan garis bawah biru */
+        }
+
+        .editable {
+            border: none;
+            border-bottom: 1px solid black; /* Garis bawah untuk efek pengisian */
+            font-size: 12px;
+            font-family: 'Times New Roman', Times, serif;
+            width: 150px; /* Lebar input */
+            text-align: left; /* Posisi teks di kiri */
+            padding: 2px;
+            height: 30px; /* Tinggi input agar serupa dengan textarea */
+        }
+
+        .editable:focus {
+            outline: none; /* Hilangkan garis fokus default */
+            border-bottom: 1px solid blue; /* Garis bawah saat fokus */
+        }
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div class="kop-surat">
+        <div class="header">
+            <img src="{{ asset('images/kopsurat/logoKop.png') }}" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PEMERINTAH PROVINSI SUMATERA SELATAN</h1>
+                <h2>DINAS PENGELOLAAN SUMBER DAYA AIR</h2>
+                <p>Jalan Kapten Anwar Sastro No. 1251, Ilir Timur I, Palembang Sumatera Selatan</p>
+                <p>Telepon (0711) 352362, Faksimile (0711) 361381</p>
+            </div>
+        </div>
+
+        <hr class="line">
+
+        <!--Main Content-->
+        <div class="content">
+            <div class="top-right">
+                <p>
+                    Palembang, <input type="text" placeholder="Isi Tanggal" class="editable" />
+                </p>
+                <p>
+                    Kepada<br>
+                    Yth, Kepala Dinas Pengelolaan Sumber<br>
+                    Daya Air Provinsi Sumatera Selatan<br>
+                    di Palembang
+                </p>
+            </div>
+
+            <h3>FORMULIR PERMINTAAN DAN PEMBERIAN CUTI</h3>
+            <p class="nomor">
+                Nomor: <input type="text" placeholder="Isi Nomor Surat" class="editable" />
+            </p>
+
+            <!--Bagian I. DATA PEGAWAI-->
+            <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="4" class="table-title">I. DATA PEGAWAI</td>
+                </tr>
+                <!-- Baris 1 -->
+                <tr>
+                    <td>Nama</td>
+                    <td><input type="text" placeholder="Isi Nama" /></td>
+                    <td>NIP</td>
+                    <td><input type="text" placeholder="Isi NIP" /></td>
+                </tr>
+                <!-- Baris 2 -->
+                <tr>
+                    <td>Jabatan</td>
+                    <td><input type="text" placeholder="Isi Jabatan" /></td>
+                    <td>Masa Kerja</td>
+                    <td><input type="text" placeholder="Isi Masa Kerja" /></td>
+                </tr>
+                <!-- Baris 3 -->
+                <tr>
+                    <td>Unit Kerja</td>
+                    <td colspan="3"><input type="text" placeholder="Isi Unit Kerja" /></td>
+                </tr>
+            </table>
+
+            <!--II. JENIS CUTI YANG DIAMBIL-->
+            <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="4" class="table-title">II. JENIS CUTI YANG DIAMBIL</td>
+                </tr>
+                <!-- Baris 1 -->
+                <tr>
+                    <td>1. Cuti Tahunan</td>
+                    <td><input type="checkbox" id="cuti-tahunan"></td>
+                    <td>4. Cuti Melahirkan</td>
+                    <td><input type="checkbox" id="cuti-melahirkan"></td>
+                </tr>
+                <!-- Baris 2 -->
+                <tr>
+                    <td>2. Cuti Besar</td>
+                    <td><input type="checkbox" id="cuti-besar"></td>
+                    <td>5. Cuti Alasan Penting</td>
+                    <td><input type="checkbox" id="cuti-alasan-penting"></td>
+                </tr>
+                <!-- Baris 3 -->
+                <tr>
+                    <td>3. Cuti Sakit</td>
+                    <td><input type="checkbox" id="cuti-sakit"></td>
+                    <td>6. Cuti Lain-lain</td>
+                    <td><input type="checkbox" id="cuti-lain-lain"></td>
+                </tr>
+            </table>
+
+
+            <!--Bagian III. ALASAN CUTI-->
+            <table>
+                <tr>
+                    <td colspan="4" class="table-title">III. ALASAN CUTI</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" placeholder="Isi Alasan Cuti" class="editable" />
+                    </td>
+                </tr>
+            </table>
+
+            <!--Bagian IV. PERSYARATAN-->
+            <table>
+                <tr>
+                    <td colspan="4" class="table-title">IV. PERSYARATAN</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" placeholder="Isi Persyaratan" class="editable" />
+                    </td>
+                </tr>
+            </table>
+
+            <!--Bagian V. TANDA TANGAN-->
+            <table>
+                <tr>
+                    <td colspan="4" class="table-title">V. TANDA TANGAN</td>
+                </tr>
+                <tr>
+                    <td>
+                        Mengetahui<br>
+                        Atasan Langsung
+                    </td>
+                    <td colspan="3">
+                        <input type="text" placeholder="Isi Nama Atasan Langsung" class="editable" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="height: 40px;">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+ <!--Bagian IV. LAMANYA CUTI-->
+            <table>
+                <tr>
+                    <td colspan="4" class="table-title">IV. LAMANYA CUTI</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" placeholder="Keterangan" class="editable" />
+                    </td>
+                </tr>
+            </table>
+
+             <!--Bagian V. CATATAN CUTI-->
+             <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="4" class="table-title">V. CATATAN CUTI</td>
+                </tr>
+
+                <!-- Baris 1 -->
+                <tr>
+                    <td colspan="3">1. CUTI TAHUNAN</td>
+                    <td>2. CUTI BESAR</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <!-- Subkolom untuk CUTI TAHUNAN -->
+                <tr>
+                    <td>Tahun</td>
+                    <td>Sisa</td>
+                    <td>Keterangan</td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <!-- Baris 2 -->
+                <tr>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>3. CUTI SAKIT</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+
+                <!-- Baris 3 -->
+                <tr>
+                    <td colspan="3"></td>
+                    <td>4. CUTI MELAHIRKAN</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+
+                <!-- Baris 4 -->
+                <tr>
+                    <td colspan="3"></td>
+                    <td>5. CUTI KARENA ALASAN PENTING</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+
+                <!-- Baris 5 -->
+                <tr>
+                    <td colspan="3"></td>
+                    <td>6. CUTI DILUAR TANGGUNGAN NEGARA</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+            </table>
+
+
+
+             <!--Bagian I. DATA PEGAWAI-->
+            <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="4" class="table-title">I. DATA PEGAWAI</td>
+                </tr>
+                <!-- Baris 1 -->
+                <tr>
+                    <td>Nama</td>
+                    <td><input type="text" placeholder="Isi Nama" /></td>
+                    <td>NIP</td>
+                    <td><input type="text" placeholder="Isi NIP" /></td>
+                </tr>
+                <!-- Baris 2 -->
+                <tr>
+                    <td>Jabatan</td>
+                    <td><input type="text" placeholder="Isi Jabatan" /></td>
+                    <td>Masa Kerja</td>
+                    <td><input type="text" placeholder="Isi Masa Kerja" /></td>
+                </tr>
+                <!-- Baris 3 -->
+                <tr>
+                    <td>Unit Kerja</td>
+                    <td colspan="3"><input type="text" placeholder="Isi Unit Kerja" /></td>
+                </tr>
+            </table>
+
+            <!--II. JENIS CUTI YANG DIAMBIL-->
+            <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="4" class="table-title">II. JENIS CUTI YANG DIAMBIL</td>
+                </tr>
+                <!-- Baris 1 -->
+                <tr>
+                    <td>1. Cuti Tahunan</td>
+                    <td><input type="checkbox" id="cuti-tahunan"></td>
+                    <td>4. Cuti Melahirkan</td>
+                    <td><input type="checkbox" id="cuti-melahirkan"></td>
+                </tr>
+                <!-- Baris 2 -->
+                <tr>
+                    <td>2. Cuti Besar</td>
+                    <td><input type="checkbox" id="cuti-besar"></td>
+                    <td>5. Cuti Alasan Penting</td>
+                    <td><input type="checkbox" id="cuti-alasan-penting"></td>
+                </tr>
+                <!-- Baris 3 -->
+                <tr>
+                    <td>3. Cuti Sakit</td>
+                    <td><input type="checkbox" id="cuti-sakit"></td>
+                    <td>6. Cuti Lain-lain</td>
+                    <td><input type="checkbox" id="cuti-lain-lain"></td>
+                </tr>
+            </table>
+
+
+            <!--Bagian III. ALASAN CUTI-->
+            <table>
+                <tr>
+                    <td colspan="4" class="table-title">III. ALASAN CUTI</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" placeholder="Isi Alasan Cuti" class="editable" />
+                    </td>
+                </tr>
+            </table>
+
+            <!--Bagian IV. LAMANYA CUTI-->
+            <table>
+                <tr>
+                    <td colspan="4" class="table-title">IV. LAMANYA CUTI</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" placeholder="Keterangan" class="editable" />
+                    </td>
+                </tr>
+            </table>
+
+             <!--Bagian V. CATATAN CUTI-->
+             <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="5" class="table-title">V. CATATAN CUTI</td>
+                </tr>
+
+                <!-- Baris 1 -->
+                <tr>
+                    <td colspan="3">1. CUTI TAHUNAN</td>
+                    <td>2. CUTI BESAR</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <!-- Subkolom untuk CUTI TAHUNAN -->
+                <tr>
+                    <td>Tahun</td>
+                    <td>Sisa</td>
+                    <td>Keterangan</td>
+
+                    <td>3. CUTI SAKIT</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td>4. CUTI MELAHIRKAN</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td>5. CUTI KARENA ALASAN PENTING</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td>6. CUTI DILUAR TANGGUNGAN NEGARA</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+
+            </table>
+
+
+<!--Bagian V. CATATAN CUTI-->
+             <table>
+                <!-- Judul Tabel -->
+                <tr>
+                    <td colspan="5" class="table-title">V. CATATAN CUTI</td>
+                </tr>
+
+                <!-- Baris 1 -->
+                <tr>
+                    <td colspan="3">1. CUTI TAHUNAN</td>
+                    <td>2. CUTI BESAR</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <!-- Subkolom untuk CUTI TAHUNAN -->
+                <tr>
+                    <td>Tahun</td>
+                    <td>Sisa</td>
+                    <td>Keterangan</td>
+
+                    <td>3. CUTI SAKIT</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td>4. CUTI MELAHIRKAN</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td>5. CUTI KARENA ALASAN PENTING</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Tahun" /></td>
+                    <td><input type="text" placeholder="Sisa" /></td>
+                    <td><input type="text" placeholder="Keterangan" /></td>
+                    <td>6. CUTI DILUAR TANGGUNGAN NEGARA</td>
+                    <td><input type="text" placeholder="" /></td>
+                </tr>
+
+            </table>
