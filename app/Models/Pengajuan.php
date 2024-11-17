@@ -88,4 +88,16 @@ class Pengajuan extends Model
     {
         return json_decode($value, true);
     }
+
+    
+    public function komentar()
+    {
+        return $this->hasMany(PengajuanKomentar::class, 'pengajuan_id', 'id');
+        // 'pengajuan_id' adalah foreign key di tabel pengajuan_komentar
+        // 'id' adalah primary key di tabel pengajuan
+    }
+    
+    
+    
+
 }

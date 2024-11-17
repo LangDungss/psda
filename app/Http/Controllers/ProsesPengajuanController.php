@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengajuan;
+use App\Models\PengajuanKomentar;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class ProsesPengajuanController extends Controller
 {
@@ -16,25 +19,32 @@ class ProsesPengajuanController extends Controller
             return $query->where('status', $status);
         })->get();
 
-        return view('dashboard\proses_pengajuan\index', compact('pengajuans'));
+        return view('dashboard.proses_pengajuan.index', compact('pengajuans'));
     }
+
 
     public function updateStatus(Request $request, $id)
     {
-        // Validasi status yang dipilih
         $request->validate([
             'status' => 'required|in:proses,disetujui,ditolak,perbaiki',
+            'comment' => 'required|max:65535',
         ]);
-
-        // Cari pengajuan berdasarkan ID
+    
+        // Temukan pengajuan berdasarkan ID
         $pengajuan = Pengajuan::findOrFail($id);
-
-        // Update status pengajuan
-        $pengajuan->status = $request->status;
+        $pengajuan->status = $request->input('status');
         $pengajuan->save();
-
-        // Redirect kembali dengan pesan sukses
-        return redirect()->route('proses-pengajuan.index')->with('success', 'Status pengajuan berhasil diubah!');
+    
+        // Simpan komentar dan status baru ke tabel pengajuan_komentar
+        PengajuanKomentar::create([
+            'pengajuan_id' => $pengajuan->id,
+            'id_surat' => $pengajuan->id, // Sesuaikan jika ada hubungan khusus dengan id_surat
+            'komentar' => $request->input('comment'),
+            'status' => $request->input('status'),
+        ]);
+    
+        return redirect()->back()->with('success', 'Status dan komentar berhasil diperbarui.');
     }
-}
+    
 
+}
