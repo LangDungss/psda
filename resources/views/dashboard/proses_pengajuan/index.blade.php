@@ -7,7 +7,7 @@
 @section('dashboard-content')
 <div class="container mx-auto px-4 py-6">
     <h1 class="text-2xl font-semibold mb-6">Daftar Pengajuan yang Perlu Diproses</h1>
-    
+
     @if($pengajuans->isEmpty())
         <div class="bg-blue-100 text-blue-800 p-4 rounded-md">
             Tidak ada pengajuan yang perlu diproses saat ini.
@@ -41,21 +41,43 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 text-center">
-                                <form action="{{ route('pengajuan.updateStatus', $pengajuan->id) }}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    <select name="status" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full focus:outline-none">
-                                        <option value="proses" {{ $pengajuan->status == 'proses' ? 'selected' : '' }}>Proses</option>
-                                        <option value="disetujui" {{ $pengajuan->status == 'disetujui' ? 'selected' : '' }}>Disetujui</option>
-                                        <option value="ditolak" {{ $pengajuan->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
-                                        <option value="perbaiki" {{ $pengajuan->status == 'perbaiki' ? 'selected' : '' }}>Perbaiki</option>
-                                    </select>
-                                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none mt-2">
-                                        <i class="fas fa-save mr-2"></i> Simpan Status
-                                    </button>
-                                </form>
+                                <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none mt-2"
+                                    onclick="document.getElementById('statusModal-{{ $pengajuan->id }}').classList.remove('hidden')">
+                                    <i class="fas fa-edit mr-2"></i> Set Status
+                                </button>
+
+                                <!-- Modal for setting status and comment -->
+                                <div id="statusModal-{{ $pengajuan->id }}" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-gray-500 bg-opacity-50">
+                                    <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/3 p-6">
+                                        <div class="flex justify-between items-center mb-4">
+                                            <h5 class="text-lg font-semibold">Update Status Pengajuan</h5>
+                                            <button type="button" class="text-gray-600" onclick="document.getElementById('statusModal-{{ $pengajuan->id }}').classList.add('hidden')">
+                                                &times;
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('pengajuan.updateStatus', $pengajuan->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="mb-3">
+                                                <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                                                <select name="status" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
+                                                    <option value="proses" {{ $pengajuan->status == 'proses' ? 'selected' : '' }}>Proses</option>
+                                                    <option value="disetujui" {{ $pengajuan->status == 'disetujui' ? 'selected' : '' }}>Disetujui</option>
+                                                    <option value="ditolak" {{ $pengajuan->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                                    <option value="perbaiki" {{ $pengajuan->status == 'perbaiki' ? 'selected' : '' }}>Perbaiki</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="comment" class="block text-sm font-medium text-gray-700">Komentar</label>
+                                                <textarea name="comment" class="form-control w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Masukkan komentar..." required></textarea>
+                                            </div>
+                                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600">
+                                                Simpan Status dan Komentar
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
-                            
                         </tr>
                     @endforeach
                 </tbody>

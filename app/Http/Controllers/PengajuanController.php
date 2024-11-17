@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use App\Models\PengajuanKomentar;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,10 +17,25 @@ class PengajuanController extends Controller
     public function index()
     {
         $pegawaiId = Auth::guard('pegawai')->user()->id;
-        $pengajuans = Pengajuan::where('pegawai_id', $pegawaiId)->latest()->get();
+    
+        // Ambil data pengajuan beserta komentar terkait menggunakan eager loading
+        $pengajuans = Pengajuan::with(['komentar' => function ($query) {
+            $query->latest(); // Ambil komentar terbaru
+        }])->where('pegawai_id', $pegawaiId)->latest()->get();
         
-        return view('dashboard\perjanalan-dinas\index', ['pengajuans' => $pengajuans]);
+    
+        return view('dashboard.perjanalan-dinas.index', ['pengajuans' => $pengajuans]);
     }
+
+    public function getKomentar($id)
+{
+    $komentar = PengajuanKomentar::where('pengajuan_id', $id)->latest()->first();
+
+    return response()->json([
+        'komentar' => $komentar ? $komentar->komentar : null,
+    ]);
+}
+
 
     /**
      * Menampilkan form untuk membuat pengajuan baru.
@@ -162,5 +178,21 @@ class PengajuanController extends Controller
     // Kembalikan file PDF sebagai unduhan
     return $pdf->download('pengajuan-detail.pdf');
 }
+
+
+
+public function storeKomentar(Request $request)
+{
+    $validated = $request->validate([
+        'pengajuan_id' => 'required|exists:pengajuans,id',
+        'komentar' => 'required|string',
+        'status' => 'required|in:proses,disetujui,ditolak,perbaiki',
+    ]);
+
+    PengajuanKomentar::create($validated);
+
+    return redirect()->back()->with('success', 'Komentar berhasil ditambahkan!');
+}
+
 
 }
