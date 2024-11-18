@@ -42,28 +42,24 @@
                                     class="ml-2 px-2 py-1 text-xs font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
                                     Notif Status
                                 </button>
-                                
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
                                     @if ($p->status == 'perbaiki')
-                                        <a href="{{ route('perjalanan-dinas.edit', $p->id) }}"
-                                            class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300"
-                                            aria-label="Edit Surat">
+                                        <button onclick="confirmAction('Edit Surat', '{{ route('perjalanan-dinas.edit', $p->id) }}')"
+                                            class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300">
                                             Edit Surat
-                                        </a>
+                                        </button>
                                     @elseif ($p->status == 'disetujui')
-                                        <a href="{{ route('pengajuan.export-pdf', $p->id) }}"
-                                            class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-green-600 bg-green-100 rounded-lg hover:bg-green-200 focus:outline-none focus:ring focus:ring-green-300"
-                                            aria-label="Generate Surat">
+                                        <button onclick="confirmAction('Generate Surat', '{{ route('pengajuan.export-pdf', $p->id) }}')"
+                                            class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-green-600 bg-green-100 rounded-lg hover:bg-green-200 focus:outline-none focus:ring focus:ring-green-300">
                                             Generate Surat
-                                        </a>
+                                        </button>
                                     @else
                                         <span class="text-gray-500 italic">Tidak ada aksi</span>
                                     @endif
                                 </div>
                             </td>
-                            
                         </tr>
                         @endforeach
                     </tbody>
@@ -99,6 +95,18 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    </script>
+@endif
 <script>
     function showKomentarModal(komentar) {
         const modal = document.getElementById('modalKomentar');
@@ -112,6 +120,25 @@
         const modal = document.getElementById('modalKomentar');
         modal.classList.add('hidden'); // Sembunyikan modal
     }
-</script>
 
+    function confirmAction(actionName, actionUrl) {
+        Swal.fire({
+            title: `${actionName}?`,
+            text: "Pastikan tindakan yang Anda ambil sudah benar.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: `Ya, ${actionName}`,
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Diproses!', `${actionName} sedang diproses.`, 'success');
+                setTimeout(() => {
+                    window.location.href = actionUrl;
+                }, 2000);
+            }
+        });
+    }
+</script>
 @endsection

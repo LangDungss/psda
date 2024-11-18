@@ -85,4 +85,38 @@
         </div>
     @endif
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    </script>
+@endif
+
+<script>
+    
+    function showStatusModal(id, currentStatus) {
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: "Apakah Anda yakin ingin mengubah status pengajuan ini?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Ubah Status',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`statusModal-${id}`).classList.remove('hidden');
+            }
+        });
+    }
+</script>
 @endsection
+

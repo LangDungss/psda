@@ -132,16 +132,34 @@
 
                 <!-- Submit Button -->
                 <div class="mt-6 text-right">
-                    <button id="submit-button" type="button" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg hover:bg-blue-700">
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg hover:bg-blue-700">
                         Ajukan
                     </button>
                 </div>
-                
             </div>
         </form>
     </div>
+
+    <!-- SweetAlert2 Script -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        document.getElementById('submit-button').addEventListener('click', function () {
+            Swal.fire({
+                title: 'Konfirmasi Pengajuan',
+                text: "Apakah Anda yakin ingin mengajukan perjalanan dinas ini?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Ajukan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('form-perjalanan-dinas').submit();
+                }
+            });
+        });
+
         document.getElementById('jumlah_berpergian').addEventListener('input', function () {
             const jumlah = parseInt(this.value);
             const stafFieldsContainer = document.getElementById('staf_fields');
@@ -152,7 +170,7 @@
                     <div class="staf-form mb-4">
                         <h4 class="font-semibold text-gray-700 dark:text-gray-200">Staf Pendamping ${i + 1}</h4>
                         <label class="block text-sm mb-2">
-                            <span class="text-gray-700 dark:text -gray-400">Nama</span>
+                            <span class="text-gray-700 dark:text-gray-400">Nama</span>
                             <input type="text" name="staf_pendamping[${i}][nama]" placeholder="Nama Staf Pendamping" 
                                    class="block w-full mt-1 text-sm form-input" required />
                         </label>
@@ -176,23 +194,5 @@
                 stafFieldsContainer.insertAdjacentHTML('beforeend', newStafField);
             }
         });
-
-        document.getElementById('submit-button').addEventListener('click', function () {
-        Swal.fire({
-            title: 'Konfirmasi Pengajuan',
-            text: 'Apakah Anda yakin ingin mengajukan perjalanan dinas ini?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Ajukan',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Kirimkan form jika pengguna mengonfirmasi
-                document.querySelector('form').submit();
-            }
-        });
-    });
     </script>
-@endsection 
+@endsection
