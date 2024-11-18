@@ -46,17 +46,24 @@
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
-                                    <a href="{{ route('perjalanan-dinas.edit', $p->id) }}"
-                                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                        aria-label="Edit">
-                                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                            </path>
-                                        </svg>
-                                    </a>
+                                    @if ($p->status == 'perbaiki')
+                                        <a href="{{ route('perjalanan-dinas.edit', $p->id) }}"
+                                            class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300"
+                                            aria-label="Edit Surat">
+                                            Edit Surat
+                                        </a>
+                                    @elseif ($p->status == 'disetujui')
+                                        <a href="{{ route('pengajuan.export-pdf', $p->id) }}"
+                                            class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-green-600 bg-green-100 rounded-lg hover:bg-green-200 focus:outline-none focus:ring focus:ring-green-300"
+                                            aria-label="Generate Surat">
+                                            Generate Surat
+                                        </a>
+                                    @else
+                                        <span class="text-gray-500 italic">Tidak ada aksi</span>
+                                    @endif
                                 </div>
                             </td>
+                            
                         </tr>
                         @endforeach
                     </tbody>
