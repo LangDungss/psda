@@ -44,6 +44,11 @@ class Pegawai extends Authenticatable
         return $this->hasMany(Pengajuan::class);
     }
 
+    public function pengajuanCuti()
+    {
+        return $this->hasMany(pengajuanCuti::class);
+    }
+
     /**
      * The attributes that should be cast.
      *

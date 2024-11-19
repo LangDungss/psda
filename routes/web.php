@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\ProsesPengajuanController;
 use App\Http\Controllers\PerjalananDinasController;
+use App\Http\Controllers\PengajuanCutiController;
 use App\Models\Pengajuan;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +63,24 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
     Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
     Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
 });
+
+
+Route::group(['prefix' => 'pengajuan-cuti', 'middleware' => 'auth.pegawai'], function () {
+
+    Route::get('/riwayat', [PengajuanCutiController::class, 'index'])->name('pengajuan-cuti.index');
+    Route::get('/create', [PengajuanCutiController::class, 'create'])->name('pengajuan-cuti.create');
+    Route::post('/store', [PengajuanCutiController::class, 'store'])->name('pengajuan-cuti.store');
+    Route::get('/{id}', [PengajuanCutiController::class, 'show'])->name('pengajuan-cuti.show');
+    Route::get('/{id}/edit', [PengajuanCutiController::class, 'edit'])->name('pengajuan-cuti.edit');
+    Route::put('/{id}', [PengajuanCutiController::class, 'update'])->name('pengajuan-cuti.update');
+    Route::delete('/{id}', [PengajuanCutiController::class, 'destroy'])->name('pengajuan-cuti.destroy');
+    Route::get('/pengajuan/{id}/export-pdf', [PengajuanCutiController::class, 'exportPdf'])->name('pengajuan-cuti.export-pdf');
+    Route::get('pengajuan-cuti/export-pdf/{id}', [PengajuanCutiController::class, 'exportPdf'])->name('pengajuan-cuti.export-pdf');
+
+});
+
+Route::get('/layananpsda', [HomeController::class, 'layanankami']);
+Route::get('/pengajuan/preview/{id}', [PengajuanCutiController::class, 'previewSurat'])->name('pengajuan.preview');
 
 
 
