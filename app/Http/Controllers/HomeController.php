@@ -11,9 +11,9 @@ class HomeController extends Controller
         return view('home.landing_page');
     }
 
-    public function layanan()
+    public function contact()
     {
-    return view('home.layanan');
+    return view('home.contact');
     }
     public function tentang()
     {
@@ -27,16 +27,31 @@ class HomeController extends Controller
     {
         return view('home.nextrawa');
     }
+
     public function nextsungai()
     {
         return view('home.nextsungai');
     }
+
     public function nextdanau()
     {
         return view('home.nextdanau');
     }
 
+    public function nextsumurbor()
+    {
+        return view('home.nextsumurbor');
+    }
     public function layanankami(){
         return view('home.layananpsda.layanankami');
     }
+
+    public function psdalainnya(){
+        return view('home.psdalainnya');
+    }
+    public function kopsurat(){
+        return view('home.kopsurat');
+    }
 }
+
+
