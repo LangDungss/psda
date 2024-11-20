@@ -11,6 +11,7 @@ class PengajuanCuti extends Model
 
     protected $table = 'pengajuan_cuti';
 
+    // Kolom yang dapat diisi secara massal
     protected $fillable = [
         'nomor_surat',
         'nama',
@@ -20,12 +21,16 @@ class PengajuanCuti extends Model
         'unit_kerja',
         'jenis_cuti',
         'alasan_cuti',
-        'tanggal_mulai',
-        'tanggal_selesai',
+        'lama_cuti', // Disesuaikan untuk menggantikan tanggal_mulai dan tanggal_selesai
         'alamat_cuti',
         'status',
-        'catatan',
+        'catatan_cuti', // Mengganti catatan dengan tipe JSON
         'pegawai_id',
+    ];
+
+    // Cast untuk kolom JSON
+    protected $casts = [
+        'catatan_cuti' => 'array',
     ];
 
     public function komentar()

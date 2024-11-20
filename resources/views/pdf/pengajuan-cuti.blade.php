@@ -233,7 +233,7 @@ p.nomor {
             <!-- Baris 3 -->
             <tr>
                 <td>3. Cuti Sakit</td>
-                <td><input type="checkbox" id="cuti-sakit"></td>
+                <td><input type="checkbox" id="cuti-sakit"<?php echo ($pengajuan->jenis_cuti == 'Cuti Sakit') ? 'checked' : ''; ?>></td>
                 <td>6. Cuti Lain-lain</td>
                 <td><input type="checkbox" id="cuti-lain-lain" <?php echo ($pengajuan->jenis_cuti == 'Cuti Alasan Penting') ? 'checked' : ''; ?>></td>
             </tr>
@@ -259,74 +259,77 @@ p.nomor {
             </tr>
             <tr>
                 <td colspan="4">
-                    <input type="text"class="editable" />
+                   {{$pengajuan->lama_cuti}} hari
                 </td>
             </tr>
         </table>
 
-<!--Bagian V. CATATAN CUTI-->
+<!-- Bagian V. CATATAN CUTI -->
 <table>
-<!-- Judul Tabel -->
-<tr>
-    <td colspan="5" class="table-title">V. CATATAN CUTI</td>
-</tr>
+    <!-- Judul Tabel -->
+    <tr>
+        <td colspan="5" class="table-title">V. CATATAN CUTI</td>
+    </tr>
 
-<!-- Header Kolom -->
-<tr>
-    <td colspan="2">Jenis Cuti</td>
-    <td>Tahun</td>
-    <td>Sisa</td>
-    <td>Keterangan</td>
-</tr>
+    <!-- Header Kolom -->
+    <tr>
+        <td colspan="2">Jenis Cuti</td>
+        <td>Tahun</td>
+        <td>Sisa</td>
+        <td>Keterangan</td>
+    </tr>
 
-<!-- Data CUTI TAHUNAN -->
-<tr>
-    <td colspan="2">1. CUTI TAHUNAN</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+    <!-- Data CUTI TAHUNAN -->
+    <tr>
+        <td colspan="2">1. CUTI TAHUNAN</td>
+        <td>{{ $catatanCuti['cuti_tahunan']['tahun'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_tahunan']['sisa'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_tahunan']['keterangan'] ?? '' }}</td>
+    </tr>
 
-<!-- Data CUTI BESAR -->
-<tr>
-    <td colspan="2">2. CUTI BESAR</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+    <!-- Data CUTI BESAR -->
+    <tr>
+        <td colspan="2">2. CUTI BESAR</td>
+        <td>{{ $catatanCuti['cuti_besar']['tahun'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_besar']['sisa'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_besar']['keterangan'] ?? '' }}</td>
+    </tr>
 
-<!-- Data CUTI SAKIT -->
-<tr>
-    <td colspan="2">3. CUTI SAKIT</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+    <!-- Data CUTI SAKIT -->
+    <tr>
+        <td colspan="2">3. CUTI SAKIT</td>
+        <td>{{ $catatanCuti['cuti_sakit']['tahun'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_sakit']['sisa'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_sakit']['keterangan'] ?? '' }}</td>
+    </tr>
 
-<!-- Data CUTI MELAHIRKAN -->
-<tr>
-    <td colspan="2">4. CUTI MELAHIRKAN</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+    <!-- Data CUTI MELAHIRKAN -->
+    <tr>
+        <td colspan="2">4. CUTI MELAHIRKAN</td>
+        <td>{{ $catatanCuti['cuti_melahirkan']['tahun'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_melahirkan']['sisa'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_melahirkan']['keterangan'] ?? '' }}</td>
+    </tr>
 
-<!-- Data CUTI ALASAN PENTING -->
-<tr>
-    <td colspan="2">5. CUTI KARENA ALASAN PENTING</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+    <!-- Data CUTI KARENA ALASAN PENTING -->
+    <tr>
+        <td colspan="2">5. CUTI KARENA ALASAN PENTING</td>
+        <td>{{ $catatanCuti['cuti_alasan_penting']['tahun'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_alasan_penting']['sisa'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_alasan_penting']['keterangan'] ?? '' }}</td>
+    </tr>
 
-<!-- Data CUTI DI LUAR TANGGUNGAN NEGARA -->
-<tr>
-    <td colspan="2">6. CUTI DI LUAR TANGGUNGAN NEGARA</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+    <!-- Data CUTI DI LUAR TANGGUNGAN NEGARA -->
+    <tr>
+        <td colspan="2">6. CUTI DI LUAR TANGGUNGAN NEGARA</td>
+        <td>{{ $catatanCuti['cuti_luar_tanggungan']['tahun'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_luar_tanggungan']['sisa'] ?? '' }}</td>
+        <td>{{ $catatanCuti['cuti_luar_tanggungan']['keterangan'] ?? '' }}</td>
+    </tr>
 </table>
+
+
+
 
 <!-- Bagian VI. BAGIAN ALAMAT SELAMA MENJALANKAN CUTI -->
 <table >

@@ -77,16 +77,11 @@
                               class="block w-full mt-1 text-sm form-textarea" rows="3" required></textarea>
                 </label>
 
-                <!-- Tanggal Mulai -->
+                <!-- Lama Cuti -->
                 <label class="block text-sm mb-4">
-                    <span class="text-gray-700 dark:text-gray-400">Tanggal Mulai</span>
-                    <input type="date" name="tanggal_mulai" class="block w-full mt-1 text-sm form-input" required />
-                </label>
-
-                <!-- Tanggal Selesai -->
-                <label class="block text-sm mb-4">
-                    <span class="text-gray-700 dark:text-gray-400">Tanggal Selesai</span>
-                    <input type="date" name="tanggal_selesai" class="block w-full mt-1 text-sm form-input" required />
+                    <span class="text-gray-700 dark:text-gray-400">Lama Cuti (dalam hari)</span>
+                    <input type="number" name="lama_cuti" placeholder="Contoh: 10" 
+                           class="block w-full mt-1 text-sm form-input" required />
                 </label>
 
                 <!-- Alamat Cuti -->
@@ -96,13 +91,65 @@
                            class="block w-full mt-1 text-sm form-input" required />
                 </label>
 
+                <!-- Catatan Cuti -->
+                <div class="mb-4">
+                    <span class="block text-gray-700 dark:text-gray-400">Catatan Cuti</span>
+                    <table class="w-full mt-2 text-sm">
+                        <thead>
+                            <tr class="text-left border-b dark:border-gray-700">
+                                <th class="py-2">Jenis Cuti</th>
+                                <th class="py-2">Tahun</th>
+                                <th class="py-2">Sisa</th>
+                                <th class="py-2">Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cuti Tahunan</td>
+                                <td><input type="text" name="catatan_cuti[cuti_tahunan][tahun]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_tahunan][sisa]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_tahunan][keterangan]" class="form-input w-full"></td>
+                            </tr>
+                            <tr>
+                                <td>Cuti Besar</td>
+                                <td><input type="text" name="catatan_cuti[cuti_besar][tahun]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_besar][sisa]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_besar][keterangan]" class="form-input w-full"></td>
+                            </tr>
+                            <tr>
+                                <td>Cuti Sakit</td>
+                                <td><input type="text" name="catatan_cuti[cuti_sakit][tahun]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_sakit][sisa]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_sakit][keterangan]" class="form-input w-full"></td>
+                            </tr>
+                            <tr>
+                                <td>Cuti Melahirkan</td>
+                                <td><input type="text" name="catatan_cuti[cuti_melahirkan][tahun]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_melahirkan][sisa]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_melahirkan][keterangan]" class="form-input w-full"></td>
+                            </tr>
+                            <tr>
+                                <td>Cuti Karena Alasan Penting</td>
+                                <td><input type="text" name="catatan_cuti[cuti_alasan_penting][tahun]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_alasan_penting][sisa]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_alasan_penting][keterangan]" class="form-input w-full"></td>
+                            </tr>
+                            <tr>
+                                <td>Cuti Di Luar Tanggungan Negara</td>
+                                <td><input type="text" name="catatan_cuti[cuti_luar_tanggungan][tahun]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_luar_tanggungan][sisa]" class="form-input w-full"></td>
+                                <td><input type="text" name="catatan_cuti[cuti_luar_tanggungan][keterangan]" class="form-input w-full"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <!-- Submit Button -->
                 <div class="mt-6 text-right">
                     <button id="submit-button" type="button" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg hover:bg-blue-700">
                         Ajukan Cuti
                     </button>
                 </div>
-                
             </div>
         </form>
     </div>
