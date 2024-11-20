@@ -27,13 +27,16 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/layanan', [HomeController::class, 'layanan']);
+Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/nextirigasi', [HomeController::class, 'nextirigasi']);
 Route::get('/nextrawa', [HomeController::class, 'nextrawa']);
 Route::get('/nextsungai', [HomeController::class, 'nextsungai']);
 Route::get('/nextdanau', [HomeController::class, 'nextdanau']);
 Route::get('/nextsumurbor', [HomeController::class, 'nextsumurbor']);
+Route::get('/psdalainnya', [HomeController::class, 'psdalainnya']);
+Route::get('/layananpsda', [HomeController::class, 'layanankami'])->name('home.layananpsda.layanankami');
+Route::get('/kopsurat', [HomeController::class, 'kopsurat'])->name('home.kopsurat');
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authanticate'])->name('authanticate');
@@ -60,6 +63,7 @@ Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], f
     Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
     Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
 });
+
 
 Route::group(['prefix' => 'pengajuan-cuti', 'middleware' => 'auth.pegawai'], function () {
 
