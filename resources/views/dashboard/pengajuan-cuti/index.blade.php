@@ -50,7 +50,7 @@
                                             class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300">
                                             Edit Pengajuan
                                         </button>
-                                    @elseif ($p->status == 'disetujui')
+                                    @elseif ($p->status == 'Disetujui')
                                         <button onclick="confirmAction('Generate Surat', '{{ route('pengajuan-cuti.export-pdf', $p->id) }}')"
                                             class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-green-600 bg-green-100 rounded-lg hover:bg-green-200 focus:outline-none focus:ring focus:ring-green-300">
                                             Generate Surat

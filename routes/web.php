@@ -76,6 +76,8 @@ Route::group(['prefix' => 'pengajuan-cuti', 'middleware' => 'auth.pegawai'], fun
 });
 
 Route::get('/layananpsda', [HomeController::class, 'layanankami']);
+Route::get('/pengajuan/preview/{id}', [PengajuanCutiController::class, 'previewSurat'])->name('pengajuan.preview');
+
 
 
 

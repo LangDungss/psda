@@ -51,43 +51,27 @@
 
 
         .content {
-    font-size: 11px;
-}
+            font-size: 11px;
 
-.content h3 {
-    font-size: 12px;
-    text-align: center;
-    margin: 0;
-}
+        }
 
-p.nomor {
-    font-size: 12px;
-    margin: 0;
-    text-align: left;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+        .content h3,
+        p.nomor {
+            font-size: 12px;
+            text-align: center;
 
-.content .top-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
+        }
 
-.top-right p {
-    margin: 0;
-}
 
-.top-right .right {
-    text-align: right;
-}
+        .content .top-right {
+            text-align: right;
 
+        }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 1px;
         }
 
         th{
@@ -99,7 +83,7 @@ p.nomor {
             border: 2px solid black;
             padding: 3px;
             text-align: left;
-            font-size: 9px;
+            font-size: 11px;
         }
 
         .table-title {
@@ -110,12 +94,14 @@ p.nomor {
 
         input[type="checkbox"] {
             width: 16px;
+            height: 20px;
+            margin: 0;
         }
 
         input {
             width: 100%;
-            font-size: 9px;
-            border-collapse: collapse;
+            border: none;
+            font-size: 12px;
 
         }
 
@@ -153,32 +139,22 @@ p.nomor {
     </div>
 
     <div class="content">
-        <div class="content">
-            <div class="top-right">
-                <!-- Nomor Surat di pojok kiri -->
-                <p class="nomor">Nomor: {{$pengajuan->nomor_surat}}</p>
-        
-                <!-- Judul di tengah -->
-                <h3>FORMULIR PERMINTAAN DAN PEMBERIAN CUTI</h3>
-        
-                <!-- Teks Palembang di pojok kanan -->
-                <p class="right">
-                    Palembang, 
-                </p>
-                <br>
-                <p class="right">
-                    Kepada<br>
-                    Yth, Kepala Dinas Pengelolaan Sumber<br>
-                    Daya Air Provinsi Sumatera Selatan<br>
-                    di Palembang
-                </p>
-                <br>
-            </div>
-        
-            
+        <div class="top-right">
+            <p style="display: inline-flex; align-items: center;">
+                Palembang, <input type="text" placeholder="Isi Tanggal" class="editable" style=""/>
+            </p>
+            <p style="top: 90px">
+                Kepada<br>
+                Yth, Kepala Dinas Pengelolaan Sumber<br>
+                Daya Air Provinsi Sumatera Selatan<br>
+                di Palembang
+            </p>
         </div>
-        
-        
+
+        <h3>FORMULIR PERMINTAAN DAN PEMBERIAN CUTI</h3>
+        <p class="nomor" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+            Nomor: <input type="text" value="{{$pengajuan->nomor_surat}}" placeholder="Isi Nomor Surat" class="editable" style="width: 200px;" />
+        </p>
 
 
 
@@ -191,21 +167,21 @@ p.nomor {
             <!-- Baris 1 -->
             <tr>
                 <td>Nama</td>
-                <td>{{$pengajuan->nama}}</td>
+                <td><input type="text" value="{{$pengajuan->nama}}"/></td>
                 <td>NIP</td>
-                <td>{{$pengajuan->nip}}</td>
+                <td><input type="text" value="{{$pengajuan->nip}}"/></td>
             </tr>
             <!-- Baris 2 -->
             <tr>
                 <td>Jabatan</td>
-                <td>{{$pengajuan->jabatan}}</td>
+                <td><input type="text" value="{{$pengajuan->jabatan}}"/></td>
                 <td>Masa Kerja</td>
-                <td>{{$pengajuan->masa_kerja}}</td>
+                <td><input type="text" value="{{$pengajuan->masa_kerja}}"/></td>
             </tr>
             <!-- Baris 3 -->
             <tr>
                 <td>Unit Kerja</td>
-                <td colspan="3">{{$pengajuan->unit_kerja}}</td>
+                <td colspan="3"><input type="text" value="{{$pengajuan->unit_kerja}}"/></td>
             </tr>
         </table>
 
@@ -247,7 +223,7 @@ p.nomor {
             </tr>
             <tr>
                 <td colspan="4">
-                    {{$pengajuan->alasan_cuti}}
+                    <input type="text"class="editable" value="{{$pengajuan->alasan_cuti}}"/>
                 </td>
             </tr>
         </table>
@@ -282,54 +258,54 @@ p.nomor {
 <!-- Data CUTI TAHUNAN -->
 <tr>
     <td colspan="2">1. CUTI TAHUNAN</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
 </tr>
 
 <!-- Data CUTI BESAR -->
 <tr>
     <td colspan="2">2. CUTI BESAR</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
 </tr>
 
 <!-- Data CUTI SAKIT -->
 <tr>
     <td colspan="2">3. CUTI SAKIT</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
 </tr>
 
 <!-- Data CUTI MELAHIRKAN -->
 <tr>
     <td colspan="2">4. CUTI MELAHIRKAN</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><input type="text" /></td>
+    <td><input type="text"/></td>
+    <td><input type="text"/></td>
 </tr>
 
 <!-- Data CUTI ALASAN PENTING -->
 <tr>
     <td colspan="2">5. CUTI KARENA ALASAN PENTING</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><input type="text"/></td>
+    <td><input type="text" /></td>
+    <td><input type="text"/></td>
 </tr>
 
 <!-- Data CUTI DI LUAR TANGGUNGAN NEGARA -->
 <tr>
     <td colspan="2">6. CUTI DI LUAR TANGGUNGAN NEGARA</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><input type="text"/></td>
+    <td><input type="text" /></td>
+    <td><input type="text"/></td>
 </tr>
 </table>
 
 <!-- Bagian VI. BAGIAN ALAMAT SELAMA MENJALANKAN CUTI -->
-<table >
+<table>
 <!-- Judul Tabel -->
 <tr>
     <td colspan="3" class="table-title">VI. BAGIAN ALAMAT SELAMA MENJALANKAN CUTI</td>
@@ -337,18 +313,18 @@ p.nomor {
 
 <!-- Baris 1 (2 kolom) -->
 <tr>
-    <td colspan="2" style="width: 40%; vertical-align: top;"> <!-- Membuat kolom ini lebih besar dan rata atas -->
-        <div contenteditable="true" style="width: 100%;  min-height: 1px; resize: vertical; white-space: pre-wrap;">
+    <td colspan="2" style="width: 10%; height:10%; vertical-align: top;"> <!-- Membuat kolom ini lebih besar dan rata atas -->
+        <div contenteditable="true" style="width: 100%; padding: 10px; box-sizing:  border-radius: 4px; border-bottom: none; min-height: 100px; resize: vertical; white-space: pre-wrap;">
             <p>{{$pengajuan->alamat_cuti}}</p>>
         </div>
     </td>
 
-    <td style="width: 55%;"> <!-- Kolom "Hormat saya" lebih kecil -->
+    <td style="width: 30%;"> <!-- Kolom "Hormat saya" lebih kecil -->
         <div style="text-align: center;;">
             <p style="margin-top: 0%"><strong>Hormat saya</strong></p>
             <div style="margin-top: 30px;">
-                {{$pengajuan->nama}}" 
-                {{$pengajuan->nip}}
+                <input type="text"  placeholder=":" value="{{$pengajuan->nama}}" style="width: 100%; box-sizing: border-box; border-bottom: none;">
+                <input type="text" placeholder=":" value="{{$pengajuan->nip}}" style="width: 100%; box-sizing: border-box; border-bottom: none;">
             </div>
         </div>
     </td>
@@ -357,18 +333,18 @@ p.nomor {
 
 
 <!-- Bagian VII. PERTIMBANGAN ATASAN LANGSUNG -->
-<table style=" border-collapse: collapse; border: 1px solid #000;">
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
 <!-- Judul Tabel -->
 <tr>
-    <td colspan="4" class="table-title" style="font-weight: bold;">VII. PERTIMBANGAN ATASAN LANGSUNG</td>
+    <td colspan="3" class="table-title" style="font-weight: bold; border: 1px solid #000;">VII. PERTIMBANGAN ATASAN LANGSUNG</td>
 </tr>
 
 <!-- Baris untuk Status -->
 <tr>
-    <td style="padding: 1px; text-align: center; border: 1px solid #000;">DISETUJUI</td>
-    <td style="padding: 1px; text-align: center; border: 1px solid #000;">PERUBAHAN</td>
-    <td style="padding: 1px; text-align: center; border: 1px solid #000;">DITANGGUHKAN</td>
-    <td style="padding: 1px; text-align: center; border: 1px solid #000;">TIDAK DISETEJUI</td>
+    <td style="padding: 2px; text-align: center; border: 1px solid #000;">DISETUJUI</td>
+    <td style="padding: 2px; text-align: center; border: 1px solid #000;">PERUBAHAN</td>
+    <td style="padding: 2px; text-align: center; border: 1px solid #000;">DITANGGUHKAN</td>
+    <td style="padding: 2px; text-align: center; border: 1px solid #000;">TIDAK DISETEJUI</td>
 </tr>
 
 <!-- Baris untuk Checkbox -->
@@ -392,27 +368,27 @@ p.nomor {
 </tr>
 </table>
 
+<!-- Tabel Kolom Alamat dan "ttd" -->
 <table>
-    <tr>
-        <!-- Kolom Alamat -->
-        <td style="width: 40%; vertical-align: top; padding: 10px;">
-            <div contenteditable="true" style=" padding: 10px;  min-height: 1px;  resize: vertical; white-space: pre-wrap;">
-                <!-- Isi alamat bisa diketik di sini -->
-            </div>
-        </td>
-    
-        <!-- Kolom ttd -->
-        <td style="width: 50%; vertical-align: top; padding: 10px;">
-            <div style="">
-    
-                <div contenteditable="true" style="width: 100%; padding: 10px; min-height: 1px; resize: vertical; ">
-    
-                </div>
-            </div>
-        </td>
-    </tr>
-    </table>
+<tr>
+    <!-- Kolom Alamat -->
+    <td style="; vertical-align: top; padding: 10px;">
+        <div contenteditable="true" style=" padding: 10px; box-sizing: border-box; border-radius: 4px; border-bottom: none; min-height: 100px; border: 1px solid #ccc; resize: vertical; white-space: pre-wrap;">
+            <!-- Isi alamat bisa diketik di sini -->
+        </div>
+    </td>
 
+    <!-- Kolom ttd -->
+    <td style="width: 40%; vertical-align: top; padding: 10px;">
+        <div style="">
+
+            <div contenteditable="true" style="width: 100%; padding: 10px; box-sizing: border-box; border-radius: 4px; border-bottom: none; min-height: 100px; border: 1px solid #ccc; resize: vertical; white-space: pre-wrap;">
+
+            </div>
+        </div>
+    </td>
+</tr>
+</table>
 
 
 <!-- Bagian VIII. KEPUTUSAN PEJABAT YANG BERWENANG MEMBERIKAN CUTI -->
@@ -456,17 +432,17 @@ p.nomor {
 <table style=" border-collapse: collapse; border: 1px solid #000;">
 <tr>
     <!-- -->
-    <td style="width: 40%; vertical-align: top; padding: 10px;">
+    <td style="width: 60%; vertical-align: top; padding: 10px;">
     </td>
 
     <!--  -->
-    <td style="width: 50%; vertical-align: top; padding: 10px;">
+    <td style="width: 40%; vertical-align: top; padding: 10px;">
 
         <div style="padding-bottom: 10px; font-weight: bold; text-align: center;">
             KEPALA DINAS<br>PENGELOLAAN SUMBER DAYA AIR<br>PROVINSI SUMATERA SELATAN
         </div>
         <div style="">
-            <div contenteditable="true" style="width: 100%; padding: 10px; min-height: 5px; resize: vertical; ">
+            <div contenteditable="true" style="width: 100%; padding: 10px; box-sizing: border-box; border-radius: 4px; border-bottom: none; min-height: 100px; border: 1px solid #ccc; resize: vertical; white-space: pre-wrap;">
 
             </div>
         </div>
