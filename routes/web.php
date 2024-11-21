@@ -35,7 +35,7 @@ Route::get('/nextsungai', [HomeController::class, 'nextsungai']);
 Route::get('/nextdanau', [HomeController::class, 'nextdanau']);
 Route::get('/nextsumurbor', [HomeController::class, 'nextsumurbor']);
 Route::get('/psdalainnya', [HomeController::class, 'psdalainnya']);
-Route::get('/layananpsda', [HomeController::class, 'layanankami'])->name('home.layananpsda.layanankami');
+Route::get('/layananpsda', [HomeController::class, 'layanankami']);
 Route::get('/kopsurat', [HomeController::class, 'kopsurat'])->name('home.kopsurat');
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
