@@ -50,7 +50,7 @@
                     <nav aria-label="Global" class="hidden md:block" id="navbarMenu">
                         <ul class="flex items-center gap-6 text-sm">
                             <li><a class="text-black hover:text-gray-500/75" href="/"> Beranda </a></li>
-                            <li><a class="text-black hover:text-gray-500/75" href="{{ route('home.layananpsda.layanankami') }}"> Layanan </a></li>
+                            <li><a class="text-black hover:text-gray-500/75" href="/layananpsda"> Layanan </a></li>
                             <li><a class="text-black hover:text-gray-500/75" href="/tentang"> Tentang Kami </a></li>
                             <li><a class="text-black hover:text-gray-500/75" href="/contact"> Hubungi Kami </a></li>
                         </ul>
@@ -75,7 +75,7 @@
         </div>
         <ul class="flex flex-col items-start gap-6 text-sm p-6">
             <li><a class="text-black hover:text-gray-500" href="/">Beranda</a></li>
-            <li><a class="text-black hover:text-gray-500" href="{{ route('home.layananpsda.layanankami') }}">Layanan</a></li>
+            <li><a class="text-black hover:text-gray-500" href="/layananpsda">Layanan</a></li>
             <li><a class="text-black hover:text-gray-500" href="/tentang">Tentang Kami</a></li>
             <li><a class="text-black hover:text-gray-500" href="/contact">Hubungi Kami</a></li>
         </ul>
