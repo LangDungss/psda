@@ -7,6 +7,7 @@ use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\ProsesPengajuanController;
 use App\Http\Controllers\PerjalananDinasController;
 use App\Http\Controllers\PengajuanCutiController;
+use App\Http\Controllers\PengajuanCutiKomentarController;
 use App\Models\Pengajuan;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,23 @@ Route::get('/pengajuan/proses', [ProsesPengajuanController::class, 'index'])
 Route::post('/pengajuan/proses/{id}', [PengajuanController::class, 'proses'])->name('pengajuan.proses');
 Route::put('/pengajuan/{id}/update-status', [ProsesPengajuanController::class, 'updateStatus'])->name('pengajuan.updateStatus');
 
+
+
+
+// Route untuk memproses pengajuan cuti, termasuk update status dan komentar
+Route::middleware(['auth.pegawai'])->group(function () {
+    // Menampilkan daftar pengajuan cuti untuk diproses
+    Route::get('/pengajuan/cuti/proses', [PengajuanCutiKomentarController::class, 'index'])
+        ->name('pengajuan-cutiproses.index');
+    
+    // Proses pengajuan cuti (update status dan komentar)
+    Route::post('/pengajuan/cuti/proses/{id}', [PengajuanCutiKomentarController::class, 'proses'])
+        ->name('pengajuan-cutiproses.proses');
+    
+    // Update status pengajuan cuti dan simpan komentar
+    Route::put('/pengajuan/cuti/{id}/update-status', [PengajuanCutiKomentarController::class, 'updateStatus'])
+        ->name('pengajuan-cutiproses.updateStatus');
+});
 
 
 Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], function () {
