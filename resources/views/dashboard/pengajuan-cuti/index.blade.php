@@ -17,9 +17,9 @@
                 <table class="w-full whitespace-no-wrap">
                     <thead>
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                            <th class="px-4 py-3">Mulai Cuti</th>
-                            <th class="px-4 py-3">Berakhir Cuti</th>
-                            <th class="px-4 py-3">Alasan</th>
+                            <th class="px-4 py-3">No Surat</th>
+                            <th class="px-4 py-3">Jenis Cuti</th>
+                            <th class="px-4 py-3">Nama</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Aksi</th>
                         </tr>
@@ -27,15 +27,15 @@
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                         @foreach ($pengajuanCuti as $p)
                         <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-4 py-3 text-sm">{{ $p->tanggal_mulai }}</td>
-                            <td class="px-4 py-3 text-sm">{{ $p->tanggal_akhir }}</td>
-                            <td class="px-4 py-3 text-sm">{{ $p->alasan }}</td>
+                            <td class="px-4 py-3 text-sm">{{ $p->nomor_surat }}</td>
+                            <td class="px-4 py-3 text-sm">{{ $p->jenis_cuti }}</td>
+                            <td class="px-4 py-3 text-sm">{{ $p->nama }}</td>
                             <td class="px-4 py-3 text-sm">
                                 <span class="px-2 py-1 text-xs font-semibold leading-tight 
-                                    {{ $p->status == 'proses' ? 'bg-yellow-400 text-yellow-900' :
-                                    ($p->status == 'disetujui' ? 'bg-green-400 text-green-900' :
-                                    ($p->status == 'ditolak' ? 'bg-red-400 text-red-900' :
-                                    ($p->status == 'perbaiki' ? 'bg-blue-400 text-blue-900' : 'bg-gray-200 text-gray-800'))) }} rounded-full">
+                                    {{ $p->status == 'Proses' ? 'bg-yellow-400 text-yellow-900' :
+                                    ($p->status == 'Disetujui' ? 'bg-green-400 text-green-900' :
+                                    ($p->status == 'Ditolak' ? 'bg-red-400 text-red-900' :
+                                    ($p->status == 'Perbaiki' ? 'bg-blue-400 text-blue-900' : 'bg-gray-200 text-gray-800'))) }} rounded-full">
                                     {{ ucfirst($p->status) }}
                                 </span>
                                 <button onclick="showKomentarModal(`{{ $p->komentar->first()->komentar ?? 'Belum ada komentar.' }}`)"
