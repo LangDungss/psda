@@ -52,9 +52,6 @@ Route::post('/pengajuan/proses/{id}', [PengajuanController::class, 'proses'])->n
 Route::put('/pengajuan/{id}/update-status', [ProsesPengajuanController::class, 'updateStatus'])->name('pengajuan.updateStatus');
 
 
-
-
-// Route untuk memproses pengajuan cuti, termasuk update status dan komentar
 Route::middleware(['auth.pegawai'])->group(function () {
     // Menampilkan daftar pengajuan cuti untuk diproses
     Route::get('/pengajuan/cuti/proses', [PengajuanCutiKomentarController::class, 'index'])
@@ -65,9 +62,14 @@ Route::middleware(['auth.pegawai'])->group(function () {
         ->name('pengajuan-cutiproses.proses');
     
     // Update status pengajuan cuti dan simpan komentar
-    Route::put('/pengajuan/cuti/{id}/update-status', [PengajuanCutiKomentarController::class, 'updateStatus'])
-        ->name('pengajuan-cutiproses.updateStatus');
+    Route::put('/pengajuan-cuti/{id}/update-status', [PengajuanCutiKomentarController::class, 'updateStatus'])
+    ->name('pengajuan-cutiproses.updateStatus');
+
+    Route::get('/pengajuan-cuti/{id}/edit', [PengajuanCutiController::class, 'edit'])->name('pengajuan-cuti.edit');
+    Route::put('/pengajuan-cuti/{id}', [PengajuanCutiController::class, 'update'])->name('pengajuan-cuti.update');
+
 });
+
 
 
 Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], function () {

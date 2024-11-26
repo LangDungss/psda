@@ -46,7 +46,7 @@
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
                                     @if ($p->status == 'perbaiki')
-                                        <button onclick="confirmAction('Edit Pengajuan', '{{ route('cuti.edit', $p->id) }}')"
+                                        <button onclick="confirmAction('Edit Pengajuan', '{{ route('pengajuan-cuti.edit', $p->id) }}')"
                                             class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300">
                                             Edit Pengajuan
                                         </button>

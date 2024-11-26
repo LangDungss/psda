@@ -23,28 +23,31 @@ class ProsesPengajuanController extends Controller
     }
 
 
-    public function updateStatus(Request $request, $id)
+    public function updateStatus(Request $request, $pengajuanCutiId)
     {
+        // Validasi input
         $request->validate([
+            'komentar' => 'required|max:65535',
             'status' => 'required|in:proses,disetujui,ditolak,perbaiki',
-            'comment' => 'required|max:65535',
         ]);
     
-        // Temukan pengajuan berdasarkan ID
-        $pengajuan = Pengajuan::findOrFail($id);
-        $pengajuan->status = $request->input('status');
-        $pengajuan->save();
+        // Cari pengajuan cuti berdasarkan ID
+        $pengajuanCuti = PengajuanCuti::findOrFail($pengajuanCutiId);
     
-        // Simpan komentar dan status baru ke tabel pengajuan_komentar
-        PengajuanKomentar::create([
-            'pengajuan_id' => $pengajuan->id,
-            'id_surat' => $pengajuan->id, // Sesuaikan jika ada hubungan khusus dengan id_surat
-            'komentar' => $request->input('comment'),
+        // Tambahkan komentar baru ke tabel PengajuanCutiKomentar
+        PengajuanCutiKomentar::create([
+            'pengajuancuti_id' => $pengajuanCuti->id,
+            'komentar' => $request->input('komentar'),
             'status' => $request->input('status'),
         ]);
     
-        return redirect()->back()->with('success', 'Status dan komentar berhasil diperbarui.');
-    }
+        // Perbarui status pengajuan cuti
+        $pengajuanCuti->update([
+            'status' => $request->input('status'),
+        ]);
     
+        // Redirect kembali dengan notifikasi sukses
+        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan dan status diperbarui.');
+    }
 
 }

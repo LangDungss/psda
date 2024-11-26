@@ -22,14 +22,17 @@ class PengajuanCutiKomentarController extends Controller
     }
 
     // Menambahkan komentar untuk pengajuan cuti
-    public function store(Request $request, $pengajuanCutiId)
+   
+    
+    public function updateStatus(Request $request, $pengajuanCutiId)
     {
+        // Validasi input
         $request->validate([
             'komentar' => 'required|max:65535',
-            'status' => 'required|in:Pending,Disetujui,Ditolak,Perbaiki',
+            'status' => 'required|in:proses,disetujui,ditolak,perbaiki',
         ]);
 
-        // Cek apakah pengajuan cuti ada
+        // Cari pengajuan cuti berdasarkan ID
         $pengajuanCuti = PengajuanCuti::findOrFail($pengajuanCutiId);
 
         // Tambahkan komentar baru
@@ -46,4 +49,5 @@ class PengajuanCutiKomentarController extends Controller
 
         return redirect()->back()->with('success', 'Komentar berhasil ditambahkan dan status diperbarui.');
     }
+    
 }
