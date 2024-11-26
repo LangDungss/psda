@@ -35,9 +35,7 @@ class PengajuanCuti extends Model
 
     public function komentar()
     {
-        return $this->hasMany(PengajuanKomentar::class, 'pengajuan_id', 'id');
-        // 'pengajuan_id' adalah foreign key di tabel pengajuan_komentar
-        // 'id' adalah primary key di tabel pengajuan
+        return $this->hasMany(PengajuanCutiKomentar::class, 'pengajuancuti_id', 'id');
     }
 
     public function pegawai()

@@ -81,33 +81,52 @@ class PengajuanCutiController extends Controller
 
 
     // Menampilkan form edit pengajuan cuti
-    public function edit(PengajuanCuti $pengajuanCuti)
+    public function edit($id)
     {
-        return view('pengajuan_cuti.edit', compact('pengajuanCuti'));
+        // Cari data pengajuan cuti berdasarkan ID
+        $pengajuanCuti = PengajuanCuti::findOrFail($id);
+    
+        // Tampilkan view edit dengan data pengajuan cuti
+        return view('dashboard.pengajuan-cuti.edit', compact('pengajuanCuti'));
     }
+    
 
     // Memperbarui data pengajuan cuti
-    public function update(Request $request, PengajuanCuti $pengajuanCuti)
-    {
-        $validated = $request->validate([
-            'nomor_surat' => 'nullable|string',
-            'nama' => 'required|string',
-            'nip' => 'required|string',
-            'jabatan' => 'required|string',
-            'masa_kerja' => 'required|string',
-            'unit_kerja' => 'required|string',
-            'jenis_cuti' => 'required|string',
-            'alasan_cuti' => 'required|string',
-            'tanggal_mulai' => 'required|date',
-            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
-            'alamat_cuti' => 'required|string',
-            'catatan' => 'nullable|string',
-        ]);
+    public function update(Request $request, $id)
+{
+    // Validasi input
+    $validated = $request->validate([
+        'nomor_surat' => 'nullable|string',
+        'nama' => 'required|string',
+        'nip' => 'required|string',
+        'jabatan' => 'required|string',
+        'masa_kerja' => 'required|string',
+        'unit_kerja' => 'required|string',
+        'jenis_cuti' => 'required|string',
+        'alasan_cuti' => 'required|string',
+        'lama_cuti' => 'required|integer|min:1',
+        'alamat_cuti' => 'required|string',
+        'catatan_cuti' => 'nullable|array',
+        'catatan_cuti.*.tahun' => 'required_with:catatan_cuti|string',
+        'catatan_cuti.*.sisa' => 'required_with:catatan_cuti|integer',
+        'catatan_cuti.*.keterangan' => 'nullable|string',
+    ]);
 
-        $pengajuanCuti->update($validated);
+    // Ambil data pengajuan cuti berdasarkan ID
+    $pengajuanCuti = PengajuanCuti::findOrFail($id);
 
-        return redirect()->route('pengajuan-cuti.index')->with('success', 'Pengajuan cuti berhasil diperbarui.');
+    // Encode catatan_cuti ke JSON jika ada
+    if (!empty($validated['catatan_cuti'])) {
+        $validated['catatan_cuti'] = json_encode($validated['catatan_cuti']);
     }
+
+    // Update data pengajuan cuti
+    $pengajuanCuti->update($validated);
+
+    // Redirect dengan pesan sukses
+    return redirect()->route('pengajuan-cuti.index')->with('success', 'Pengajuan cuti berhasil diperbarui.');
+}
+
 
 
 
