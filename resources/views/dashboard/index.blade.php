@@ -38,7 +38,9 @@
                     </div>
                     <div>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            Pengajuan cuti
+                            <a href="{{ route('pengajuan-cuti.create') }}"
+                            class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                            Pengajuan Cuti</a>
                         </p>
                     </div>
                 </div>
