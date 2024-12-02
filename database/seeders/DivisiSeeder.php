@@ -14,11 +14,11 @@ class DivisiSeeder extends Seeder
     public function run(): void
     {
         Divisi::create([
-            'nama_divisi' => 'Keuangan',
+            'nama_divisi' => 'Kepala Dinas',
             'bidang_id' => 1
         ]);
         Divisi::create([
-            'nama_divisi' => 'Pengembangan Kawasan',
+            'nama_divisi' => 'Sekretaris',
             'bidang_id' => 2
         ]);
     }

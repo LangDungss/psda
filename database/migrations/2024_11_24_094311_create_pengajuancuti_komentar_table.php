@@ -15,9 +15,9 @@ class CreatePengajuancutiKomentarTable extends Migration
     {
         Schema::create('pengajuancuti_komentar', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('pengajuancuti_id') // Foreign key ke tabel pengajuan_cuti
-            //       ->constrained('pengajuan_cuti') // Nama tabel relasi
-            //       ->onDelete('cascade'); // Hapus komentar jika pengajuan dihapus
+            $table->foreignId('pengajuancuti_id') // Foreign key ke tabel pengajuan_cuti
+                  ->constrained('pengajuan_cuti') // Nama tabel relasi
+                  ->onDelete('cascade'); // Hapus komentar jika pengajuan dihapus
             $table->text('komentar'); // Kolom untuk komentar
             $table->string('status')->default('Pending'); // Kolom untuk status (Pending/Disetujui/Ditolak)
             $table->timestamps();

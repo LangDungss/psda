@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <ul>
-                @if(Auth::guard('pegawai')->user()->divisi_id == 3)
+                @if(Auth::guard('pegawai')->user()->divisi_id == 2)
                 <li class="relative px-6 py-3" x-data="{ open: false }">
                     <!-- Trigger untuk Dropdown -->
                     <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
@@ -50,7 +50,7 @@
             </ul>
 
             <ul>
-                @if(Auth::guard('pegawai')->user()->divisi_id == 3)
+                @if(Auth::guard('pegawai')->user()->divisi_id == 2)
                 <li class="relative px-6 py-3" x-data="{ open: false }">
                     <!-- Trigger Dropdown -->
                     <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
