@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pengajuans', function (Blueprint $table) {
-            $table->integer('jml_hari')->change();
+            $table->integer('jml_hari')->nullable()->change();
         });
     }
 
