@@ -23,7 +23,7 @@ class PengajuanSeeder extends Seeder
             // 'no_pengajuan' => '11223344',
             // 'nama_pengaju' => 'Abdul rahman',
             'kepada' => 'Sekretariat PSDA',
-            'perihal' => 'mengukur ketinggian air rawah di desa penempah pedang',
+            // 'perihal' => 'mengukur ketinggian air rawah di desa penempah pedang',
             'tgl_berangkat' => '2024-05-21',
             'tgl_kembali' => '2024-05-25',
             'jml_hari' => Carbon::parse('2024-05-21')->diffInDays('2024-05-25'),
