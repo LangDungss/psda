@@ -39,6 +39,7 @@ return new class extends Migration
 
             // Transportasi yang digunakan
             $table->string('transportasi');
+            $table->enum('status', ["proses", "ditolak", "disetujui", "perbaiki"])->default("proses");
 
             // Status validasi
             $table->boolean('is_admin')->default(0);
