@@ -4,18 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePengajuancutiKomentarTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('pengajuancuti_komentar', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pengajuancuti_id') // Foreign key ke tabel pengajuan_cuti
+            $table->foreignId('pengajuan_cuti_id') // Foreign key ke tabel pengajuan_cuti
                   ->constrained('pengajuan_cuti') // Nama tabel relasi
                   ->onDelete('cascade'); // Hapus komentar jika pengajuan dihapus
             $table->text('komentar'); // Kolom untuk komentar
@@ -26,12 +24,9 @@ class CreatePengajuancutiKomentarTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('pengajuancuti_komentar');
     }
-}
-
+};
