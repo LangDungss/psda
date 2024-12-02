@@ -42,7 +42,7 @@ class PengajuanController extends Controller
      */
     public function create()
     {
-        // return view('dashboard\perjanalan-dinas\create');
+        return view('dashboard.perjanalan-dinas.create');
     }
 
     /**
