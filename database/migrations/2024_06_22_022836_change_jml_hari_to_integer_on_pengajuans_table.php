@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pengajuans', function (Blueprint $table) {
-            $table->integer('jml_hari')->nullable()->change();
+            if (!Schema::hasColumn('pengajuans', 'jml_hari')) {
+                $table->integer('jml_hari')->nullable();
+            } else {
+                // Jika sudah ada, lakukan perubahan
+                $table->integer('jml_hari')->nullable()->change();
+            }
         });
     }
 
