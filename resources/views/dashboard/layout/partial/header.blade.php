@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <ul>
-                @if(Auth::guard('pegawai')->user()->divisi_id == 2)
+                @if(Auth::guard('pegawai')->user()->divisi_id == 1)
                 <li class="relative px-6 py-3" x-data="{ open: false }">
                     <!-- Trigger untuk Dropdown -->
                     <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
@@ -48,9 +48,38 @@
                 </li>
                 @endif
             </ul>
+            <ul>
+                @if(Auth::guard('pegawai')->user()->divisi_id == 4)
+                <li class="relative px-6 py-3" x-data="{ open: false }">
+                    <!-- Trigger untuk Dropdown -->
+                    <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
+                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                            </path>
+                        </svg>
+                        <span class="ml-4">Proses Pengajuan Sekretaris</span>
+                        <!-- Dropdown Arrow Icon -->
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+            
+                    <!-- Dropdown Menu -->
+                    <div x-show="open" @click.away="open = false" class="absolute left-0 w-48 mt-2 origin-top-left bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                        <div class="py-1">
+                            <a href="{{ route('proses-sekretaris.index', ['status_sekretaris' => 'belum_dikonfirmasi']) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Proses</a>
+                            <a href="{{ route('proses-sekretaris.index', ['status_sekretaris' => 'disetujui']) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Disetujui</a>
+                            <a href="{{ route('proses-sekretaris.index', ['status_sekretaris' => 'ditolak']) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Ditolak</a>
+                        </div>
+                    </div>
+                </li>
+                @endif
+            </ul>
 
             <ul>
-                @if(Auth::guard('pegawai')->user()->divisi_id == 2)
+                @if(Auth::guard('pegawai')->user()->divisi_id == 1)
                 <li class="relative px-6 py-3" x-data="{ open: false }">
                     <!-- Trigger Dropdown -->
                     <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
@@ -85,6 +114,7 @@
             
               
             <ul>
+                @if(Auth::guard('pegawai')->user()->divisi_id != 1 && Auth::guard('pegawai')->user()->divisi_id != 4)
                 <li class="relative px-6 py-3">
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('perjalanan-dinas.index') }}">
@@ -109,9 +139,12 @@
                         <span class="ml-4">Ajukan Perjalanan Dinas</span>
                     </a>
                 </li>
+                @endif
             </ul>
+            
 
             <ul>
+                @if(Auth::guard('pegawai')->user()->divisi_id != 1 && Auth::guard('pegawai')->user()->divisi_id != 4)
                 <li class="relative px-6 py-3">
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('pengajuan-cuti.index') }}">
@@ -136,6 +169,7 @@
                         <span class="ml-4">Ajukan Cuti</span>
                     </a>
                 </li>
+                @endif
             </ul>
             
             <div class="px-6 my-6">
