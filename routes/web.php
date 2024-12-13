@@ -9,6 +9,8 @@ use App\Http\Controllers\PerjalananDinasController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\PengajuanCutiKomentarController;
 use App\Http\Controllers\SekretarisController;
+use App\Http\Controllers\DisposisiController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,3 +90,21 @@ Route::middleware(['auth.pegawai'])->prefix('perjalanan-dinas')->group(function 
     Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
     Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
 });
+
+
+Route::middleware(['auth.pegawai'])->group(function () {
+    Route::get('/disposisi', [DisposisiController::class, 'index'])->name('disposisi.index');
+    Route::get('/disposisi/create', [DisposisiController::class, 'create'])->name('disposisi.create');
+    Route::post('/disposisi', [DisposisiController::class, 'store'])->name('disposisi.store');
+    Route::get('/disposisi/{disposisi}/edit', [DisposisiController::class, 'edit'])->name('disposisi.edit');
+    Route::put('/disposisi/{disposisi}', [DisposisiController::class, 'update'])->name('disposisi.update'); // Disesuaikan menggunakan model binding
+    Route::delete('/disposisi/{disposisi}', [DisposisiController::class, 'destroy'])->name('disposisi.destroy');
+    Route::get('disposisi/{id}/export-pdf', [DisposisiController::class, 'exportPdf'])->name('disposisi.exportPdf');
+    Route::get('disposisi/{id}/preview-pdf', [DisposisiController::class, 'previewPdf'])->name('disposisi.previewPdf');
+});
+
+
+
+
+
+
