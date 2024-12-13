@@ -55,7 +55,7 @@
                     </div>
                     <div>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            Lupo Fiturnyo
+                           Disposii Surat</p>
                         </p>
                     </div>
                 </div>

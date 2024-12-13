@@ -8,7 +8,9 @@ use App\Http\Controllers\ProsesPengajuanController;
 use App\Http\Controllers\PerjalananDinasController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\PengajuanCutiKomentarController;
-use App\Models\Pengajuan;
+use App\Http\Controllers\SekretarisController;
+use App\Http\Controllers\DisposisiController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +18,13 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| This is where you can register web routes for your application.
+| These routes are loaded by the RouteServiceProvider within a group
+| that contains the "web" middleware group.
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
+// Routes for public pages
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
@@ -39,54 +37,31 @@ Route::get('/psdalainnya', [HomeController::class, 'psdalainnya']);
 Route::get('/layananpsda', [HomeController::class, 'layanankami']);
 Route::get('/kopsurat', [HomeController::class, 'kopsurat'])->name('home.kopsurat');
 
+// Authentication routes
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authanticate'])->name('authanticate');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+// Dashboard route
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth.pegawai');
-// Route::resource('nota-dinas', PerjalananDinasController::class)->middleware('auth.pegawai');
-Route::get('/pengajuan/proses', [ProsesPengajuanController::class, 'index'])
-    ->name('proses-pengajuan.index')
-    ->middleware(['auth.pegawai']); // Batasi akses hanya untuk divisi tertentu
-Route::post('/pengajuan/proses/{id}', [PengajuanController::class, 'proses'])->name('pengajuan.proses');
-Route::put('/pengajuan/{id}/update-status', [ProsesPengajuanController::class, 'updateStatus'])->name('pengajuan.updateStatus');
 
-
+// Routes for Pengajuan
 Route::middleware(['auth.pegawai'])->group(function () {
-    // Menampilkan daftar pengajuan cuti untuk diproses
-    Route::get('/pengajuan/cuti/proses', [PengajuanCutiKomentarController::class, 'index'])
-        ->name('pengajuan-cutiproses.index');
-    
-    // Proses pengajuan cuti (update status dan komentar)
-    Route::post('/pengajuan/cuti/proses/{id}', [PengajuanCutiKomentarController::class, 'proses'])
-        ->name('pengajuan-cutiproses.proses');
-    
-    // Update status pengajuan cuti dan simpan komentar
-    Route::put('/pengajuan-cuti/{id}/update-status', [PengajuanCutiKomentarController::class, 'updateStatus'])
-    ->name('pengajuan-cutiproses.updateStatus');
-
-    Route::get('/pengajuan-cuti/{id}/edit', [PengajuanCutiController::class, 'edit'])->name('pengajuan-cuti.edit');
-    Route::put('/pengajuan-cuti/{id}', [PengajuanCutiController::class, 'update'])->name('pengajuan-cuti.update');
-
+    Route::get('/pengajuan/proses', [ProsesPengajuanController::class, 'index'])->name('proses-pengajuan.index');
+    Route::post('/pengajuan/proses/{id}', [PengajuanController::class, 'proses'])->name('pengajuan.proses');
+    Route::put('/pengajuan/{id}/update-status', [ProsesPengajuanController::class, 'updateStatus'])->name('pengajuan.updateStatus');
+    Route::get('/pengajuan/preview/{id}', [PengajuanCutiController::class, 'previewSurat'])->name('pengajuan.preview');
+    Route::get('/pengajuan/{id}/preview', [PengajuanController::class, 'previewPdf'])->name('pengajuans.preview');
 });
 
-
-
-Route::group(['prefix' => 'perjalanan-dinas', 'middleware' => 'auth.pegawai'], function () {
-
-    Route::get('/riwayat', [PengajuanController::class, 'index'])->name('perjalanan-dinas.index');
-    Route::get('/create', [PengajuanController::class, 'create'])->name('perjalanan-dinas.create');
-    Route::post('/perjalan-dinas/store', [PengajuanController::class, 'store'])->name('perjalanan-dinas.store');
-    Route::get('/{id}', [PengajuanController::class,'show'])->name('perjalanan-dinas.show');
-    Route::get('/{id}/edit', [PengajuanController::class, 'edit'])->name('perjalanan-dinas.edit');
-    Route::put('/{id}', [PengajuanController::class, 'update'])->name('perjalanan-dinas.update');
-    Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
-    Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
+// Routes for Proses Sekretaris
+Route::middleware(['auth.pegawai'])->prefix('proses-sekretaris')->group(function () {
+    Route::get('/', [SekretarisController::class, 'index'])->name('proses-sekretaris.index');
+    Route::put('/update-status/{id}', [SekretarisController::class, 'updateStatus'])->name('proses-sekretaris.updateStatus');
 });
 
-
-Route::group(['prefix' => 'pengajuan-cuti', 'middleware' => 'auth.pegawai'], function () {
-
+// Routes for Pengajuan Cuti
+Route::middleware(['auth.pegawai'])->prefix('pengajuan-cuti')->group(function () {
     Route::get('/riwayat', [PengajuanCutiController::class, 'index'])->name('pengajuan-cuti.index');
     Route::get('/create', [PengajuanCutiController::class, 'create'])->name('pengajuan-cuti.create');
     Route::post('/store', [PengajuanCutiController::class, 'store'])->name('pengajuan-cuti.store');
@@ -94,24 +69,42 @@ Route::group(['prefix' => 'pengajuan-cuti', 'middleware' => 'auth.pegawai'], fun
     Route::get('/{id}/edit', [PengajuanCutiController::class, 'edit'])->name('pengajuan-cuti.edit');
     Route::put('/{id}', [PengajuanCutiController::class, 'update'])->name('pengajuan-cuti.update');
     Route::delete('/{id}', [PengajuanCutiController::class, 'destroy'])->name('pengajuan-cuti.destroy');
-    Route::get('/pengajuan/{id}/export-pdf', [PengajuanCutiController::class, 'exportPdf'])->name('pengajuan-cuti.export-pdf');
-    Route::get('pengajuan-cuti/export-pdf/{id}', [PengajuanCutiController::class, 'exportPdf'])->name('pengajuan-cuti.export-pdf');
-
+    Route::get('/export-pdf/{id}', [PengajuanCutiController::class, 'exportPdf'])->name('pengajuan-cuti.export-pdf');
 });
 
-Route::get('/layananpsda', [HomeController::class, 'layanankami']);
-Route::get('/pengajuan/preview/{id}', [PengajuanCutiController::class, 'previewSurat'])->name('pengajuan.preview');
+// Routes for Pengajuan Cuti Komentar
+Route::middleware(['auth.pegawai'])->prefix('pengajuan/cuti/proses')->group(function () {
+    Route::get('/', [PengajuanCutiKomentarController::class, 'index'])->name('pengajuan-cutiproses.index');
+    Route::post('/{id}', [PengajuanCutiKomentarController::class, 'proses'])->name('pengajuan-cutiproses.proses');
+    Route::put('/update-status/{id}', [PengajuanCutiKomentarController::class, 'updateStatus'])->name('pengajuan-cutiproses.updateStatus');
+});
+
+// Routes for Perjalanan Dinas
+Route::middleware(['auth.pegawai'])->prefix('perjalanan-dinas')->group(function () {
+    Route::get('/riwayat', [PengajuanController::class, 'index'])->name('perjalanan-dinas.index');
+    Route::get('/create', [PengajuanController::class, 'create'])->name('perjalanan-dinas.create');
+    Route::post('/store', [PengajuanController::class, 'store'])->name('perjalanan-dinas.store');
+    Route::get('/{id}', [PengajuanController::class, 'show'])->name('perjalanan-dinas.show');
+    Route::get('/{id}/edit', [PengajuanController::class, 'edit'])->name('perjalanan-dinas.edit');
+    Route::put('/{id}', [PengajuanController::class, 'update'])->name('perjalanan-dinas.update');
+    Route::delete('/{id}', [PengajuanController::class, 'destroy'])->name('perjalanan-dinas.destroy');
+    Route::get('/pengajuan/{id}/export-pdf', [PengajuanController::class, 'exportPdf'])->name('pengajuan.export-pdf');
+});
+
+
+Route::middleware(['auth.pegawai'])->group(function () {
+    Route::get('/disposisi', [DisposisiController::class, 'index'])->name('disposisi.index');
+    Route::get('/disposisi/create', [DisposisiController::class, 'create'])->name('disposisi.create');
+    Route::post('/disposisi', [DisposisiController::class, 'store'])->name('disposisi.store');
+    Route::get('/disposisi/{disposisi}/edit', [DisposisiController::class, 'edit'])->name('disposisi.edit');
+    Route::put('/disposisi/{disposisi}', [DisposisiController::class, 'update'])->name('disposisi.update'); // Disesuaikan menggunakan model binding
+    Route::delete('/disposisi/{disposisi}', [DisposisiController::class, 'destroy'])->name('disposisi.destroy');
+    Route::get('disposisi/{id}/export-pdf', [DisposisiController::class, 'exportPdf'])->name('disposisi.exportPdf');
+    Route::get('disposisi/{id}/preview-pdf', [DisposisiController::class, 'previewPdf'])->name('disposisi.previewPdf');
+});
 
 
 
 
 
-// Route::resource('pengajuans', PengajuanController::class)->middleware('auth.pegawai');
 
-// Route::middleware(['auth.pegawai', 'auth.pegawai'])->group(function () {
-//     Route::get('pengajuans', [PengajuanController::class, 'index'])->name('pengajuans.index');
-//     Route::get('pengajuans/create', [PengajuanController::class, 'create'])->name('pengajuans.create');
-//     // Route::post('pengajuans', [PengajuanController::class, 'store'])->name('pengajuans.store');
-// });
-
-// Route::post('pengajuans', [PengajuanController::class, 'store'])->name('pengajuans.store');

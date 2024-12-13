@@ -22,7 +22,7 @@
                         <th class="px-6 py-4 text-left">Dari</th>
                         <th class="px-6 py-4 text-left">Tanggal</th>
                         <th class="px-6 py-4 text-left">Hal</th>
-                        <th class="px-6 py-4 text-left">Status</th>
+                        <th class="px-6 py-4 text-left">Status Sekretaris</th>
                         <th class="px-6 py-4 text-center">Action</th>
                     </tr>
                 </thead>
@@ -36,17 +36,28 @@
                             <td class="px-6 py-4">{{ $pengajuan->hal }}</td>
                             <td class="px-6 py-4">
                                 <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full 
-                                    {{ $pengajuan->status == 'proses' ? 'bg-yellow-200 text-yellow-800' : 'bg-gray-200 text-gray-800' }}">
-                                    {{ ucfirst($pengajuan->status) }}
+                                    {{ $pengajuan->status_sekretaris == 'belum_dikonfirmasi' ? 'bg-yellow-200 text-yellow-800' : 
+                                       ($pengajuan->status_sekretaris == 'disetujui' ? 'bg-blue-200 text-blue-800' : 'bg-green-200 text-green-800') }}">
+                                    {{ ucfirst(str_replace('_', ' ', $pengajuan->status_sekretaris)) }}
                                 </span>
                             </td>
                             <td class="px-6 py-4 text-center">
+                                <!-- Tombol Preview Surat -->
+                                <!-- Tombol untuk melihat preview surat -->
+                            <a href="{{ route('pengajuans.preview', $pengajuan->id) }}" 
+                                class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 focus:outline-none mt-2">
+                                <i class="fas fa-eye mr-2"></i> Preview Surat
+                            </a>
+                            
+                            
+
+                                <!-- Tombol Set Status -->
                                 <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none mt-2"
                                     onclick="document.getElementById('statusModal-{{ $pengajuan->id }}').classList.remove('hidden')">
                                     <i class="fas fa-edit mr-2"></i> Set Status
                                 </button>
 
-                                <!-- Modal for setting status and comment -->
+                                <!-- Modal Set Status -->
                                 <div id="statusModal-{{ $pengajuan->id }}" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-gray-500 bg-opacity-50">
                                     <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/3 p-6">
                                         <div class="flex justify-between items-center mb-4">
@@ -55,24 +66,19 @@
                                                 &times;
                                             </button>
                                         </div>
-                                        <form action="{{ route('pengajuan.updateStatus', $pengajuan->id) }}" method="POST">
+                                        <form action="{{ route('proses-sekretaris.updateStatus', $pengajuan->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="mb-3">
-                                                <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                                                <select name="status" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
-                                                    <option value="proses" {{ $pengajuan->status == 'proses' ? 'selected' : '' }}>Proses</option>
-                                                    <option value="disetujui" {{ $pengajuan->status == 'disetujui' ? 'selected' : '' }}>Disetujui</option>
-                                                    <option value="ditolak" {{ $pengajuan->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
-                                                    <option value="perbaiki" {{ $pengajuan->status == 'perbaiki' ? 'selected' : '' }}>Perbaiki</option>
+                                                <label for="status_sekretaris" class="block text-sm font-medium text-gray-700">Status Sekretaris</label>
+                                                <select name="status_sekretaris" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
+                                                    <option value="belum_dikonfirmasi" {{ $pengajuan->status_sekretaris == 'belum_dikonfirmasi' ? 'selected' : '' }}>Belum Dikonfirmasi</option>
+                                                    <option value="disetujui" {{ $pengajuan->status_sekretaris == 'disetujui' ? 'selected' : '' }}>Disetujui</option>
+                                                    <option value="ditolak" {{ $pengajuan->status_sekretaris == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
                                                 </select>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="comment" class="block text-sm font-medium text-gray-700">Komentar</label>
-                                                <textarea name="comment" class="form-control w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Masukkan komentar..." required></textarea>
-                                            </div>
                                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600">
-                                                Simpan Status dan Komentar
+                                                Simpan Status
                                             </button>
                                         </form>
                                     </div>
@@ -85,37 +91,4 @@
         </div>
     @endif
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if (session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Berhasil',
-            text: '{{ session('success') }}',
-            showConfirmButton: false,
-            timer: 2000
-        });
-    </script>
-@endif
-
-<script>
-    
-    function showStatusModal(id, currentStatus) {
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: "Apakah Anda yakin ingin mengubah status pengajuan ini?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Ubah Status',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById(`statusModal-${id}`).classList.remove('hidden');
-            }
-        });
-    }
-</script>
 @endsection

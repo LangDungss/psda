@@ -94,7 +94,7 @@
                 <label class="block text-sm mb-4">
                     <span class="text-gray-700 dark:text-gray-400">Jumlah yang Berpergian</span>
                     <input type="number" id="jumlah_berpergian" name="jumlah_berpergian" placeholder="Jumlah yang berpergian" 
-                           class="block w-full mt-1 text-sm form-input" value="3" required min="1"/>
+                           class="block w-full mt-1 text-sm form-input" required min="1"/>
                 </label>
 
                 <!-- Staf Pendamping -->

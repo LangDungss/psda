@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -44,6 +43,9 @@ return new class extends Migration
             // Status validasi
             $table->boolean('is_admin')->default(0);
 
+            // Status validasi oleh sekretaris
+            $table->enum('status_sekretaris', ['belum_dikonfirmasi', 'disetujui', 'ditolak'])->default('belum_dikonfirmasi');
+
             // Hubungan dengan pegawai
             $table->unsignedBigInteger('pegawai_id');
             $table->timestamps();
@@ -61,3 +63,5 @@ return new class extends Migration
         Schema::dropIfExists('pengajuans');
     }
 };
+
+

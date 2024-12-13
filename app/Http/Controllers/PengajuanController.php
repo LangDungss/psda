@@ -179,6 +179,26 @@ class PengajuanController extends Controller
     return $pdf->download('pengajuan-detail.pdf');
 }
 
+public function previewPdf($id)
+{
+    // Ambil data pengajuan berdasarkan ID
+    $pengajuan = Pengajuan::findOrFail($id);
+
+    if (is_array($pengajuan->staf_pendamping)) {
+        $stafPendamping = $pengajuan->staf_pendamping; // Array yang langsung bisa digunakan
+    } else {
+        // Jika data bukan array, lakukan pengecekan dan mungkin perlu decode JSON
+        $stafPendamping = json_decode($pengajuan->staf_pendamping, true);
+    }
+
+    // Pass data ke view PDF
+    $pdf = Pdf::loadView('pdf.pengajuan-detail', compact('pengajuan', 'stafPendamping'));
+    
+    // Tampilkan PDF di browser
+    return $pdf->stream('pengajuan-detail.pdf');
+}
+
+
 
 
 public function storeKomentar(Request $request)
