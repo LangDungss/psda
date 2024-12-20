@@ -37,7 +37,7 @@ class SekretarisController extends Controller
      {
          // Validasi input untuk status_sekretaris
          $request->validate([
-             'status_sekretaris' => 'required|in:belum_dikonfirmasi,proses,ditolak', // Validasi untuk status_sekretaris
+             'status_sekretaris' => 'required|in:belum_dikonfirmasi,disetujui,ditolak', // Validasi untuk status_sekretaris
          ]);
      
          // Cari pengajuan berdasarkan ID
