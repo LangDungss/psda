@@ -37,7 +37,20 @@
                     </p>
                 </div>
             </div>
-            <!-- Card -->
+            @if(Auth::guard('pegawai')->user()->divisi_id == 4 || Auth::guard('pegawai')->user()->divisi_id == 1)
+            <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-orange-400 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+                    <i data-feather="archive" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                        <a href="{{ route('disposisi.create') }}"
+                        class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                         Disposisi</a>
+                    </p>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </main>
