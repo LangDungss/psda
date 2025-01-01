@@ -55,8 +55,8 @@ class PengajuanCutiController extends Controller
             'lama_cuti' => 'required|integer|min:1', // Validasi lama cuti (harus angka dan minimal 1 hari)
             'alamat_cuti' => 'required|string',
             'catatan_cuti' => 'nullable|array', // Validasi catatan sebagai array
-            'catatan_cuti.*.tahun' => 'required_with:catatan_cuti|string', // Validasi isi JSON
-            'catatan_cuti.*.sisa' => 'required_with:catatan_cuti|integer',
+            'catatan_cuti.*.tahun' => 'nullable|string', // Ubah required menjadi nullable karena bisa kosong
+            'catatan_cuti.*.sisa' => 'nullable|integer', // Ubah required menjadi nullable agar bisa kosong
             'catatan_cuti.*.keterangan' => 'nullable|string',
         ]);
     
@@ -66,8 +66,16 @@ class PengajuanCutiController extends Controller
         // Gabungkan pegawai_id dengan data yang divalidasi
         $validated['pegawai_id'] = $pegawai_id;
     
-        // Simpan data catatan_cuti sebagai JSON
+        // Periksa apakah ada catatan_cuti, jika ada, pastikan nilai kosong diset sebagai null
         if (!empty($validated['catatan_cuti'])) {
+            foreach ($validated['catatan_cuti'] as $key => $value) {
+                // Jika ada nilai yang kosong, set menjadi null
+                $validated['catatan_cuti'][$key]['tahun'] = $value['tahun'] ?? null;
+                $validated['catatan_cuti'][$key]['sisa'] = $value['sisa'] ?? null;
+                $validated['catatan_cuti'][$key]['keterangan'] = $value['keterangan'] ?? null;
+            }
+    
+            // Encode catatan_cuti sebagai JSON
             $validated['catatan_cuti'] = json_encode($validated['catatan_cuti']);
         }
     
@@ -77,6 +85,7 @@ class PengajuanCutiController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->route('pengajuan-cuti.index')->with('success', 'Pengajuan cuti berhasil ditambahkan.');
     }
+    
     
 
 
