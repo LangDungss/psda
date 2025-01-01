@@ -19,30 +19,37 @@ class LoginController extends Controller
      * Show the form for creating a new resource.
      */
     public function authanticate(Request $request)
-{
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:5'
-    ]);
-
-    if (Auth::guard('pegawai')->attempt($credentials)) {
-        // Regenerasi session untuk mencegah serangan session fixation
-        $request->session()->regenerate();
-
-        // Menyimpan data pengguna ke dalam session setelah login berhasil
-        $user = Auth::guard('pegawai')->user();
-        session([
-            'pegawai_id' => $user->id,
-            'pegawai_name' => $user->name,
-            'divisi_id' => $user->divisi_id,  // Menyimpan divisi_id ke session
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
-
-        session()->flash('success', 'Login berhasil');
-        return redirect()->route('dashboard.index');
-    } else {
+    
+        // Cari pengguna berdasarkan email
+        $user = \App\Models\Pegawai::where('email', $credentials['email'])->first();
+    
+        // Verifikasi password tanpa hashing
+        if ($user && $user->password === $credentials['password']) {
+            // Login manual tanpa hashing
+            Auth::guard('pegawai')->login($user);
+    
+            // Regenerasi session untuk mencegah serangan session fixation
+            $request->session()->regenerate();
+    
+            // Menyimpan data pengguna ke dalam session setelah login berhasil
+            session([
+                'pegawai_id' => $user->id,
+                'pegawai_name' => $user->name,
+                'divisi_id' => $user->divisi_id,  // Menyimpan divisi_id ke session
+            ]);
+    
+            session()->flash('success', 'Login berhasil');
+            return redirect()->route('dashboard.index');
+        }
+    
         return redirect()->back()->with('error', 'Email atau password salah');
     }
-}
+    
 
 
 
