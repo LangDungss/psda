@@ -71,8 +71,8 @@
                             <a href="#" class="hover:underline">Kepala Seksi Survey Dinas PSDA Sumatera Selatan</a>
                         </h3>
                         <p class="text-sm text-gray-700 mt-2">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium temporibus iure
-                            delectus ut totam natus nesciunt ex? Ducimus, enim.
+                            Terimakasih telah mengunjungi Website Nota Dinas PSDA Sumatera Selatan 
+                            Terimakasih
                         </p>
                     </div>
                 </div>
@@ -88,53 +88,48 @@
 
 
     <div class="bg-gradient-to-r from-gray-800 to-gray-700 p-8 rounded-lg shadow-lg max-w-4xl mx-auto flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2">
-         <img alt="People running into the ocean on a sunny day" class="rounded-lg shadow-lg" height="400" src="https://storage.googleapis.com/a1aa/image/tw9l2pH20B6DJZ8ZbubmdH99HFmI5hcIkaIfl6CIcYypEE8JA.jpg" width="600"/>
+        <div class="md:w-1/2 text-center md:text-left">
+            <img alt="Foto profil Galang AryaDipa" class="rounded-lg shadow-lg mx-auto md:mx-0" height="400" src="{{ asset('images/foto.jpg') }}" width="600"/>
+            <h1 class="text-2xl text-center font-bold text-white mt-4">Galang AryaDipa</h1>
+            <p class="text-lg text-center text-green-400">0812-6352-5599</p>
         </div>
         <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0 text-white">
-         <h2 class="text-3xl font-bold mb-4">
-         Kontak IT Developer
-         </h2>
-         <p class="mb-6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-         </p>
-         <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          <li class="flex items-center">
-           <i class="fas fa-check-circle text-green-400 mr-2">
-           </i>
-           Competitive salaries
-          </li>
-          <li class="flex items-center">
-           <i class="fas fa-check-circle text-green-400 mr-2">
-           </i>
-           Flexible work hours
-          </li>
-          <li class="flex items-center">
-           <i class="fas fa-check-circle text-green-400 mr-2">
-           </i>
-           30 days of paid vacation
-          </li>
-          <li class="flex items-center">
-           <i class="fas fa-check-circle text-green-400 mr-2">
-           </i>
-           Annual team retreats
-          </li>
-          <li class="flex items-center">
-           <i class="fas fa-check-circle text-green-400 mr-2">
-           </i>
-           Benefits for you and your family
-          </li>
-          <li class="flex items-center">
-           <i class="fas fa-check-circle text-green-400 mr-2">
-           </i>
-           A great work environment
-          </li>
-         </ul>
-         <a class="text-blue-400 hover:underline" href="#">
-          See our job postings →
-         </a>
+            <h2 class="text-3xl font-bold mb-4">
+                Kontak IT Developer
+            </h2>
+            <p class="mb-6">
+                Kami siap membantu kebutuhan teknologi Anda! Hubungi kami untuk layanan pembuatan website, aplikasi, atau solusi IT lainnya.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <li class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Harga kompetitif
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Jadwal kerja fleksibel
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Pelayanan profesional
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Dukungan teknis 24/7
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Solusi inovatif
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Tim yang berpengalaman
+                </li>
+            </ul>
         </div>
-       </div>
+    </div>
+    
+    
      
 
     <!-- Footer Section -->
