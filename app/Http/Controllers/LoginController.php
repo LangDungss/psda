@@ -18,7 +18,7 @@ class LoginController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function authenticate(Request $request)
+    public function authanticate(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
