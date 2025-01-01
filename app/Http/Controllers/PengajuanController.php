@@ -77,8 +77,7 @@ class PengajuanController extends Controller
         $data = $request->all();
         $data['pegawai_id'] = $pegawai_id;  // Menambahkan pegawai_id ke dalam data
     
-        // Debugging: Lihat data yang akan disimpan
-        // dd($data);
+        dd($data);
     
         // Proses penyimpanan data ke database
         Pengajuan::create($data);

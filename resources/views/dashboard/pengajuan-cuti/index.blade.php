@@ -10,6 +10,18 @@
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             RIWAYAT PENGAJUAN CUTI
         </h2>
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
 
         @if (count($pengajuanCuti) > 0)
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -32,10 +44,10 @@
                             <td class="px-4 py-3 text-sm">{{ $p->nama }}</td>
                             <td class="px-4 py-3 text-sm">
                                 <span class="px-2 py-1 text-xs font-semibold leading-tight 
-                                    {{ $p->status == 'Proses' ? 'bg-yellow-400 text-yellow-900' :
-                                    ($p->status == 'Disetujui' ? 'bg-green-400 text-green-900' :
-                                    ($p->status == 'Ditolak' ? 'bg-red-400 text-red-900' :
-                                    ($p->status == 'Perbaiki' ? 'bg-blue-400 text-blue-900' : 'bg-gray-200 text-gray-800'))) }} rounded-full">
+                                    {{ $p->status == 'proses' ? 'bg-yellow-400 text-yellow-900' :
+                                    ($p->status == 'disetujui' ? 'bg-green-400 text-green-900' :
+                                    ($p->status == 'ditolak' ? 'bg-red-400 text-red-900' :
+                                    ($p->status == 'perbaiki' ? 'bg-blue-400 text-blue-900' : 'bg-gray-200 text-gray-800'))) }} rounded-full">
                                     {{ ucfirst($p->status) }}
                                 </span>
                                 <button onclick="showKomentarModal(`{{ $p->komentar->first()->komentar ?? 'Belum ada komentar.' }}`)"
@@ -50,7 +62,7 @@
                                             class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300">
                                             Edit Pengajuan
                                         </button>
-                                    @elseif ($p->status == 'Disetujui')
+                                    @elseif ($p->status == 'disetujui')
                                         <button onclick="confirmAction('Generate Surat', '{{ route('pengajuan-cuti.export-pdf', $p->id) }}')"
                                             class="flex items-center justify-between px-3 py-2 text-sm font-medium leading-5 text-green-600 bg-green-100 rounded-lg hover:bg-green-200 focus:outline-none focus:ring focus:ring-green-300">
                                             Generate Surat
