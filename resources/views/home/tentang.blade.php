@@ -8,14 +8,40 @@
 </head>
 <body class="bg-blue-900 font-poppins text-white">
     <!-- Header -->
-    <header class="bg-amber-400 w-full">
-        <div class="flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
-            <a class="text-teal-600 flex items-center" href="#">
-                <img src="{{ asset('images/logopsda.png') }}" class="h-14" alt="logo PSDA">
-            </a>
-            <a href="#">
-                <img src="{{ asset('images/logoall2.png') }}" class="h-14" alt="logoall2">
-            </a>
+    <header class="bg-amber-400">
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <!-- Sidebar toggle button for mobile -->
+                    <button onclick="toggleNavbar()" class="rounded bg-gray-100 p-2 text-gray-600 md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
+                    <!-- Logo -->
+                    <a class="block text-teal-600" href="#">
+                        <img src="{{asset('images/logopsda.png')}}" class="h-10 md:h-14">
+                    </a>
+                </div>
+
+                <!-- Navbar items for desktop -->
+                <div class="md:flex md:items-center md:gap-12">
+                    <!-- Navbar items, initially hidden on small screens -->
+                    <nav aria-label="Global" class="hidden md:block" id="navbarMenu">
+                        <ul class="flex items-center gap-6 text-sm">
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/">Beranda</a></li>
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/layananpsda">Layanan</a></li>
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/tentang">Tentang Kami</a></li>
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/contact">Hubungi Kami</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="flex items-center gap-4">
+                        <a class="rounded-md bg-blue-600 hover:bg-amber-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="{{route('login')}}">Login</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 

@@ -49,10 +49,9 @@
                     <!-- Navbar items, initially hidden on small screens -->
                     <nav aria-label="Global" class="hidden md:block" id="navbarMenu">
                         <ul class="flex items-center gap-6 text-sm">
-                            <li><a class="text-black hover:text-gray-500/75" href="/"> Beranda </a></li>
-                            <li><a class="text-black hover:text-gray-500/75" href="/layananpsda"> Layanan </a></li>
-                            <li><a class="text-black hover:text-gray-500/75" href="/tentang"> Tentang Kami </a></li>
-                            <li><a class="text-black hover:text-gray-500/75" href="/contact"> Hubungi Kami </a></li>
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/layananpsda">Layanan</a></li>
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/tentang">Tentang Kami</a></li>
+                            <li><a class="text-white font-semibold hover:text-gray-500/75" href="/contact">Hubungi Kami</a></li>
                         </ul>
                     </nav>
 

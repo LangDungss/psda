@@ -178,10 +178,6 @@
                 @endif
             </ul>
             
-            
-            
-            
-              
             <ul>
                 @if(Auth::guard('pegawai')->user()->divisi_id != 1 && Auth::guard('pegawai')->user()->divisi_id != 4)
                 <li class="relative px-6 py-3">
@@ -242,12 +238,12 @@
             </ul>
             
             <div class="px-6 my-6">
-                <button
+                <a href="/" 
                     class="flex items-center justify-between w-full px-4 py-2 mt-2 text-sm font-medium leading-5 text-gray-600 transition-colors duration-150 bg-transparent border border-purple-600 rounded-lg active:bg-purple-600 hover:bg-purple-700 hover:text-white focus:outline-none focus:shadow-outline-purple">
-                    <a href="{{ route('logout') }}">Keluar</a>
-                    {{-- <span class="ml-2 hover:text-white" aria-hidden="true">+</span> --}}
-                </button>
+                    <span>Beranda</span>
+                </a>
             </div>
+            
         </div>
     </aside>
     <!-- Mobile sidebar -->
