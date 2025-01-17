@@ -59,13 +59,13 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
                             </path>
                         </svg>
-                        <span class="ml-4">Proses Pengajuan Sekretaris</span>
+                        <span class="ml-4">Proses Pengajuan Perjalanan Dinas</span>
                         <!-- Dropdown Arrow Icon -->
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6"></path>
                         </svg>
                     </a>
-            
+
                     <!-- Dropdown Menu -->
                     <div x-show="open" @click.away="open = false" class="absolute left-0 w-48 mt-2 origin-top-left bg-white border border-gray-300 rounded-md shadow-lg z-10">
                         <div class="py-1">
@@ -79,6 +79,20 @@
             </ul>
             <ul>
                 @if(Auth::guard('pegawai')->user()->divisi_id == 4 || Auth::guard('pegawai')->user()->divisi_id == 1)
+                    <li class="relative px-6 py-3">
+                        <a href="{{ route('disposisi.index') }}" 
+                        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                                </path>
+                            </svg>
+                            <span class="ml-4">Proses Pengajuan Disposisi</span>
+                        </a>
+                    </li>
+                @endif
+                @if(Auth::guard('pegawai')->user()->divisi_id == 5 || Auth::guard('pegawai')->user()->divisi_id == 1)
                 <li class="relative px-6 py-3" x-data="{ open: false }">
                     <!-- Trigger untuk Dropdown -->
                     <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
@@ -88,7 +102,7 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
                             </path>
                         </svg>
-                        <span class="ml-4">Disposisi</span>
+                        <span class="ml-4">Proses Pengajuan Disposisi</span>
                         <!-- Dropdown Arrow Icon -->
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6"></path>
@@ -99,13 +113,11 @@
                     <div x-show="open" @click.away="open = false" class="absolute left-0 w-48 mt-2 origin-top-left bg-white border border-gray-300 rounded-md shadow-lg z-10">
                         <div class="py-1">
                             <a href="{{ route('disposisi.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Index Disposisi</a>
-                            <a href="{{ route('disposisi.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Buat Disposisi</a>
+                            {{-- <a href="{{ route('disposisi.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Buat Disposisi</a> --}}
                         </div>
                     </div>
                 </li>
                 @endif
-            </ul>
-            
 
             <ul>
                 @if(Auth::guard('pegawai')->user()->divisi_id == 1)
@@ -136,12 +148,36 @@
                     </div>
                 </li>
                 @endif
+
+                @if(Auth::guard('pegawai')->user()->divisi_id == 4)
+                <li class="relative px-6 py-3" x-data="{ open: false }">
+                    <!-- Trigger Dropdown -->
+                    <a @click="open = !open" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#">
+                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" 
+                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                            </path>
+                        </svg>
+                        <span class="ml-4">Pengajuan Cuti</span>
+                        <!-- Dropdown Arrow Icon -->
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+            
+                    <!-- Dropdown Menu -->
+                    <div x-show="open" @click.away="open = false" class="absolute left-0 w-48 mt-2 origin-top-left bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                        <div class="py-1">
+                            <a href="{{ route('pengajuan-cutiproses.index', ['status' => 'proses']) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Belum Di Proses</a>
+                            <a href="{{ route('pengajuan-cutiproses.index', ['status' => 'ditolak']) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Ditolak</a>
+                            <a href="{{ route('pengajuan-cutiproses.index', ['status' => 'perbaiki']) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">Perbaiki</a>
+                        </div>
+                    </div>
+                </li>
+                @endif
             </ul>
             
-            
-            
-            
-              
             <ul>
                 @if(Auth::guard('pegawai')->user()->divisi_id != 1 && Auth::guard('pegawai')->user()->divisi_id != 4)
                 <li class="relative px-6 py-3">
@@ -153,7 +189,7 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
                             </path>
                         </svg>
-                        <span class="ml-4">Riwayat</span>
+                        <span class="ml-4">Riwayat Perjalanan Dinas</span>
                     </a>
                 </li>
                 <li class="relative px-6 py-3">
@@ -202,12 +238,12 @@
             </ul>
             
             <div class="px-6 my-6">
-                <button
+                <a href="/" 
                     class="flex items-center justify-between w-full px-4 py-2 mt-2 text-sm font-medium leading-5 text-gray-600 transition-colors duration-150 bg-transparent border border-purple-600 rounded-lg active:bg-purple-600 hover:bg-purple-700 hover:text-white focus:outline-none focus:shadow-outline-purple">
-                    <a href="{{ route('logout') }}">Keluar</a>
-                    {{-- <span class="ml-2 hover:text-white" aria-hidden="true">+</span> --}}
-                </button>
+                    <span>Beranda</span>
+                </a>
             </div>
+            
         </div>
     </aside>
     <!-- Mobile sidebar -->

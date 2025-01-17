@@ -24,6 +24,7 @@ class Disposisi extends Model
         'diteruskan_kepada',
         'tindak_lanjut',
         'catatan_kepaladinas',
+        'file_surat',
     ];
 
     // Tentukan kolom yang harus diperlakukan sebagai tanggal

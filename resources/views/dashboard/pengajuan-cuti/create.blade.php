@@ -110,17 +110,6 @@
                         <div class="text-red-500 text-sm">{{ $message }}</div>
                     @enderror
                 </label>
-        
-                <!-- Alamat Cuti -->
-                <label class="block text-sm mb-4">
-                    <span class="text-gray-700 dark:text-gray-400">Alamat Selama Cuti</span>
-                    <input type="text" name="alamat_cuti" value="Jl. Merdeka No. 10, Jakarta" placeholder="Alamat Selama Cuti" 
-                           class="block w-full mt-1 text-sm form-input @error('alamat_cuti') border-red-500 @enderror" required />
-                    @error('alamat_cuti')
-                        <div class="text-red-500 text-sm">{{ $message }}</div>
-                    @enderror
-                </label>
-        
                 <!-- Catatan Cuti -->
                 <div class="mb-4">
                     <span class="block text-gray-700 dark:text-gray-400">Catatan Cuti</span>

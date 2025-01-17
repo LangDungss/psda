@@ -28,6 +28,7 @@
                             <th class="px-4 py-3">Diteruskan Kepada</th>
                             <th class="px-4 py-3">Tindak Lanjut</th>
                             <th class="px-4 py-3">Aksi</th>
+                            <th class="px-4 py-3">Surat Undangan</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -57,7 +58,17 @@
                                     <a href="{{ route('disposisi.previewPdf', $disposisi->id) }}" class="px-3 py-2 text-sm text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200">
                                         Preview Surat
                                     </a>
+
                                 </div>
+                            </td>
+                            <td class="px-4 py-3">
+                                @if ($disposisi->file_surat)
+                                    <a href="{{ Storage::url($disposisi->file_surat) }}" target="_blank" class="text-blue-500">
+                                        Lihat Surat
+                                    </a>
+                                @else
+                                    <span class="text-gray-500">Tidak ada file</span>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

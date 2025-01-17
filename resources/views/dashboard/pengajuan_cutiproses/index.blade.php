@@ -20,6 +20,7 @@
                         <th class="px-4 py-3">Nama</th>
                         <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Aksi</th>
+                        <th class="px-4 py-3">Surat Undangan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,16 @@
                                     </div>
                                 </div>
                             </td>
+                            <td class="px-4 py-3">
+                                @if ($pengajuan->file_surat)
+                                    <a href="{{ Storage::url($pengajuan->file_surat) }}" target="_blank" class="text-blue-500">
+                                        Lihat Surat
+                                    </a>
+                                @else
+                                    <span class="text-gray-500">Tidak ada file</span>
+                                @endif
+                            </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>

@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('disposisi.store') }}" method="POST">
+            <form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-4">
@@ -85,6 +85,17 @@
                         <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
                     @enderror
                 </div>
+
+                <!-- Upload File Surat Undangan -->
+                <label class="block text-sm mb-4">
+                    <span class="text-gray-700 dark:text-gray-400">Upload File Surat (PDF)</span>
+                    <input type="file" name="file_surat" accept=".pdf" 
+                           class="block w-full mt-1 text-sm form-input @error('file_surat') border-red-500 @enderror" required />
+                    @error('file_surat')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
+                </label>
+                
                
                 <div class="mb-4 hidden">
                     <label for="diteruskan_kepada" class="block text-sm font-medium text-gray-700">Diteruskan Kepada</label>

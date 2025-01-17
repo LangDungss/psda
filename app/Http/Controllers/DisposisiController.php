@@ -24,7 +24,7 @@ class DisposisiController extends Controller
     public function store(Request $request)
     {
         // Validasi input
-        $request->validate([
+        $validated = $request->validate([
             'surat_dari' => 'required|string',
             'diterima' => 'required|date',
             'tanggal_surat' => 'required|date',
@@ -35,13 +35,32 @@ class DisposisiController extends Controller
             'diteruskan_kepada' => 'nullable|string',
             'tindak_lanjut' => 'nullable|string',
             'catatan_kepaladinas' => 'nullable|string',
+            'file_surat' => 'required|file|mimes:pdf|max:2048', // Validasi file harus PDF
         ]);
-
-        // Menyimpan data disposisi ke database
-        Disposisi::create($request->all());
-
+    
+        // Proses file PDF jika ada
+        if ($request->hasFile('file_surat')) {
+            // Ambil file
+            $file = $request->file('file_surat');
+    
+            // Buat nama unik untuk file
+            $filename = time() . '_' . preg_replace('/\s+/', '_', $file->getClientOriginalName()); // Ganti spasi dengan underscore
+    
+            // Tentukan lokasi penyimpanan file
+            $filePath = $file->storeAs('uploads/surat', $filename, 'public'); // Simpan di storage/app/public/uploads/surat
+    
+            // Tambahkan path file ke dalam data yang divalidasi
+            $validated['file_surat'] = $filePath;
+        }
+    
+        // Simpan data disposisi ke database
+        Disposisi::create($validated);
+    
+        // Redirect dengan pesan sukses
         return redirect()->route('disposisi.index')->with('success', 'Disposisi berhasil disimpan.');
     }
+    
+    
 
     // Menampilkan form untuk mengedit disposisi
     public function edit($id)
